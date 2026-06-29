@@ -86,6 +86,11 @@ ul { margin: 0; padding: 0; list-style: none; }
   background: currentColor; transition: width .25s ease;
 }
 .nav-list a:hover::after, .nav-list a[aria-current="page"]::after { width: 100%; }
+.nav-list a.nav-cta {
+  background: var(--sea); color: #fff; padding: 8px 18px; border-radius: var(--radius);
+}
+.nav-list a.nav-cta::after { display: none; }
+.nav-list a.nav-cta:hover { background: var(--sea-deep); }
 
 /* solid state (on scroll / sub-pages) */
 .site-header.is-solid {
