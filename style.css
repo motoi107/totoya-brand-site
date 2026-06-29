@@ -213,6 +213,13 @@ ul { margin: 0; padding: 0; list-style: none; }
 .btn--ghost { background: transparent; color: var(--sea); border: 1px solid var(--sea); }
 .btn--ghost:hover { background: var(--sea); color: var(--white); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+.notice {
+  background: var(--paper-warm); border-left: 3px solid var(--sea);
+  border-radius: var(--radius); padding: 18px 22px; margin-bottom: 32px;
+  font-size: .92rem; color: var(--ink-soft); line-height: 1.65;
+}
+.notice strong { color: var(--ink); }
+.notice [lang="ja"] { color: var(--muted); display: inline-block; margin-top: 6px; }
 
 /* news */
 .news-item { display: grid; grid-template-columns: 160px 1fr; gap: 24px; padding: 24px 0; border-bottom: 1px solid var(--sand); }
