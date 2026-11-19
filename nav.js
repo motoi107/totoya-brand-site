@@ -2,10 +2,12 @@
 (() => {
   const toggle = document.querySelector('.nav-toggle');
   const nav = document.querySelector('#primary-nav');
-  const close = () => { toggle?.setAttribute('aria-expanded', 'false'); nav?.classList.remove('is-open'); };
+  const close = () => { toggle?.setAttribute('aria-expanded', 'false'); toggle?.setAttribute('aria-label', 'Open navigation menu'); if(toggle) toggle.textContent = 'Menu'; nav?.classList.remove('is-open'); };
   toggle?.addEventListener('click', () => {
     const open = toggle.getAttribute('aria-expanded') !== 'true';
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+    toggle.textContent = open ? 'Close' : 'Menu';
     nav.classList.toggle('is-open', open);
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && nav?.classList.contains('is-open')) { close(); toggle?.focus(); } });
