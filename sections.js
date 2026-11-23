@@ -32,7 +32,10 @@
     const surface = element.querySelector('.ed-reel-media');
     const video = surface.querySelector('video');
     const button = element.querySelector('.ed-reel-toggle');
+    const playlist = video.dataset.playlist ? JSON.parse(video.dataset.playlist) : null;
+    const mobileScreen = playlist && matchMedia('(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)');
     const reel = { surface, visible: false, update, motionChanged };
+    let scene = 0;
     let preference = null;
     let wanted = false;
     let blocked = false;
@@ -42,7 +45,7 @@
 
     video.muted = true;
     video.playsInline = true;
-    video.loop = true;
+    video.loop = !playlist;
     video.autoplay = false;
     button.hidden = false;
 
@@ -65,9 +68,10 @@
     }
 
     function update() {
-      const allowed = preference ?? !reduced.matches;
+      const allowed = preference ?? !(reduced.matches || (playlist && navigator.connection?.saveData));
       if (reduced.matches && !allowed) surface.classList.remove('has-frame');
-      const play = reel.visible && !element.hidden && !document.hidden && allowed && !blocked && !failed;
+      const play = reel.visible && (!mobileScreen || mobileScreen.matches)
+        && !element.hidden && !document.hidden && allowed && !blocked && !failed;
       if (play === wanted) return;
       wanted = play;
       const currentRevision = ++revision;
@@ -78,7 +82,7 @@
         video.pause();
         return;
       }
-      if (!video.getAttribute('src')) video.src = video.dataset.src;
+      if (!video.getAttribute('src')) video.src = playlist ? playlist[scene].src : video.dataset.src;
       video.play()?.catch(() => {
         if (currentRevision !== revision || !wanted) return;
         blocked = true;
@@ -104,6 +108,21 @@
         reveal();
       }
     });
+    if (playlist) {
+      mobileScreen.addEventListener('change', update);
+      navigator.connection?.addEventListener?.('change', update);
+      video.addEventListener('ended', () => {
+        if (!wanted) return;
+        scene = (scene + 1) % playlist.length;
+        wanted = false;
+        cancelFirstFrame();
+        surface.querySelector('img').src = playlist[scene].poster;
+        surface.classList.remove('has-frame');
+        video.removeAttribute('src');
+        video.load();
+        update();
+      });
+    }
     video.addEventListener('pause', cancelFirstFrame);
     video.addEventListener('error', () => {
       failed = true;

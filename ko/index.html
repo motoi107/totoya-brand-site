@@ -18,13 +18,13 @@
 <link rel="alternate" hreflang="x-default" href="https://www.totoyahawaii.com/">
 <script type="application/json" id="ui-strings">{"Language":"언어","Select language":"언어 선택","Pause slideshow":"슬라이드 쇼 일시 정지","Play slideshow":"슬라이드 쇼 재생","Pause":"일시 정지","Play":"재생","Pause background video · {0}":"배경 영상 일시 정지 · {0}","Play background video · {0}":"배경 영상 재생 · {0}","Open Google Maps without sharing location":"현재 위치를 공유하지 않고 Google 지도 열기","Getting your current location…":"현재 위치를 확인하는 중…","your location":"현재 위치","Closest to {0} by straight-line distance: TOTOYA {1}.":"{0}에서 직선거리로 가장 가까운 매장은 토토야 {1}점입니다.","Choose a landmark to find a nearby TOTOYA.":"명소를 선택해 가까운 토토야 매장을 찾아보세요.","Finding your nearest TOTOYA…":"가장 가까운 토토야 매장을 찾는 중…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"현재 위치를 확인할 수 없습니다. 명소를 선택해 가까운 토토야 매장을 찾아보세요.","View shop details":"매장 정보 보기","Directions from my location":"현재 위치에서 길찾기","Zoom in":"지도 확대","Zoom out":"지도 축소","Close popup":"팝업 닫기","Map":"지도","OpenStreetMap contributors":"OpenStreetMap 기여자"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
-<link rel="stylesheet" href="/style.css?v=8858a51b35">
-<link rel="stylesheet" href="/home.css?v=b70fec8d0a">
-<link rel="stylesheet" href="/sections.css?v=2eb25628b6">
+<link rel="stylesheet" href="/style.css?v=c91ff0a73a">
+<link rel="stylesheet" href="/home.css?v=b40014bfd0">
+<link rel="stylesheet" href="/sections.css?v=cb51d7a421">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/home.js?v=03c4b65124"></script>
-<script defer src="/sections.js?v=546aef88bd"></script>
+<script defer src="/home.js?v=de64d09524"></script>
+<script defer src="/sections.js?v=22a730e7d3"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">본문으로 바로가기</a>
@@ -33,7 +33,7 @@
         <a class="rail-logo" href="/ko/" aria-label="토토야 홈"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
         <p class="rail-copy"><strong>토토야</strong> <span>일본식</span> <span>네기토로</span> <span>&amp;</span> <span>해산물 덮밥</span></p>
       </div>
-      <details class="language-menu"><summary aria-label="언어 선택"><span lang="ko">한국어</span></summary><nav class="language-panel" aria-label="언어 선택"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko" aria-current="true">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
+      <details class="language-menu"><summary aria-label="언어 선택"><span class="language-name" lang="ko">한국어</span><span class="language-short" aria-hidden="true" lang="ko">한국어</span></summary><nav class="language-panel" aria-label="언어 선택"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko" aria-current="true">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
       <div class="rail-actions"><a href="/ko/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">좌석 예약</a><a href="/ko/order.html" data-booking="order" aria-haspopup="dialog">포장 주문</a></div>
       <details class="rail-menu"><summary><span class="rail-menu-label">메뉴</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="메뉴 닫기">닫기 ×</button>
@@ -44,12 +44,17 @@
           <a href="/ko/#shopinfo">매장 안내</a><a href="/ko/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">인스타그램</a>
         </nav></div></details>
     </header>
-<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="대게살, 성게알, 연어알을 얹은 도쿠조 네기토로 덮밥과 미소된장국이 담긴 나무 쟁반"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=hd"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="대게살, 성게알, 연어알을 얹은 도쿠조 네기토로 덮밥과 미소된장국이 담긴 나무 쟁반"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="도쿠조 네기토로 덮밥에 달걀노른자 소스를 붓는 모습"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="토토야 카운터에 놓인 네기토로 덮밥"></picture>
       </div>
+      <div class="ed-reel-media home-film" aria-hidden="true">
+        <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=hd&quot;}]"></video>
+      </div>
+      <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="토토야 이야기" hidden>재생</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="토토야" fetchpriority="high">
         <h1 id="hero-title">네기토로 덮밥<span>다시 생각나는 토토야의 맛</span></h1>
       </div>
@@ -165,8 +170,9 @@
     </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
   <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp" srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)" width="768" height="576" loading="lazy" decoding="async" alt="토토야 나무 카운터에 놓인 포장용 도쿠조 덮밥. 네기토로 위에 성게알, 대게살, 연어알이 올라가 있습니다."></div>
   <div class="ed-order-copy"><p class="ed-kicker">좋아하는 덮밥을 포장으로</p><h2 id="order-title">집에서 즐기는 토토야</h2>
-    <p>편안한 곳 어디에서나 토토야의 오리지널 네기토로를 즐겨 보세요.<br>가까운 매장을 선택해 포장 주문을 해 주세요.</p>
-    <ul class="ed-order-links" aria-label="포장 주문"><li><a href="https://order.toasttab.com/online/totoya-hawaii">카이무키</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">알라모아나 / 피이코이</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">아이에아</a></li></ul>
+    <p>편안한 곳 어디에서나 토토야의 오리지널 네기토로를 즐겨 보세요.</p>
+    <p class="ed-order-prompt" id="pickup-heading">포장 주문하기</p>
+    <ul class="ed-order-links" aria-labelledby="pickup-heading"><li><a href="https://order.toasttab.com/online/totoya-hawaii" id="pickup-shop-1" aria-labelledby="pickup-heading pickup-shop-1">카이무키</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" id="pickup-shop-2" aria-labelledby="pickup-heading pickup-shop-2">알라모아나 / 피이코이</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" id="pickup-shop-3" aria-labelledby="pickup-heading pickup-shop-3">아이에아</a></li></ul>
   </div>
 </section></main>
 <footer class="public-footer"><div><a class="footer-logo" aria-label="토토야 홈" href="/ko/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>

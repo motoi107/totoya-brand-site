@@ -111,6 +111,7 @@ button, a, summary { touch-action: manipulation; }
 
 .language-menu { flex: none; font: 500 14px/1.4 var(--body); color: var(--ink); }
 .language-menu summary { list-style: none; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 4px 6px; cursor: pointer; white-space: nowrap; }
+.language-short { display: none; }
 .language-menu summary::-webkit-details-marker { display: none; }
 .language-menu summary::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: translateY(-2px) rotate(45deg); }
 .language-menu[open] summary::after { transform: translateY(2px) rotate(225deg); }
@@ -132,48 +133,61 @@ html:is(:lang(es),:lang(fr)) .rail-copy span { white-space: normal; }
   .company-top .language-panel { display: grid; order: 0; }
 }
 
-/* Phones use a horizontal brand line above the main actions, including in landscape. */
+/* Keep the four phone actions on one line, including in landscape. */
 @media (max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
-  :root:has(.site-rail) { scroll-padding-top: calc(var(--mobile-rail-height, 85px) + 6px); }
+  :root:has(.site-rail) { scroll-padding-top: calc(var(--mobile-rail-height, 49px) + 6px); }
   body.with-rail { padding-left: 0; }
   .site-rail {
     position: sticky;
     inset: 0 0 auto;
     width: 100%;
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) 44px;
-    grid-template-areas: "brand brand brand" "language actions menu";
-    gap: 2px 8px;
-    padding: 4px clamp(8px, 2.5vw, 16px);
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-areas: "menu actions language";
+    reading-flow: grid-rows;
+    gap: clamp(0px, 1vw, 8px);
+    padding: 2px max(8px, env(safe-area-inset-right)) 2px max(8px, env(safe-area-inset-left));
     overflow: visible;
     border: 0;
     border-bottom: 1px solid var(--line);
   }
-  .rail-branding { grid-area: brand; display: flex; align-items: center; justify-content: center; gap: clamp(4px, 1vw, 8px); min-width: 0; }
-  .rail-logo { flex: none; display: grid; align-items: center; width: clamp(32px, calc(36vw - 82px), 72px); min-height: 28px; }
-  .rail-logo .stacked-logo { display: none; }
-  .rail-logo .flat-logo { display: block; }
-  .rail-copy { width: auto; min-width: 0; font-size: clamp(13px, 3.65vw, 16px); line-height: 1.18; }
-  .rail-copy strong, .rail-copy span { display: inline; white-space: normal; }
-  .rail-copy strong { margin: 0; font-size: 1.21em; line-height: inherit; }
-  .rail-actions { grid-area: actions; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin: 0; }
-  .rail-actions a { padding: 3px; font-size: clamp(12px, 3.65vw, 14px); line-height: 1.2; }
-  .site-rail .language-menu { grid-area: language; }
-  .site-rail .language-menu summary { padding-inline: 2px; }
+  .rail-branding { display: none; }
   .rail-menu { grid-area: menu; }
-  .rail-menu summary { min-height: 44px; min-width: 44px; }
-  .rail-menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-  .rail-drawer { position: absolute; inset: 100% 0 auto; display: block; max-height: calc(100dvh - var(--mobile-rail-height, 85px)); padding: 12px 24px 22px; border-bottom: 1px solid var(--line); }
+  .rail-menu summary, .site-rail .language-menu summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 4px;
+    font-size: .875rem;
+  }
+  .rail-menu summary::before { display: none; }
+  .rail-actions {
+    grid-area: actions;
+    grid-template-columns: auto auto;
+    align-items: stretch;
+    gap: 2px;
+    margin: 0;
+  }
+  .rail-actions a, .rail-actions a:first-child {
+    padding: 4px 2px;
+    border: 0;
+    background: transparent;
+    color: var(--ink);
+    font-size: .875rem;
+    line-height: 1.25;
+  }
+  .rail-actions a:hover, .rail-menu summary:hover { color: var(--accent); text-decoration: underline; }
+  .site-rail .language-menu { grid-area: language; width: auto; }
+  .site-rail .language-name { display: none; }
+  .site-rail .language-short { display: inline; }
+  .rail-drawer { position: absolute; inset: 100% 0 auto; display: block; max-height: calc(100dvh - var(--mobile-rail-height, 49px)); padding: 12px 24px 22px; border-bottom: 1px solid var(--line); }
   .drawer-brand { display: none; }
   .rail-drawer .drawer-close { top: 8px; right: 12px; }
   .rail-drawer nav { gap: 2px; width: calc(100% - 60px); }
   .rail-drawer nav a { padding: 8px 0; font-size: 25px; }
-  .site-rail .language-panel { top: var(--mobile-rail-height, 85px); right: 8px; left: auto; }
-}
-@media (orientation: landscape) and (min-width: 720px) and (max-width: 1000px) and (max-height: 500px) {
-  .site-rail { grid-template-columns: minmax(0, 1fr) auto minmax(180px, .68fr) 44px; grid-template-areas: "brand language actions menu"; }
-  .rail-logo { width: 44px; }
-  .rail-copy { font-size: 14px; }
+  .site-rail .language-panel { top: var(--mobile-rail-height, 49px); right: 8px; left: auto; }
 }
 
 @media(max-width:767px) and (max-height:500px) {

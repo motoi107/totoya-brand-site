@@ -7,7 +7,7 @@ import json
 from site_languages import LANGUAGES, render_page, local_route
 
 from kamata_company import company_content, privacy_content
-from kamata_sections import intro, news, signatures, story, takeaway
+from kamata_sections import STORY_SCENES, intro, news, signatures, story, takeaway
 from kamata_visit import menu_section, locations_section, booking_dialog
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -63,12 +63,20 @@ def footer():
 
 
 def hero():
-    return '''<section class="home-hero" id="home" aria-labelledby="hero-title">
+    scenes = [{"src": clip, "poster": poster + "?v=hd"} for _, _, _, _, clip, poster in STORY_SCENES]
+    playlist = escape(json.dumps(scenes, separators=(",", ":")), quote=True)
+    poster = scenes[0]["poster"]
+    return f'''<section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl topped with snow crab, sea urchin and salmon roe, served with miso soup on a wooden tray"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="{poster}"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl topped with snow crab, sea urchin and salmon roe, served with miso soup on a wooden tray"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="Egg yolk sauce poured over a Tokujo negitoro bowl"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the TOTOYA counter"></picture>
       </div>
+      <div class="ed-reel-media home-film" aria-hidden="true">
+        <img src="{poster}" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="{playlist}"></video>
+      </div>
+      <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="Our story" hidden>Play</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">Negitoro Bowl.<span>The Totoya taste you’ll come back for.</span></h1>
       </div>

@@ -7,6 +7,7 @@
   const dots = Array.from(controls.querySelectorAll('[aria-pressed]'));
   const playback = controls.querySelector('.slide-playback');
   const motion = matchMedia('(prefers-reduced-motion: reduce)');
+  const phone = matchMedia('(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)');
   let playing = !motion.matches && !navigator.connection?.saveData;
   let current = 0;
   let visible = true;
@@ -25,7 +26,7 @@
     clearInterval(timer);
     playback.setAttribute('aria-label', t(playing ? 'Pause slideshow' : 'Play slideshow'));
     playback.dataset.state = playing ? 'playing' : 'paused';
-    if (playing && visible && !document.hidden) {
+    if (!phone.matches && playing && visible && !document.hidden) {
       timer = setInterval(() => select(current + 1), 6000);
     }
   }
@@ -54,6 +55,7 @@
       schedule();
     }
   });
+  phone.addEventListener('change', schedule);
   document.addEventListener('visibilitychange', schedule);
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(([entry]) => {

@@ -18,13 +18,13 @@
 <link rel="alternate" hreflang="x-default" href="https://www.totoyahawaii.com/">
 <script type="application/json" id="ui-strings">{"Language":"语言","Select language":"选择语言","Pause slideshow":"暂停照片轮播","Play slideshow":"播放照片轮播","Pause":"暂停","Play":"播放","Pause background video · {0}":"暂停背景视频 · {0}","Play background video · {0}":"播放背景视频 · {0}","Open Google Maps without sharing location":"不分享我的位置，直接打开 Google 地图","Getting your current location…":"正在获取您的当前位置…","your location":"您的位置","Closest to {0} by straight-line distance: TOTOYA {1}.":"按直线距离计算，离{0}最近的是 TOTOYA {1} 店。","Choose a landmark to find a nearby TOTOYA.":"选择地标，查找附近的 TOTOYA。","Finding your nearest TOTOYA…":"正在查找离您最近的 TOTOYA…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"无法获取您的位置。请选择地标，查找附近的 TOTOYA。","View shop details":"查看门店详情","Directions from my location":"从我的位置出发","Zoom in":"放大地图","Zoom out":"缩小地图","Close popup":"关闭弹出窗口","Map":"地图","OpenStreetMap contributors":"OpenStreetMap 贡献者"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
-<link rel="stylesheet" href="/style.css?v=8858a51b35">
-<link rel="stylesheet" href="/home.css?v=b70fec8d0a">
-<link rel="stylesheet" href="/sections.css?v=2eb25628b6">
+<link rel="stylesheet" href="/style.css?v=c91ff0a73a">
+<link rel="stylesheet" href="/home.css?v=b40014bfd0">
+<link rel="stylesheet" href="/sections.css?v=cb51d7a421">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/home.js?v=03c4b65124"></script>
-<script defer src="/sections.js?v=546aef88bd"></script>
+<script defer src="/home.js?v=de64d09524"></script>
+<script defer src="/sections.js?v=22a730e7d3"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">跳至主要内容</a>
@@ -33,7 +33,7 @@
         <a class="rail-logo" href="/zh-Hans/" aria-label="TOTOYA 首页"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
         <p class="rail-copy"><strong>Totoya</strong> <span>日式</span><span>金枪鱼蓉</span><span>与</span><span>海鲜丼</span></p>
       </div>
-      <details class="language-menu"><summary aria-label="选择语言"><span lang="zh-Hans">简体中文</span></summary><nav class="language-panel" aria-label="选择语言"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
+      <details class="language-menu"><summary aria-label="选择语言"><span class="language-name" lang="zh-Hans">简体中文</span><span class="language-short" aria-hidden="true" lang="zh-Hans">简中</span></summary><nav class="language-panel" aria-label="选择语言"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans" aria-current="true">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
       <div class="rail-actions"><a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a></div>
       <details class="rail-menu"><summary><span class="rail-menu-label">菜单</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="关闭菜单">关闭 ×</button>
@@ -44,12 +44,17 @@
           <a href="/zh-Hans/#shopinfo">门店</a><a href="/zh-Hans/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
         </nav></div></details>
     </header>
-<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木托盘上盛着特上金枪鱼蓉丼和味噌汤，丼上铺有雪蟹、海胆和三文鱼籽。"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=hd"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木托盘上盛着特上金枪鱼蓉丼和味噌汤，丼上铺有雪蟹、海胆和三文鱼籽。"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="蛋黄酱油淋在特上金枪鱼蓉丼上"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYA 的吧台上摆着刚做好的金枪鱼蓉丼"></picture>
       </div>
+      <div class="ed-reel-media home-film" aria-hidden="true">
+        <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=hd&quot;}]"></video>
+      </div>
+      <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="我们的故事" hidden>播放</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">金枪鱼蓉丼<span>让人想再来一碗的 TOTOYA 滋味。</span></h1>
       </div>
@@ -165,8 +170,9 @@
     </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
   <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp" srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)" width="768" height="576" loading="lazy" decoding="async" alt="TOTOYA 木质吧台上的特上外带丼，配有金枪鱼蓉、海胆、雪蟹和三文鱼籽"></div>
   <div class="ed-order-copy"><p class="ed-kicker">把喜欢的丼饭带走</p><h2 id="order-title">在家享用 TOTOYA。</h2>
-    <p>带上我们的招牌金枪鱼蓉，在你最自在的地方享用。<br>选择附近的门店，点餐后到店自取。</p>
-    <ul class="ed-order-links" aria-label="外带点餐"><li><a href="https://order.toasttab.com/online/totoya-hawaii">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">Aiea</a></li></ul>
+    <p>带上我们的招牌金枪鱼蓉，在你最自在的地方享用。</p>
+    <p class="ed-order-prompt" id="pickup-heading">下单自取</p>
+    <ul class="ed-order-links" aria-labelledby="pickup-heading"><li><a href="https://order.toasttab.com/online/totoya-hawaii" id="pickup-shop-1" aria-labelledby="pickup-heading pickup-shop-1">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" id="pickup-shop-2" aria-labelledby="pickup-heading pickup-shop-2">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" id="pickup-shop-3" aria-labelledby="pickup-heading pickup-shop-3">Aiea</a></li></ul>
   </div>
 </section></main>
 <footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA 首页" href="/zh-Hans/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>

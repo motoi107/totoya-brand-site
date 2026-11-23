@@ -17,6 +17,11 @@ LANGUAGES = {
     "ja": "日本語",
 }
 
+COMPACT_LANGUAGE_NAMES = {
+    "en": "EN", "zh-Hans": "简中", "zh-Hant": "繁中", "ko": "한국어",
+    "es": "ES", "fr": "FR", "ja": "日本語",
+}
+
 RAIL_LINES = ("Japanese", "Negtoro", "&", "Seafood Bowls")
 
 UI_MESSAGES = (
@@ -207,7 +212,8 @@ def language_menu(lang, route, catalog):
 
     return (
         f'<details class="language-menu"><summary aria-label="{name}">'
-        f'<span lang="{lang}">{LANGUAGES[lang]}</span></summary>'
+        f'<span class="language-name" lang="{lang}">{LANGUAGES[lang]}</span>'
+        f'<span class="language-short" aria-hidden="true" lang="{lang}">{COMPACT_LANGUAGE_NAMES[lang]}</span></summary>'
         f'<nav class="language-panel" aria-label="{name}">{"".join(links)}</nav></details>'
     )
 

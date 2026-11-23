@@ -18,13 +18,13 @@
 <link rel="alternate" hreflang="x-default" href="https://www.totoyahawaii.com/">
 <script type="application/json" id="ui-strings">{"Language":"Langue","Select language":"Choisir la langue","Pause slideshow":"Mettre le diaporama en pause","Play slideshow":"Lancer le diaporama","Pause":"Mettre en pause","Play":"Lire","Pause background video · {0}":"Mettre la vidéo d’arrière-plan en pause · {0}","Play background video · {0}":"Lire la vidéo d’arrière-plan · {0}","Open Google Maps without sharing location":"Ouvrir Google Maps sans partager ma position","Getting your current location…":"Recherche de votre position actuelle…","your location":"votre position","Closest to {0} by straight-line distance: TOTOYA {1}.":"Le restaurant le plus proche de {0} à vol d’oiseau est TOTOYA {1}.","Choose a landmark to find a nearby TOTOYA.":"Choisissez un point de repère pour trouver un TOTOYA à proximité.","Finding your nearest TOTOYA…":"Recherche du TOTOYA le plus proche…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"Position indisponible. Choisissez un point de repère pour trouver un TOTOYA à proximité.","View shop details":"Voir les détails du restaurant","Directions from my location":"Itinéraire depuis ma position","Zoom in":"Zoom avant","Zoom out":"Zoom arrière","Close popup":"Fermer la fenêtre","Map":"Carte","OpenStreetMap contributors":"contributeurs d’OpenStreetMap"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
-<link rel="stylesheet" href="/style.css?v=8858a51b35">
-<link rel="stylesheet" href="/home.css?v=b70fec8d0a">
-<link rel="stylesheet" href="/sections.css?v=2eb25628b6">
+<link rel="stylesheet" href="/style.css?v=c91ff0a73a">
+<link rel="stylesheet" href="/home.css?v=b40014bfd0">
+<link rel="stylesheet" href="/sections.css?v=cb51d7a421">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/home.js?v=03c4b65124"></script>
-<script defer src="/sections.js?v=546aef88bd"></script>
+<script defer src="/home.js?v=de64d09524"></script>
+<script defer src="/sections.js?v=22a730e7d3"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">Aller au contenu</a>
@@ -33,7 +33,7 @@
         <a class="rail-logo" href="/fr/" aria-label="Accueil TOTOYA"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
         <p class="rail-copy"><strong>Totoya</strong> <span>Negitoro</span> <span>japonais</span> <span>et</span> <span>bols de riz au poisson et aux fruits de mer</span></p>
       </div>
-      <details class="language-menu"><summary aria-label="Choisir la langue"><span lang="fr">Français</span></summary><nav class="language-panel" aria-label="Choisir la langue"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr" aria-current="true">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
+      <details class="language-menu"><summary aria-label="Choisir la langue"><span class="language-name" lang="fr">Français</span><span class="language-short" aria-hidden="true" lang="fr">FR</span></summary><nav class="language-panel" aria-label="Choisir la langue"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr" aria-current="true">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
       <div class="rail-actions"><a href="/fr/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">Réservations</a><a href="/fr/order.html" data-booking="order" aria-haspopup="dialog">Commander en ligne</a></div>
       <details class="rail-menu"><summary><span class="rail-menu-label">Menu</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Fermer le menu">Fermer ×</button>
@@ -44,12 +44,17 @@
           <a href="/fr/#shopinfo">Nos adresses</a><a href="/fr/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
         </nav></div></details>
     </header>
-<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Bol Tokujo de negitoro au crabe des neiges, à l’oursin et aux œufs de saumon, servi avec une soupe miso sur un plateau en bois"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=hd"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Bol Tokujo de negitoro au crabe des neiges, à l’oursin et aux œufs de saumon, servi avec une soupe miso sur un plateau en bois"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="Sauce au jaune d’œuf versée sur un bol Tokujo de negitoro"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Bols de negitoro servis au comptoir de TOTOYA"></picture>
       </div>
+      <div class="ed-reel-media home-film" aria-hidden="true">
+        <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=hd&quot;}]"></video>
+      </div>
+      <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="Notre histoire" hidden>Lire</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">Un bol de negitoro.<span>Ce goût de Totoya qui donne envie de revenir.</span></h1>
       </div>
@@ -165,8 +170,9 @@
     </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
   <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp" srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)" width="768" height="576" loading="lazy" decoding="async" alt="Bol Tokujo à emporter, au negitoro, à l’oursin, au crabe des neiges et aux œufs de saumon, posé sur le comptoir en bois de TOTOYA"></div>
   <div class="ed-order-copy"><p class="ed-kicker">Votre bol préféré à emporter</p><h2 id="order-title">Totoya à la maison.</h2>
-    <p>Notre negitoro maison, où que vous vous sentiez chez vous.<br>Choisissez le restaurant le plus proche et commandez à emporter.</p>
-    <ul class="ed-order-links" aria-label="Commander à emporter"><li><a href="https://order.toasttab.com/online/totoya-hawaii">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">Aiea</a></li></ul>
+    <p>Notre negitoro maison, où que vous vous sentiez chez vous.</p>
+    <p class="ed-order-prompt" id="pickup-heading">Commander à emporter</p>
+    <ul class="ed-order-links" aria-labelledby="pickup-heading"><li><a href="https://order.toasttab.com/online/totoya-hawaii" id="pickup-shop-1" aria-labelledby="pickup-heading pickup-shop-1">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" id="pickup-shop-2" aria-labelledby="pickup-heading pickup-shop-2">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" id="pickup-shop-3" aria-labelledby="pickup-heading pickup-shop-3">Aiea</a></li></ul>
   </div>
 </section></main>
 <footer class="public-footer"><div><a class="footer-logo" aria-label="Accueil TOTOYA" href="/fr/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>

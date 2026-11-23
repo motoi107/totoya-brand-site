@@ -112,7 +112,10 @@ def story():
 
 
 def takeaway():
-    links = ''.join(f'<li><a href="{url}">{label}</a></li>' for label, url in ORDER_LINKS)
+    links = ''.join(
+        f'<li><a href="{url}" id="pickup-shop-{i}" aria-labelledby="pickup-heading pickup-shop-{i}">{label}</a></li>'
+        for i, (label, url) in enumerate(ORDER_LINKS, start=1)
+    )
     return f'''<section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
   <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp"
     srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w"
@@ -120,7 +123,8 @@ def takeaway():
     width="768" height="576" loading="lazy" decoding="async"
     alt="A Tokujo takeout bowl with negitoro, sea urchin, snow crab and salmon roe on the wooden TOTOYA counter"></div>
   <div class="ed-order-copy"><p class="ed-kicker">Your favorite bowl, to go</p><h2 id="order-title">Totoya at home.</h2>
-    <p>Our original negitoro, wherever you feel at home.<br>Choose your nearest location and order for pickup.</p>
-    <ul class="ed-order-links" aria-label="Order takeout">{links}</ul>
+    <p>Our original negitoro, wherever you feel at home.</p>
+    <p class="ed-order-prompt" id="pickup-heading">Order for pickup</p>
+    <ul class="ed-order-links" aria-labelledby="pickup-heading">{links}</ul>
   </div>
 </section>'''
