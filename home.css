@@ -107,11 +107,13 @@
     pointer-events: none;
   }
   .home-hero-brand .hero-vertical-logo {
-    place-self: start;
+    place-self: start center;
+    /* The opaque artwork is centered at x=427 in the 835px-wide logo. */
+    transform: translateX(-1.14%);
     height: clamp(504px, 138vw, 804px);
     max-height: 100%;
     object-fit: contain;
-    object-position: top left;
+    object-position: center top;
     margin: 0;
   }
   .home-hero h1 {
@@ -147,12 +149,9 @@
 }
 
 @media (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
-  .home-hero-brand {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
-    grid-template-rows: minmax(0, 1fr);
-    align-items: end;
-  }
-  .home-hero h1 span { margin-inline: 0; min-height: 0; }
+  .home-hero-brand { padding-top: .75rem; row-gap: .5rem; }
+  .home-hero h1, :lang(ja) .home-hero h1 { font-size: clamp(1.75rem, 8svh, 2.5rem); }
+  .home-hero h1 span { font-size: 1rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {
