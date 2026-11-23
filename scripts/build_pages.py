@@ -29,12 +29,13 @@ def booking_link(kind):
 
 def rail():
     return f'''<header class="site-rail" aria-label="TOTOYA">
-      <a class="rail-logo" href="/" aria-label="TOTOYA home">{stacked_logo()}<img class="flat-logo" src="{LOGO}" width="1059" height="450" alt=""></a>
-      <p class="rail-copy"><strong>Totoya</strong>
-        <span>Negitoro</span> <span>&amp;</span> <span>Japanese</span> <span>Seafood Bowls</span></p>
+      <div class="rail-branding">
+        <a class="rail-logo" href="/" aria-label="TOTOYA home">{stacked_logo()}<img class="flat-logo" src="{LOGO}" width="1059" height="450" alt=""></a>
+        <p class="rail-copy"><strong>Totoya</strong> <!--RAIL_DESCRIPTOR--></p>
+      </div>
       <!--LANGUAGE_MENU-->
       <div class="rail-actions">{booking_link('reserve')}{booking_link('order')}</div>
-      <details class="rail-menu"><summary>Menu</summary><div class="rail-drawer">
+      <details class="rail-menu"><summary><span class="rail-menu-label">Menu</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Close menu">Close ×</button>
         <div class="drawer-brand">{stacked_logo()}<p>Japanese Negitoro<br>&amp; Seafood Bowls</p></div>
         <nav aria-label="Main navigation">

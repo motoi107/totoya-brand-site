@@ -3,6 +3,14 @@
   const menu = document.querySelector('.rail-menu');
   if (!menu) return;
   const summary = menu.querySelector('summary');
+  const rail = menu.closest('.site-rail');
+  function updateHeaderOffset() {
+    if (getComputedStyle(rail).position === 'sticky') {
+      document.documentElement.style.setProperty('--mobile-rail-height', Math.ceil(rail.getBoundingClientRect().height) + 'px');
+    }
+  }
+  updateHeaderOffset();
+  if ('ResizeObserver' in window) new ResizeObserver(updateHeaderOffset).observe(rail);
   function closeMenu(returnFocus) {
     if (!menu.open) return;
     menu.open = false;

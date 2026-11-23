@@ -9,7 +9,8 @@
   function positionPanel() {
     if (!menu.open) return;
     const rect = trigger.getBoundingClientRect();
-    const beside = innerWidth >= 768 && menu.closest('.site-rail');
+    const rail = menu.closest('.site-rail');
+    const beside = rail && getComputedStyle(rail).position === 'fixed';
     const proposed = beside ? rect.top : rect.bottom + 4;
     const top = Math.max(6, Math.min(proposed, innerHeight - panel.offsetHeight - 6));
     panel.style.top = top + 'px';

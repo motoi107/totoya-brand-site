@@ -17,6 +17,8 @@ LANGUAGES = {
     "ja": "日本語",
 }
 
+RAIL_LINES = ("Japanese", "Negtoro", "&", "Seafood Bowls")
+
 UI_MESSAGES = (
     "Language",
     "Select language",
@@ -118,6 +120,10 @@ class Page(HTMLParser):
     def handle_comment(self, comment):
         if comment == "LANGUAGE_MENU" and self.render_switcher is not None:
             self.out.append(self.render_switcher(self.lang, self.route, self.catalog))
+        elif comment == "RAIL_DESCRIPTOR":
+            lines = RAIL_LINES if self.lang == "en" else self.catalog[" ".join(RAIL_LINES)].splitlines()
+            separator = "" if self.lang in {"ja", "zh-Hans", "zh-Hant"} else " "
+            self.out.append(separator.join(f"<span>{escape(line)}</span>" for line in lines))
         elif comment == "LANGUAGE_HEAD" and self.head_markup is not None:
             self.out.append(self.head_markup)
         else:

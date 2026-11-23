@@ -49,6 +49,7 @@ button, a, summary { touch-action: manipulation; }
 .line-link { display: inline-block; padding: 8px 0; min-height: 44px; border-bottom: 1px solid; font: 500 16px/1.6 var(--body); text-decoration: none; }
 .line-link:hover { color: var(--accent); }
 .site-rail { position: fixed; inset: 0 auto 0 0; z-index: 30; width: var(--rail); display: flex; flex-direction: column; align-items: center; gap: 24px; padding: 34px 14px 20px; overflow-y: auto; background: var(--sage); border-right: 1px solid #26352e19; }
+.rail-branding { width: 100%; display: grid; justify-items: center; gap: 24px; }
 .rail-logo { width: 87px; max-width: 100%; display: block; }
 .stacked-logo { display: flex; flex-direction: column; align-items: center; line-height: 0; }
 .logo-emblem, .logo-word { display: block; position: relative; overflow: hidden; }
@@ -96,21 +97,7 @@ button, a, summary { touch-action: manipulation; }
 .reading-page p + p { margin-top: 14px; }
 @media(max-height:650px) and (min-width:768px) { .rail-drawer { align-content: start; } }
 @media(max-width:767px) {
-  :root { scroll-padding-top: 158px; }
-  body.with-rail { padding-left: 0; }
-  .site-rail { position: sticky; inset: 0 0 auto; width: 100%; display: grid; grid-template-columns: minmax(68px,102px) minmax(0,1fr) auto; grid-template-areas: "logo copy menu" "actions actions actions"; gap: 6px 12px; padding: 7px 14px; overflow: visible; border-right: 0; border-bottom: 1px solid var(--line); }
-  .rail-logo { grid-area: logo; width: 100%; }
-  .rail-logo .stacked-logo { display: none; }
-  .flat-logo { display: block; }
-  .rail-copy { grid-area: copy; font-size: 14px; line-height: 1.04; }
-  .rail-copy strong { margin-bottom: 2px; font-size: 19px; }
-  .rail-actions { grid-area: actions; grid-template-columns: 1fr 1fr; margin: 0; }
-  .rail-menu { grid-area: menu; }
-  .rail-drawer { inset: 100% 0 auto; position: absolute; display: block; max-height: calc(100svh - 150px); padding: 20px 24px 26px; border-bottom: 1px solid var(--line); }
-  .drawer-brand { display: none; }
-  .rail-drawer .drawer-close { top: 9px; right: 12px; }
-  .rail-drawer nav { gap: 2px; width: calc(100% - 60px); }
-  .rail-drawer nav a { padding: 8px 0; font-size: 25px; }
+  :root:has(.company-top) { scroll-padding-top: 158px; }
   .public-footer { display: block; width: calc(100% - 40px); padding: 46px 0 25px; }
   .public-footer nav { margin: 20px 0 26px; }
   .public-footer small { display: block; }
@@ -119,13 +106,8 @@ button, a, summary { touch-action: manipulation; }
   .company-top nav { order: 3; width: 100%; gap: 6px 16px; }
   .company-top .back-home { margin-left: auto; }
 }
-@media(max-width:375px) { .site-rail { grid-template-columns: 68px minmax(0,1fr) auto; gap: 6px; } }
 @media(prefers-reduced-motion:reduce) { :root { scroll-behavior: auto; } *, *::before, *::after { scroll-behavior: auto !important; } }
 
-@media (max-width: 767px) and (max-height: 500px) {
-  .site-rail { position: relative; }
-  :root { scroll-padding-top: 12px; }
-}
 
 .language-menu { flex: none; font: 500 14px/1.4 var(--body); color: var(--ink); }
 .language-menu summary { list-style: none; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 4px 6px; cursor: pointer; white-space: nowrap; }
@@ -147,17 +129,53 @@ html:is(:lang(es),:lang(fr)) .rail-copy span { white-space: normal; }
   .site-rail .language-panel { left: var(--rail); right: auto; top: 220px; }
 }
 @media(max-width:767px) {
-  .site-rail { grid-template-areas: "logo copy menu" "actions actions language"; }
-  .site-rail .language-menu { grid-area: language; }
-  .site-rail .rail-actions { min-width: 0; }
-  .site-rail .rail-actions a { white-space: normal; }
-  .site-rail .language-menu summary { padding-inline: 2px; }
   .company-top .language-panel { display: grid; order: 0; }
-  .site-rail .language-panel { top: 142px; }
 }
+
+/* Phones use a horizontal brand line above the main actions, including in landscape. */
+@media (max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
+  :root:has(.site-rail) { scroll-padding-top: calc(var(--mobile-rail-height, 85px) + 6px); }
+  body.with-rail { padding-left: 0; }
+  .site-rail {
+    position: sticky;
+    inset: 0 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) 44px;
+    grid-template-areas: "brand brand brand" "language actions menu";
+    gap: 2px 8px;
+    padding: 4px clamp(8px, 2.5vw, 16px);
+    overflow: visible;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .rail-branding { grid-area: brand; display: flex; align-items: center; justify-content: center; gap: clamp(4px, 1vw, 8px); min-width: 0; }
+  .rail-logo { flex: none; display: grid; align-items: center; width: clamp(32px, calc(36vw - 82px), 72px); min-height: 28px; }
+  .rail-logo .stacked-logo { display: none; }
+  .rail-logo .flat-logo { display: block; }
+  .rail-copy { width: auto; min-width: 0; font-size: clamp(13px, 3.65vw, 16px); line-height: 1.18; }
+  .rail-copy strong, .rail-copy span { display: inline; white-space: normal; }
+  .rail-copy strong { margin: 0; font-size: 1.21em; line-height: inherit; }
+  .rail-actions { grid-area: actions; min-width: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 5px; margin: 0; }
+  .rail-actions a { padding: 3px; font-size: clamp(12px, 3.65vw, 14px); line-height: 1.2; }
+  .site-rail .language-menu { grid-area: language; }
+  .site-rail .language-menu summary { padding-inline: 2px; }
+  .rail-menu { grid-area: menu; }
+  .rail-menu summary { min-height: 44px; min-width: 44px; }
+  .rail-menu-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .rail-drawer { position: absolute; inset: 100% 0 auto; display: block; max-height: calc(100dvh - var(--mobile-rail-height, 85px)); padding: 12px 24px 22px; border-bottom: 1px solid var(--line); }
+  .drawer-brand { display: none; }
+  .rail-drawer .drawer-close { top: 8px; right: 12px; }
+  .rail-drawer nav { gap: 2px; width: calc(100% - 60px); }
+  .rail-drawer nav a { padding: 8px 0; font-size: 25px; }
+  .site-rail .language-panel { top: var(--mobile-rail-height, 85px); right: 8px; left: auto; }
+}
+@media (orientation: landscape) and (min-width: 720px) and (max-width: 1000px) and (max-height: 500px) {
+  .site-rail { grid-template-columns: minmax(0, 1fr) auto minmax(180px, .68fr) 44px; grid-template-areas: "brand language actions menu"; }
+  .rail-logo { width: 44px; }
+  .rail-copy { font-size: 14px; }
+}
+
 @media(max-width:767px) and (max-height:500px) {
-  .site-rail { position: sticky; grid-template-columns: 54px minmax(50px,1fr) minmax(140px,2fr) auto auto; grid-template-areas: "logo copy actions language menu"; gap: 5px; }
-  .site-rail .rail-copy { font-size: 10px; }
-  .site-rail .rail-copy strong { font-size: 13px; }
-  :root { scroll-padding-top: 75px; }
+  :root:has(.company-top) { scroll-padding-top: 75px; }
 }
