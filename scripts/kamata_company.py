@@ -60,6 +60,14 @@ def privacy_content():
     return '''<article class="group-page privacy-page">
   <header class="privacy-heading"><p class="group-label">Visitor information</p><h1>Privacy at Totoya.</h1></header>
   <div class="privacy-reading">
+    <section id="visit-statistics" aria-labelledby="statistics-heading">
+      <h2 id="statistics-heading">Website visit statistics</h2>
+      <p>We count views of pages, sections and dishes, time spent actively viewing them, scrolling, and clicks on links such as directions, reservations and pickup. For reservations and pickup, we count clicks on the provider’s link. The provider handles the booking or purchase.</p>
+      <p>Statistics may include your country, device and browser type, referring website and campaign labels. A random browser ID expires after 30 days and helps us estimate repeat visits. Our analytics database excludes names, contact details, form entries, precise locations and IP addresses.</p>
+      <p>Reports cover the last 90 days. Older visit records are removed during routine cleanup.</p>
+      <p>You can turn off these statistics for this browser. We also honor Global Privacy Control and Do Not Track.</p>
+      <label class="analytics-preference"><input type="checkbox" id="analytics-optout" disabled> <span>Turn off visit statistics in this browser</span></label>
+    </section>
     <section><h2>Finding a restaurant</h2><p>When you choose “Find my nearest shop” and allow location access, your device compares distances to the three restaurants. Totoya does not store your coordinates. You can also select a landmark to see which shop is nearest to it.</p></section>
     <section><h2>Maps &amp; directions</h2><p>When the restaurant map loads map tiles, your browser connects to OpenStreetMap. Its servers receive the connection information needed to serve those tiles, including your IP address. Read the <a href="https://osmfoundation.org/wiki/Privacy_Policy">OpenStreetMap Foundation privacy policy</a> for details.</p><p>When you select directions from your current location and allow location access, the link sends your starting coordinates and selected restaurant to Google Maps. If you decline, you can choose a starting point in Google Maps.</p></section>
     <section><h2>Reservations &amp; orders</h2><p>Our reservation and pickup links take you to third-party services. When you open one of those websites or enter information there, that provider’s privacy practices apply. Review the provider’s privacy notice before you submit a booking or order.</p></section>

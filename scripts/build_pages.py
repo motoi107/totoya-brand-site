@@ -119,6 +119,7 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
 <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
 <!--LANGUAGE_HEAD-->
 {style_tags}{script_tags}
+<script defer src="{asset_url('analytics.js')}" data-page="{escape(route, quote=True)}"></script>
 </head><body class="{body_class}"><a class="skip-link" href="#main">Skip to content</a>
 {company_header() if company else rail()}
 <main id="main" class="{main_class}">{content}</main>

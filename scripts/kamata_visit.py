@@ -1,5 +1,6 @@
 """Dine-in menu and visitor information used by the index and dedicated pages."""
 from html import escape
+import re
 from urllib.parse import urlencode
 
 MENU = [
@@ -74,7 +75,8 @@ def menu_section():
         rows = []
         for name, desc, price in items:
             description = f'<p>{escape(desc)}</p>' if desc else ''
-            rows.append(f'<li><div><h3>{escape(name)}</h3>{description}</div><span class="kv-price">{price}</span></li>')
+            slug = re.sub(r'[^a-z0-9]+', '-', name.lower()).strip('-')
+            rows.append(f'<li data-menu-item="{i}-{slug}"><div><h3>{escape(name)}</h3>{description}</div><span class="kv-price">{price}</span></li>')
         note = ('<p class="kv-menu-note">Our negitoro includes tuna, scallops, cucumber, herring roe, green onion, '
                 'nori (2 pieces), wasabi and ocean salad.<br>Premium option: fresh egg yolk soy sauce +$1.50.</p>') if i == 0 else ''
         groups.append(f'<details class="kv-accordion"{" open" if i == 0 else ""}><summary><span>{escape(title)}</span><small>{escape(label)}</small></summary><ul>{"".join(rows)}</ul>{note}</details>')

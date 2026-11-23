@@ -83,6 +83,11 @@
 .privacy-heading { text-align: center; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
 .privacy-heading h1 { margin-top: 1rem; }
 .privacy-reading section { border-top: 1px solid var(--group-rule); padding-block: 1.8rem; }
+.analytics-preference {
+  display: inline-flex; align-items: center; gap: .7rem;
+  min-height: 44px; margin-top: .65rem; font-weight: 600;
+}
+.analytics-preference input { flex: none; width: 1.25rem; height: 1.25rem; margin: 0; accent-color: var(--group-ink); }
 .privacy-reading h2 { font-size: clamp(2rem, 3.2vw, 2.85rem); }
 .privacy-reading a { color: inherit; text-decoration: underline; text-underline-offset: .25em; }
 @media (max-width: 800px) {
