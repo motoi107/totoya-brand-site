@@ -27,13 +27,13 @@ INSTAGRAM = 'https://www.instagram.com/totoya_hawaii/'
 STORY_SCENES = (
     ('The craft', 'Made by hand.', 'Finishing touches, one bowl at a time.',
      'The team adds finishing touches to TOTOYA negitoro bowls',
-     '/assets/hero-loop.mp4#t=8.95,11.7', '/assets/story-craft.webp'),
+     '/assets/film-craft.mp4', '/assets/story-craft.webp'),
     ('The finish', 'The finishing touch.', 'A cascade of ikura. A bright, briny pop.',
      'Salmon roe cascading onto a TOTOYA negitoro bowl',
-     '/assets/hero-loop.mp4#t=0.4,4.55', '/assets/story-ikura.webp'),
+     '/assets/film-ikura.mp4', '/assets/story-ikura.webp'),
     ('The first bite', 'That first bite.', 'Rich, fresh and full of texture.',
      'A spoonful of TOTOYA negitoro above a seafood bowl',
-     '/assets/hero-loop.mp4#t=20.48,22.2', '/assets/story-bite.webp'),
+     '/assets/film-bite.mp4', '/assets/story-bite.webp'),
 )
 
 ORDER_LINKS = (
@@ -87,12 +87,10 @@ def signatures():
 
 def film(scene):
     name, _, _, label, clip, poster = scene
-    source, interval = clip.split('#t=')
-    start, end = interval.split(',')
     return f'''<div class="ed-reel-media">
-  <img src="{poster}" loading="lazy" width="630" height="1120" alt="{escape(label, quote=True)}">
+  <img src="{poster}?v=hd" loading="lazy" width="1080" height="1920" alt="{escape(label, quote=True)}">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
-         data-src="{source}#t={start}" data-start="{start}" data-end="{end}"></video>
+         data-src="{clip}"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="{name}" hidden>Pause</button>'''
 
@@ -127,7 +125,7 @@ def moments():
   <div class="ed-heading"><p class="ed-kicker">Moments at Totoya</p><h2 id="moments-title">More than a bowl.</h2>
     <p>The finishing touch. The first bite.<br>A few little moments worth savoring.</p>
   </div>
-  <div class="ed-moments-grid">
+  <div class="ed-moments-spread">
     <article class="ed-moment" data-reel>{film(STORY_SCENES[1])}
       <div class="ed-moment-copy"><h3>The finishing touch.</h3>
         <p>A cascade of ikura. A bright, briny pop. Watch a favorite topping bring our original negitoro to life.</p>
@@ -148,10 +146,10 @@ def moments():
 def takeaway():
     links = ''.join(f'<li><a href="{url}">{label}</a></li>' for label, url in ORDER_LINKS)
     return f'''<section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
-  <div class="ed-order-image"><img src="/assets/totoya-at-home-1536.webp"
-    srcset="/assets/totoya-at-home-768.webp 768w, /assets/totoya-at-home-1536.webp 1536w"
-    sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 1000px)"
-    width="1536" height="1024" loading="lazy" decoding="async"
+  <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp"
+    srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w"
+    sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)"
+    width="768" height="576" loading="lazy" decoding="async"
     alt="A Tokujo takeout bowl with negitoro, sea urchin, snow crab and salmon roe on the wooden TOTOYA counter"></div>
   <div class="ed-order-copy"><p class="ed-kicker">Your favorite bowl, to go</p><h2 id="order-title">Totoya at home.</h2>
     <p>Our original negitoro, wherever you feel at home.<br>Choose your nearest location and order for pickup.</p>

@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="zh-Hant"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOTOYA — 日式鮪魚泥與海鮮丼</title><meta name="description" content="Kaimuki、Piikoi 和 Aiea 三家分店供應新鮮的日式鮪魚泥丼和海鮮丼。查看菜單、訂位或點餐自取。"><meta name="theme-color" content="#f8f7f2">
+<link rel="canonical" href="https://www.totoyahawaii.com/zh-Hant/"><meta property="og:type" content="website"><meta property="og:site_name" content="TOTOYA Hawaii"><meta property="og:title" content="TOTOYA — 日式鮪魚泥與海鮮丼">
+<meta property="og:description" content="Kaimuki、Piikoi 和 Aiea 三家分店供應新鮮的日式鮪魚泥丼和海鮮丼。查看菜單、訂位或點餐自取。"><meta property="og:url" content="https://www.totoyahawaii.com/zh-Hant/"><meta property="og:image" content="https://www.totoyahawaii.com/assets/tokujo-meal-hero.webp">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 96x96 144x144 192x192 256x256">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/totoya-icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/totoya-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://www.totoyahawaii.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.totoyahawaii.com/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.totoyahawaii.com/zh-Hant/">
+<link rel="alternate" hreflang="ko" href="https://www.totoyahawaii.com/ko/">
+<link rel="alternate" hreflang="es" href="https://www.totoyahawaii.com/es/">
+<link rel="alternate" hreflang="fr" href="https://www.totoyahawaii.com/fr/">
+<link rel="alternate" hreflang="ja" href="https://www.totoyahawaii.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://www.totoyahawaii.com/">
+<script type="application/json" id="ui-strings">{"Language":"語言","Select language":"選擇語言","Pause slideshow":"暫停照片輪播","Play slideshow":"播放照片輪播","Pause":"暫停","Play":"播放","Pause background video · {0}":"暫停背景影片 · {0}","Play background video · {0}":"播放背景影片 · {0}","Open Google Maps without sharing location":"不分享我的位置，直接開啟 Google 地圖","Getting your current location…":"正在取得您目前的位置…","your location":"您的位置","Closest to {0} by straight-line distance: TOTOYA {1}.":"按直線距離計算，離{0}最近的是 TOTOYA {1} 店。","Choose a landmark to find a nearby TOTOYA.":"選擇地標，尋找附近的 TOTOYA。","Finding your nearest TOTOYA…":"正在尋找離您最近的 TOTOYA…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"無法取得您的位置。請選擇地標，尋找附近的 TOTOYA。","View shop details":"查看分店詳情","Directions from my location":"從我的位置出發","Zoom in":"放大地圖","Zoom out":"縮小地圖","Close popup":"關閉彈出視窗","Map":"地圖","OpenStreetMap contributors":"OpenStreetMap 貢獻者"}</script>
+<script defer src="/language.js?v=49e2f5bece"></script>
+<link rel="stylesheet" href="/style.css?v=c24d67f44f">
+<link rel="stylesheet" href="/home.css?v=b70fec8d0a">
+<link rel="stylesheet" href="/sections.css?v=790c83165d">
+<link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
+<link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=444b9b4871"></script>
+<script defer src="/home.js?v=03c4b65124"></script>
+<script defer src="/sections.js?v=93a0fc4272"></script>
+<script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
+<script defer src="/visit.js?v=aa2e6b4928"></script>
+</head><body class="with-rail"><a class="skip-link" href="#main">跳至主要內容</a>
+<header class="site-rail" aria-label="TOTOYA">
+      <a class="rail-logo" href="/zh-Hant/" aria-label="TOTOYA 首頁"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+      <p class="rail-copy"><strong>Totoya</strong>
+        <span>鮪魚泥</span> <span>&amp;</span> <span>日式</span> <span>海鮮丼</span></p>
+      <details class="language-menu"><summary aria-label="選擇語言"><span lang="zh-Hant">繁體中文</span></summary><nav class="language-panel" aria-label="選擇語言"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant" aria-current="true">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja">日本語</a></nav></details>
+      <div class="rail-actions"><a href="/zh-Hant/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">訂位</a><a href="/zh-Hant/order.html" data-booking="order" aria-haspopup="dialog">線上點餐</a></div>
+      <details class="rail-menu"><summary>菜單</summary><div class="rail-drawer">
+        <button class="drawer-close" type="button" aria-label="關閉菜單">關閉 ×</button>
+        <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>日式鮪魚泥<br>與海鮮丼</p></div>
+        <nav aria-label="主選單">
+          <a href="/zh-Hant/#home">首頁</a><a href="/zh-Hant/#menu">我們的菜單</a><a href="/zh-Hant/#history">我們的故事</a>
+          <a href="/zh-Hant/#moments">TOTOYA 的日常</a><a href="/zh-Hant/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">訂位</a><a href="/zh-Hant/order.html" data-booking="order" aria-haspopup="dialog">線上點餐</a>
+          <a href="/zh-Hant/#shopinfo">分店</a><a href="/zh-Hant/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
+        </nav></div></details>
+    </header>
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+      <div class="home-slides">
+        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木托盤上盛著特上鮪魚泥丼和味噌湯，丼上鋪有雪蟹、海膽和鮭魚卵。"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="蛋黃醬油淋在特上鮪魚泥丼上"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYA 的吧台上擺著剛做好的鮪魚泥丼"></picture>
+      </div>
+      <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
+        <h1 id="hero-title">鮪魚泥丼<span>讓人想再來一碗的 TOTOYA 滋味。</span></h1>
+      </div>
+      <div class="slide-controls" role="group" aria-label="首頁照片" hidden>
+        <button type="button" aria-label="查看特上丼套餐照片" aria-pressed="true"></button>
+        <button type="button" aria-label="查看特上丼淋上蛋黃醬油的照片" aria-pressed="false"></button>
+        <button type="button" aria-label="查看吧台上的鮪魚泥丼" aria-pressed="false"></button>
+        <button type="button" class="slide-playback" aria-label="暫停照片輪播" data-state="playing"></button>
+      </div>
+    </section><section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="ed-kicker">我們的獨家鮪魚泥</p>
+  <div class="ed-composition"><div class="ed-intro-copy">
+    <h2 id="intro-title">TOTOYA 獨有的味道。<br>每天新鮮現做。</h2>
+    <p>用自己的做法，調出 TOTOYA 獨有的鮪魚泥。</p>
+    <p>我們的招牌鮪魚泥每天現做，當天享用，正是最鮮美的時候。</p>
+    <p>鮪魚、干貝、小黃瓜，還有鯡魚卵。<br>濃郁的魚鮮裡帶著細膩的脆感，這是我們的招牌口感。<br>這份滋味，只在 TOTOYA。</p>
+  </div><ul class="ed-bowls" aria-label="TOTOYA 的十一款丼飯"><li><img src="/assets/bowl-ume.webp" loading="lazy" alt="梅鮪魚泥丼"></li><li><img src="/assets/bowl-take.webp" loading="lazy" alt="竹鮪魚泥丼"></li><li><img src="/assets/bowl-matsu.webp" loading="lazy" alt="松鮪魚泥丼"></li><li><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="特上鮪魚泥丼"></li><li><img src="/assets/bowl-nagomi.webp" loading="lazy" alt="和海鮮丼（Nagomi）"></li><li><img src="/assets/bowl-miyabi.webp" loading="lazy" alt="雅海鮮丼（Miyabi）"></li><li><img src="/assets/bowl-nishiki.webp" loading="lazy" alt="錦海鮮丼（Nishiki）"></li><li><img src="/assets/bowl-fukuju.webp" loading="lazy" alt="福壽海鮮丼（Fukuju）"></li><li><img src="/assets/bowl-salmon.webp" loading="lazy" alt="鮭魚丼"></li><li><img src="/assets/bowl-rainbow-trio.webp" loading="lazy" alt="繽紛三味丼（Rainbow Trio）"></li><li><img src="/assets/bowl-maguro-lover.webp" loading="lazy" alt="鮪魚愛好者丼（Maguro Lover）"></li></ul></div>
+</section><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
+  <h2 id="news-title">最新消息</h2>
+  <ul>
+    <li><span class="ed-kicker">即將開幕</span><p>Kapolei 新店計畫於二月下旬開幕。</p></li>
+    <li><span class="ed-kicker">訂位</span><p><a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> 和 <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a> 分店現已開放訂位。</p></li>
+    <li><span class="ed-kicker">我們的菜單</span><p>三家分店供應同一份菜單。<a href="/zh-Hant/#menu">查看菜單</a></p></li>
+  </ul>
+</section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
+  <div class="ed-heading"><p class="ed-kicker">TOTOYA 的招牌</p>
+    <h2 id="signatures-title">招牌丼飯</h2>
+    <p>每一碗，都從鮪魚泥開始。<br>加上喜歡的配料，就是最合你口味的一碗。</p>
+  </div><div class="ed-signature-grid"><a class="ed-signature" href="/zh-Hant/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="配飛魚卵的梅鮪魚泥丼"></div>
+  <figcaption><div><h3>梅（Ume）</h3><p>鮪魚泥配飛魚卵</p></div><span>$21.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/zh-Hant/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-take.webp" loading="lazy" alt="配鮭魚卵的竹鮪魚泥丼"></div>
+  <figcaption><div><h3>竹（Take）</h3><p>配鮭魚卵</p></div><span>$28.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/zh-Hant/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-matsu.webp" loading="lazy" alt="配海膽的松鮪魚泥丼"></div>
+  <figcaption><div><h3>松（Matsu）</h3><p>配鮭魚卵、海膽</p></div><span>$37.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/zh-Hant/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="配雪蟹和海膽的特上鮪魚泥丼"></div>
+  <figcaption><div><h3>特上（Tokujo）</h3><p>配鮭魚卵、蟹肉和海膽</p></div><span>$41.90</span></figcaption>
+</figure></a></div>
+</section><section id="menu" class="kv-section kv-menu" aria-labelledby="menu-title"><div class="kv-wrap">
+      <header class="kv-heading"><p class="kv-kicker">TOTOYA 精選</p><h2 id="menu-title">菜單</h2>
+      <p>TOTOYA 三家分店，供應同一份菜單。</p>
+      <a class="kv-link" href="/assets/totoya-all-locations-menu.pdf" target="_blank" rel="noopener">查看完整英文菜單（PDF）</a></header>
+      <div class="kv-menu-list"><details class="kv-accordion" open><summary><span>招牌鮪魚泥丼</span><small>本店特色</small></summary><ul><li><div><h3>梅（Ume）</h3><p>鮪魚泥配飛魚卵。</p></div><span class="kv-price">$21.90</span></li><li><div><h3>竹（Take）</h3><p>鮪魚泥配鮭魚卵。</p></div><span class="kv-price">$28.90</span></li><li><div><h3>松（Matsu）</h3><p>鮪魚泥配鮭魚卵和海膽。</p></div><span class="kv-price">$37.90</span></li><li><div><h3>特上（Tokujo）</h3><p>鮪魚泥配鮭魚卵、雪蟹和海膽。</p></div><span class="kv-price">$41.90</span></li></ul><p class="kv-menu-note">我們的鮪魚泥丼含鮪魚、干貝、小黃瓜、鯡魚卵和蔥花，配兩片海苔、山葵和海藻沙拉。<br>可加點新鮮蛋黃醬油，另加 $1.50。</p></details><details class="kv-accordion"><summary><span>生魚片與海鮮丼</span><small>人氣之選</small></summary><ul><li><div><h3>和（Nagomi）</h3><p>鮪魚泥、鮭魚（兩片）、蝦、干貝和飛魚卵。</p></div><span class="kv-price">$25.90</span></li><li><div><h3>雅（Miyabi）</h3><p>鮪魚泥、鮪魚（兩片）、蝦、干貝和鮭魚卵。</p></div><span class="kv-price">$31.90</span></li><li><div><h3>錦（Nishiki）</h3><p>鮪魚泥、鮪魚、鮭魚、蝦、干貝、雪蟹和鮭魚卵。</p></div><span class="kv-price">$36.50</span></li><li><div><h3>福壽（Fukuju）</h3><p>鮪魚泥、鮪魚、鮭魚、蝦、干貝、雪蟹、海膽和鮭魚卵。</p></div><span class="kv-price">$42.50</span></li><li><div><h3>鮭魚丼</h3><p>鮭魚、鮭魚卵、飛魚卵和小黃瓜。</p></div><span class="kv-price">$21.90</span></li><li><div><h3>繽紛三味丼（Rainbow Trio）</h3><p>鮭魚、干貝、鮭魚卵、飛魚卵和小黃瓜。</p></div><span class="kv-price">$29.90</span></li><li><div><h3>鮪魚愛好者丼（Maguro Lover）</h3><p>鮪魚、鮪魚泥、蔥花和蛋黃。</p></div><span class="kv-price">$33.90</span></li></ul></details><details class="kv-accordion"><summary><span>味噌湯與烏龍麵</span><small>配碗熱湯</small></summary><ul><li><div><h3>青海苔味噌湯</h3><p>點丼飯即附贈。</p></div><span class="kv-price">+$0.00</span></li><li><div><h3>今日味噌湯</h3><p>今日口味請詢問店員。</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>蟹肉味噌湯</h3></div><span class="kv-price">+$4.90</span></li><li><div><h3>半份烏龍麵</h3><p>原價 $6.50。</p></div><span class="kv-price">+$4.90</span></li></ul></details><details class="kv-accordion"><summary><span>加點配料</span><small>按喜好搭配</small></summary><ul><li><div><h3>鮭魚卵</h3><p>30 克</p></div><span class="kv-price">+$9.90</span></li><li><div><h3>海膽</h3><p>15 克</p></div><span class="kv-price">+$11.50</span></li><li><div><h3>雪蟹</h3><p>15 克</p></div><span class="kv-price">+$8.90</span></li><li><div><h3>海苔</h3><p>4 片</p></div><span class="kv-price">+$1.50</span></li><li><div><h3>蛋黃醬油</h3></div><span class="kv-price">+$1.50</span></li></ul></details><details class="kv-accordion"><summary><span>沙拉與飲料</span><small>佐餐小點</small></summary><ul><li><div><h3>招牌沙拉</h3><p>原價 $4.50。</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>熱綠茶</h3></div><span class="kv-price">+$1.50</span></li><li><div><h3>冰綠茶</h3></div><span class="kv-price">+$2.00</span></li><li><div><h3>可口可樂／健怡可樂</h3></div><span class="kv-price">+$2.50</span></li></ul></details></div>
+      <p class="kv-fine">食用生的或未煮熟的肉類、禽肉、海鮮、貝類或蛋類，可能增加罹患食源性疾病的風險。患有特定疾病者尤其需要留意。</p>
+    </div></section><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
+  <div class="ed-story-heading"><p class="ed-kicker">我們的故事</p><h2 id="story-title">每一碗都用心。</h2>
+    <p>每天新鮮備料，每一碗都親手完成。<br>近距離看看，我們的招牌鮪魚泥是怎麼做出來的。</p>
+    <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/">去 Instagram 看更多日常</a>
+  </div>
+  <div class="ed-story-player"><div><figure class="ed-scene" id="story-scene-1" data-reel>
+  <div class="ed-reel-media">
+  <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYA 的廚師為鮪魚泥丼添上最後的配料">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="手藝" hidden>暫停</button>
+  <figcaption><span class="ed-scene-meta">1 / 3 <span>TOTOYA 的日常</span></span>
+    <h3>親手製作。</h3><p>每一碗，都用心做好最後的點綴。</p></figcaption>
+</figure><figure class="ed-scene" id="story-scene-2" data-reel hidden>
+  <div class="ed-reel-media">
+  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="鮭魚卵落在 TOTOYA 的鮪魚泥丼上">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="最後的點綴" hidden>暫停</button>
+  <figcaption><span class="ed-scene-meta">2 / 3 <span>TOTOYA 的日常</span></span>
+    <h3>最後的點綴。</h3><p>鮭魚卵傾落碗中，輕輕一咬，鹹鮮滋味迸開。</p></figcaption>
+</figure><figure class="ed-scene" id="story-scene-3" data-reel hidden>
+  <div class="ed-reel-media">
+  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="從海鮮丼上舀起一勺 TOTOYA 招牌鮪魚泥">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="第一口" hidden>暫停</button>
+  <figcaption><span class="ed-scene-meta">3 / 3 <span>TOTOYA 的日常</span></span>
+    <h3>第一口的滋味。</h3><p>鮮美濃郁，口感層次豐富。</p></figcaption>
+</figure></div>
+    <div class="ed-scene-chooser" aria-label="選擇片段" role="group" hidden><button type="button" aria-pressed="true" aria-controls="story-scene-1">手藝</button><button type="button" aria-pressed="false" aria-controls="story-scene-2">最後的點綴</button><button type="button" aria-pressed="false" aria-controls="story-scene-3">第一口</button></div>
+    <div class="ed-scene-step" hidden><button type="button" data-step="-1">上一段</button><button type="button" data-step="1">下一段</button></div>
+  </div>
+</section><section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
+  <div class="ed-heading"><p class="ed-kicker">TOTOYA 的日常</p><h2 id="moments-title">一碗之外。</h2>
+    <p>從添上最後一味，到送入口中的第一口。<br>有些小小的瞬間，值得慢慢品味。</p>
+  </div>
+  <div class="ed-moments-spread">
+    <article class="ed-moment" data-reel><div class="ed-reel-media">
+  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="鮭魚卵落在 TOTOYA 的鮪魚泥丼上">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="最後的點綴" hidden>暫停</button>
+      <div class="ed-moment-copy"><h3>最後的點綴。</h3>
+        <p>看鮭魚卵灑落在招牌鮪魚泥上，粒粒飽滿，輕輕一咬，鹹鮮的滋味在嘴裡迸開。</p>
+        <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/reels/">觀看 Instagram Reels 短片</a>
+      </div>
+    </article>
+    <article class="ed-moment" data-reel><div class="ed-reel-media">
+  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="從海鮮丼上舀起一勺 TOTOYA 招牌鮪魚泥">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="第一口" hidden>暫停</button>
+      <div class="ed-moment-copy"><h3>第一口的滋味。</h3>
+        <p>坐下來嘗一口，從濃郁的魚鮮到層層交織的口感，細品 TOTOYA 獨有的滋味。</p>
+        <a class="ed-link" href="/zh-Hant/#shopinfo">尋找附近的 TOTOYA</a>
+      </div>
+    </article>
+  </div>
+  <p class="ed-social">追蹤 <a href="https://www.instagram.com/totoya_hawaii/">@totoya_hawaii</a>，看看我們廚房裡的新鮮事。</p>
+</section><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">下一次相聚，在 TOTOYA</p><h2 id="shop-title">來店裡坐坐。</h2>
+      <h3>三個街區，同一個 TOTOYA。</h3><p>尋找離你最近的分店，安排到店用餐，或在回家途中順路帶走愛吃的丼飯。</p></header>
+      <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>尋找離我最近的分店</button>
+      <p>您的裝置會在本機計算哪家分店最近。若要從目前位置出發，請選擇分店的路線按鈕，使用 Google 地圖規劃路線。</p></div>
+      <div class="kv-start"><span>尋找地標附近的分店</span><div role="group" aria-label="選擇地標，尋找附近的分店"><button type="button" data-start="hnl" data-lat="21.3325" data-lon="-157.9203" aria-pressed="false">檀香山機場</button><button type="button" data-start="waikiki" data-lat="21.2771" data-lon="-157.8276" aria-pressed="false">威基基</button><button type="button" data-start="moana" data-lat="21.2915" data-lon="-157.8435" aria-pressed="false">阿拉莫阿那中心</button><button type="button" data-start="downtown" data-lat="21.3069" data-lon="-157.8583" aria-pressed="false">市中心</button></div></div>
+      <p class="kv-status" aria-live="polite">選擇地標，或使用目前位置，尋找附近的 TOTOYA。</p></div>
+      <div class="kv-map-box"><div class="kv-map" aria-label="Kaimuki、Piikoi 和 Aiea 地圖，標有 TOTOYA 分店及周邊地標"><div class="kv-map-surface">
+      <svg viewBox="0 0 720 540" preserveAspectRatio="none" width="720" height="540" aria-hidden="true" focusable="false"><polygon points="-166.9,346 -301.2,369.3 -347.1,372.2 -375.9,359.2 -401.7,310.7 -406,293 -373.6,279.3 -380.5,264.8 -396.5,253.5 -415,267.5 -438.9,173.9 -460.5,126.8 -489.4,89.9 -526.2,54.1 -579.7,28.1 -586,10.9 -585.2,-25.4 -590.2,-55.2 -620,-113.3 -659.9,-151.3 -703,-183.6 -744.5,-241.2 -738.9,-358.5 -740.7,-388.1 -748.5,-410.8 -798.7,-466.8 -887,-526.4 -881.4,-536.1 -810.2,-548.7 -614.9,-559.1 -551.5,-547.4 -415.5,-561.8 -357.6,-593.6 -357.5,-614.4 -366.1,-623.1 -362.1,-628.9 -275.4,-695.5 -235.3,-746 -235,-773.9 -226.4,-793.5 -144.6,-877.3 -86.2,-927.9 -7,-953.9 9.1,-968.4 65.5,-969.1 131.2,-894.3 156.3,-827.8 183.5,-783.2 200.4,-770.2 205.9,-721.4 202.8,-699.4 242.7,-640.8 274,-623.7 345.1,-524.7 341.3,-475.9 359.9,-467.5 377.2,-487.3 410.1,-477.5 421.1,-467.3 468.9,-378.1 467.6,-320.4 430.2,-312.4 420.9,-281.2 442.8,-173.8 456.5,-150.3 505.9,-137 532.2,-120.3 539.5,-88.3 564.1,-55.3 623.4,-8.5 643.9,-13.9 660.4,-27 667.3,-59 659,-131.6 667.3,-144.7 690.7,-156.3 722.3,-156.3 773.3,-149 791.2,-138.9 792.5,-102.5 778.8,-82.2 763.6,-35.7 762.2,-5.2 770.2,28.1 796,36 802,35.2 807.6,32.8 814,31.3 815.6,31.4 817.2,31.6 818.9,31.9 819.4,32.2 821.6,36.9 823.9,43.5 830.6,54.6 861.2,96 861.9,109 849.9,142.6 856,176.2 861.5,192.7 897.4,247.7 907.5,259 1005.2,323 1036.2,320.4 1033.6,337.2 1030.4,358.9 905.1,449.8 905.7,473.7 888.2,481.8 858.8,487.9 845.9,482.4 845,473.7 853.6,455.9 851.1,425.5 844.7,415.5 823.3,407.7 713.3,436.5 689.4,433.6 648.9,451.1 603.3,493.4 552.7,502.2 517.5,492.8 508.3,479.9 504.6,457.9 484.4,431.7 442.1,397.7 306.4,344.4 292.5,301.9 278.9,276.8 261,271.1 217.7,305.2 220.8,320.8 234.5,329.9 242.3,346.7 115.6,344.3 120.3,324.9 116.8,304.8 67.5,274.9 51.1,276.7 1.8,307.2 -105.7,335.3 -166.9,346"/><ellipse cx="584.6" cy="424.4" rx="31.0" ry="30.6" fill="#486b56" stroke="#486b56" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/><ellipse cx="438.4" cy="386.5" rx="19.2" ry="18.9" fill="#9c5c3c" stroke="#9c5c3c" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/><ellipse cx="185.1" cy="109.9" rx="32.4" ry="32.0" fill="#4c6b88" stroke="#4c6b88" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/></svg>
+      <span class="kv-landmark hnl" data-point="hnl" style="left:29.66%;top:48.20%"><i></i><b>檀香山機場</b></span><span class="kv-landmark waikiki" data-point="waikiki" style="left:69.11%;top:81.38%"><i></i><b>威基基</b></span><span class="kv-landmark moana" data-point="moana" style="left:62.34%;top:72.75%"><i></i><b>阿拉莫阿那中心</b></span><span class="kv-landmark downtown" data-point="downtown" style="left:56.04%;top:63.53%"><i></i><b>市中心</b></span><a class="kv-pin" href="#kaimuki" data-select-store="kaimuki" data-point="kaimuki" style="left:81.20%;top:78.60%;--area:#486b56" aria-label="顯示 TOTOYA Kaimuki 店"><i aria-hidden="true"></i><b>Kaimuki</b></a><a class="kv-pin" href="#piikoi" data-select-store="piikoi" data-point="piikoi" style="left:60.89%;top:71.57%;--area:#9c5c3c" aria-label="顯示 TOTOYA Piikoi 店"><i aria-hidden="true"></i><b>Piikoi</b></a><a class="kv-pin" href="#aiea" data-select-store="aiea" data-point="aiea" style="left:25.70%;top:20.36%;--area:#4c6b88" aria-label="顯示 TOTOYA Aiea 店"><i aria-hidden="true"></i><b>Aiea</b></a></div><div class="kv-live-map" aria-hidden="true" inert aria-label="歐胡島 TOTOYA 分店互動街道地圖"></div>
+      <div class="kv-map-labels" hidden><svg class="kv-leaders" aria-hidden="true" focusable="false"></svg><a class="kv-map-label shop" href="#kaimuki" data-select-store="kaimuki" data-map-label="kaimuki" style="--area:#486b56" tabindex="-1">Kaimuki</a><a class="kv-map-label shop" href="#piikoi" data-select-store="piikoi" data-map-label="piikoi" style="--area:#9c5c3c" tabindex="-1">Piikoi</a><a class="kv-map-label shop" href="#aiea" data-select-store="aiea" data-map-label="aiea" style="--area:#4c6b88" tabindex="-1">Aiea</a><button type="button" class="kv-map-label landmark" data-map-label="hnl" data-reference="hnl" tabindex="-1">檀香山機場</button><button type="button" class="kv-map-label landmark" data-map-label="waikiki" data-reference="waikiki" tabindex="-1">威基基</button><button type="button" class="kv-map-label landmark" data-map-label="moana" data-reference="moana" tabindex="-1">阿拉莫阿那中心</button><button type="button" class="kv-map-label landmark" data-map-label="downtown" data-reference="downtown" tabindex="-1">市中心</button></div></div>
+      <p class="kv-map-key"><span>TOTOYA 分店</span><span>周邊地標</span><button data-map-reset type="button" hidden>顯示所有地點</button><a class="kv-outline-credit" href="https://github.com/glynnbird/usstatesgeojson/blob/master/hawaii.geojson" target="_blank" rel="noopener">海岸線地圖來源</a></p>
+      <p class="kv-map-note">色塊標示各分店的周邊區域，地圖上的圖釘則標出餐廳位置。</p></div>
+      <nav class="kv-tabs" aria-label="選擇 TOTOYA 分店"><a href="#kaimuki" id="visit-tab-kaimuki" data-tab="kaimuki">Kaimuki</a><a href="#piikoi" id="visit-tab-piikoi" data-tab="piikoi">Piikoi</a><a href="#aiea" id="visit-tab-aiea" data-tab="aiea">Aiea</a></nav>
+      <div class="kv-shop-list"><article id="kaimuki" class="kv-shop" data-store="kaimuki" data-label="Kaimuki" data-lat="21.281737" data-lon="-157.799182" data-area-radius="1050" data-area-color="#486b56">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Kaimuki</h3><address>1127 12th Ave<br>Honolulu, HI 96816</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+1127+12th+Ave%2C+Honolulu%2C+HI+96816&amp;travelmode=driving" data-directions="true" aria-label="從我的位置前往 TOTOYA Kaimuki 店">從我的位置出發</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">從檀香山機場（HNL）開車約需</p><strong>20–35 分鐘</strong></div>
+      <div><h4>來店用餐</h4><a class="kv-phone" href="tel:+18086005017">(808) 600-5017</a>
+      <dl><div><dt>午餐</dt><dd>上午 11:00 至下午 2:30</dd></div><div><dt>晚餐</dt><dd>下午 5:00 至晚上 8:30</dd></div><div><dt>營業日</dt><dd>每日營業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener">訂位</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener">外帶點餐</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/ytFYtxSXhNfaw7ar9" target="_blank" rel="noopener">在 Google 地圖上查看分店</a></div></div>
+    </article><article id="piikoi" class="kv-shop" data-store="piikoi" data-label="Ala Moana / Piikoi" data-lat="21.293486" data-lon="-157.846898" data-area-radius="650" data-area-color="#9c5c3c">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Ala Moana / Piikoi</h3><address>436 Piikoi Street B<br>Honolulu, HI 96814</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+436+Piikoi+Street+B%2C+Honolulu%2C+HI+96814&amp;travelmode=driving" data-directions="true" aria-label="從我的位置前往 TOTOYA Piikoi 店">從我的位置出發</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">從檀香山機場（HNL）開車約需</p><strong>20–30 分鐘</strong></div>
+      <div><h4>來店用餐</h4><a class="kv-phone" href="tel:+18082604492">(808) 260-4492</a>
+      <dl><div><dt>午餐</dt><dd>上午 11:00 至下午 2:30</dd></div><div><dt>晚餐</dt><dd>下午 5:00 至晚上 8:30</dd></div><div><dt>營業日</dt><dd>每日營業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener">外帶點餐</a><span class="kv-no-reservation">不接受訂位</span></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/G2F14NHWvr6UU4Pr6" target="_blank" rel="noopener">在 Google 地圖上查看分店</a></div></div>
+    </article><article id="aiea" class="kv-shop" data-store="aiea" data-label="Aiea" data-lat="21.379" data-lon="-157.9296" data-area-radius="1100" data-area-color="#4c6b88">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Aiea</h3><address>99-115 Aiea Heights Dr. #250<br>Aiea, HI 96701</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+99-115+Aiea+Heights+Dr.+%23250%2C+Aiea%2C+HI+96701&amp;travelmode=driving" data-directions="true" aria-label="從我的位置前往 TOTOYA Aiea 店">從我的位置出發</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">從檀香山機場（HNL）開車約需</p><strong>10–20 分鐘</strong></div>
+      <div><h4>來店用餐</h4><a class="kv-phone" href="tel:+18084876808">(808) 487-6808</a>
+      <dl><div><dt>午餐</dt><dd>上午 11:00 至下午 2:30</dd></div><div><dt>晚餐</dt><dd>下午 5:00 至晚上 8:30</dd></div><div><dt>營業日</dt><dd>每日營業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener">訂位</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener">外帶點餐</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/aSD6FYd2DPoCQg7B7" target="_blank" rel="noopener">在 Google 地圖上查看分店</a></div></div>
+    </article></div>
+      <aside class="kv-next"><div><p class="kv-kicker">下一站</p><h3>Kapolei</h3></div><p>計畫於二月下旬開幕。<br>更多消息即將公布。</p></aside>
+      <p class="kv-fine">從機場出發的車程僅供行前參考。實際車程會因路況和出發地點而有所不同，建議出發前在 Google 地圖中查詢。</p>
+    </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
+  <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp" srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)" width="768" height="576" loading="lazy" decoding="async" alt="TOTOYA 木質吧台上的特上外帶丼，配有鮪魚泥、海膽、雪蟹和鮭魚卵"></div>
+  <div class="ed-order-copy"><p class="ed-kicker">把喜歡的丼飯帶走</p><h2 id="order-title">在家享用 TOTOYA。</h2>
+    <p>帶上我們的招牌鮪魚泥，在你最自在的地方享用。<br>選擇附近的分店，點餐後到店自取。</p>
+    <ul class="ed-order-links" aria-label="外帶點餐"><li><a href="https://order.toasttab.com/online/totoya-hawaii">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">Aiea</a></li></ul>
+  </div>
+</section></main>
+<footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA 首頁" href="/zh-Hant/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
+      <p>日式鮪魚泥與海鮮丼</p><p class="footer-neighborhoods">Kaimuki · Piikoi · Aiea</p></div>
+      <nav aria-label="頁尾導覽"><a href="/zh-Hant/#history">我們的故事</a><a href="/zh-Hant/#menu">菜單</a><a href="/zh-Hant/#shopinfo">分店資訊</a><a href="/zh-Hant/company/">關於我們</a><a href="/zh-Hant/company/#careers">加入我們</a><a href="/zh-Hant/company/#contact">聯絡我們</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a></nav>
+      <small>© TOTOYA · <a href="/zh-Hant/company/">Funergy Group</a> · <a href="/zh-Hant/privacy/">隱私政策</a> · <a href="/zh-Hant/media-credits.html">影像製作說明</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="關閉分店選擇視窗">關閉 ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">訂位</h2><p>選擇分店並訂位。</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>訂位</span></a><div class="kv-option kv-unavailable"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>不接受訂位</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>訂位</span></a></div><p class="kv-fine">Kaimuki 和 Aiea 分店開放訂位。Piikoi 分店不接受預約，請直接到店。</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">線上點餐</h2><p>選擇自取餐點的 TOTOYA 分店。</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>外帶點餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>外帶點餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>外帶點餐</span></a></div><p class="kv-fine">取餐時間及可供應的餐點請見各分店的點餐頁面。</p></div></dialog>
+</body></html>

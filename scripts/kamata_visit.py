@@ -118,7 +118,7 @@ def map_view():
 def shopping_actions(s):
     if s['reserve']:
         return external(s['reserve'], 'Reserve a table', 'kv-btn primary') + external(s['order'], 'Order takeout', 'kv-btn')
-    return external(s['order'], 'Order takeout', 'kv-btn primary') + external('tel:' + s['tel'], 'Call the restaurant', 'kv-btn')
+    return external(s['order'], 'Order takeout', 'kv-btn primary') + '<span class="kv-no-reservation">No reservations</span>'
 
 def shop_panel(s):
     ident = s['id']
@@ -154,12 +154,15 @@ def locations_section():
 
 def booking_dialog():
     panels = []
-    for kind, title, desc, note in [('reserve', 'Reservations', 'Choose your location to reserve a table.', 'Online reservations are available for Kaimuki and Aiea. Please call Piikoi to ask about seating.'), ('order','Order online','Choose a TOTOYA location for pickup.','Pickup times and availability are shown on each shop’s ordering page.')]:
+    for kind, title, desc, note in [('reserve', 'Reservations', 'Choose your location to reserve a table.', 'Reservations are available at Kaimuki and Aiea. Piikoi welcomes walk-ins only.'), ('order','Order online','Choose a TOTOYA location for pickup.','Pickup times and availability are shown on each shop’s ordering page.')]:
         links = []
         for s in STORES:
-            url = s['order'] if kind == 'order' else s['reserve'] or ('tel:' + s['tel'])
-            action = 'Order takeout' if kind == 'order' else ('Reserve a table' if s['reserve'] else 'Call to inquire')
-            target = '' if url.startswith('tel:') else ' target="_blank" rel="noopener"'
-            links.append(f'<a class="kv-option" href="{escape(url,quote=True)}"{target}><span><b>{s["tab"]}</b><small>{s["street"]}</small></span><span>{action}</span></a>')
+            label = f'<span><b>{s["tab"]}</b><small>{s["street"]}</small></span>'
+            url = s['order'] if kind == 'order' else s['reserve']
+            if url:
+                action = 'Order takeout' if kind == 'order' else 'Reserve a table'
+                links.append(f'<a class="kv-option" href="{escape(url,quote=True)}" target="_blank" rel="noopener">{label}<span>{action}</span></a>')
+            else:
+                links.append(f'<div class="kv-option kv-unavailable">{label}<span>No reservations</span></div>')
         panels.append(f'<div data-booking-view="{kind}"><h2 id="visit-dialog-{kind}">{title}</h2><p>{desc}</p><div class="kv-option-list">{"".join(links)}</div><p class="kv-fine">{note}</p></div>')
     return f'''<dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="Close location selector">Close ×</button>{''.join(panels)}</dialog>'''

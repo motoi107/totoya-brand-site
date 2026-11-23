@@ -1,5 +1,6 @@
 /* Store choices stay on this page. Google Maps opens only when a visitor follows a link. */
 (() => {
+  const t = window.totoyaText || ((key, ...values) => key.replace(/\{(\d+)\}/g, (_, i) => values[i]));
   const dialog = document.querySelector('#booking-dialog');
   if (dialog && typeof dialog.showModal === 'function') {
     const views = Array.from(dialog.querySelectorAll('[data-booking-view]'));
@@ -114,13 +115,13 @@
       const route = new URL(link.href);
       const fallback = document.createElement('a');
       fallback.href = route.href;
-      fallback.textContent = 'Open Google Maps without sharing location';
+      fallback.textContent = t('Open Google Maps without sharing location');
       fallback.addEventListener('click', () => {
         routeRequest++;
         // Keep the link attached through the browser's native navigation / new-tab action.
         setTimeout(clearRouteStatus, 0);
       });
-      message.replaceChildren('Getting your current location… ', fallback);
+      message.replaceChildren(t('Getting your current location…') + ' ', fallback);
       clearRouteStatus = () => message.replaceChildren();
       const go = () => {
         if (attempt !== routeRequest) return;
@@ -148,8 +149,8 @@
     const nearest = shops.reduce((a, b) => distance(lat, lon, a) < distance(lat, lon, b) ? a : b);
     select(nearest.id);
     areaButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
-    const area = button ? button.textContent : 'your location';
-    status.textContent = 'Closest to ' + area + ' by straight-line distance: TOTOYA ' + nearest.dataset.label + '.';
+    const area = button ? button.textContent : t('your location');
+    status.textContent = t('Closest to {0} by straight-line distance: TOTOYA {1}.', area, nearest.dataset.label);
   }
   areaButtons.forEach(button => button.addEventListener('click', () => {
     request++;
@@ -158,12 +159,12 @@
   }));
   useLocation.addEventListener('click', () => {
     if (!navigator.geolocation) {
-      status.textContent = 'Choose a landmark to find a nearby TOTOYA.';
+      status.textContent = t('Choose a landmark to find a nearby TOTOYA.');
       return;
     }
     const current = ++request;
     useLocation.disabled = true;
-    status.textContent = 'Finding your nearest TOTOYA…';
+    status.textContent = t('Finding your nearest TOTOYA…');
     navigator.geolocation.getCurrentPosition(position => {
       if (request !== current) return;
       useLocation.disabled = false;
@@ -171,7 +172,7 @@
     }, () => {
       if (request !== current) return;
       useLocation.disabled = false;
-      status.textContent = 'Location unavailable. Choose a landmark to find a nearby TOTOYA.';
+      status.textContent = t('Location unavailable. Choose a landmark to find a nearby TOTOYA.');
     }, {enableHighAccuracy: false, timeout: 10000, maximumAge: 300000});
   });
 
@@ -304,6 +305,14 @@
       maxBounds: [[20.96, -158.58], [21.93, -157.38]], maxBoundsViscosity: 1,
     });
     map.attributionControl.setPrefix(false);
+    for (const [selector, key] of [['.leaflet-control-zoom-in','Zoom in'],['.leaflet-control-zoom-out','Zoom out']]) {
+      const button = container.querySelector(selector);
+      if (button) { button.title = t(key); button.setAttribute('aria-label', t(key)); }
+    }
+    map.on('popupopen', event => {
+      const close = event.popup.getElement()?.querySelector('.leaflet-popup-close-button');
+      if (close) { close.title = t('Close popup'); close.setAttribute('aria-label', t('Close popup')); }
+    });
 
     function coords(element) {
       return [Number(element.dataset.lat), Number(element.dataset.lon)];
@@ -334,11 +343,11 @@
       address.textContent = shop.querySelector('address').firstChild.textContent;
       const more = document.createElement('a');
       more.href = '#' + shop.id;
-      more.textContent = 'View shop details';
+      more.textContent = t('View shop details');
       more.addEventListener('click', () => { select(shop.id); shop.focus(); });
       const route = document.createElement('a');
       route.href = shop.querySelector('[data-directions]').href;
-      route.textContent = 'Directions from my location';
+      route.textContent = t('Directions from my location');
       const routeStatus = document.createElement('p');
       routeStatus.className = 'kv-route-status';
       routeStatus.setAttribute('role', 'status');
@@ -379,7 +388,7 @@
     // Tile requests follow the public map viewport. Device coordinates never center this map.
     const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 19, keepBuffer: 1,
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors',
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">' + t('OpenStreetMap contributors') + '</a>',
     });
     let loaded = 0;
     let failed = 0;

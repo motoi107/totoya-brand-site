@@ -1,6 +1,7 @@
 /* Load muted reel backgrounds when their surfaces enter the viewport. */
 (() => {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const t = window.totoyaText || ((key, ...parts) => key.replace(/\{(\d+)\}/g, (_, i) => parts[i]));
   const reels = [];
   const preferences = new Map();
 
@@ -15,15 +16,12 @@
     const video = surface.querySelector('video');
     const button = element.querySelector('.ed-reel-toggle');
     const preference = preferenceFor(element);
-    const start = Number(video.dataset.start);
-    const end = Number(video.dataset.end);
     const reel = { surface, visible: false, update, measure };
     let wanted = false;
     let blocked = false;
     let failed = false;
     let revision = 0;
-    let frame = null;
-    const frameAPI = typeof video.requestVideoFrameCallback === 'function';
+    let firstFrame = null;
 
     video.muted = true;
     video.autoplay = false;
@@ -31,32 +29,20 @@
 
     function showAction() {
       const action = wanted ? 'Pause' : 'Play';
-      button.textContent = action;
+      button.textContent = t(action);
       button.dataset.action = action.toLowerCase();
-      button.setAttribute('aria-label', action + ' background video · ' + button.dataset.filmName);
+      button.setAttribute('aria-label', t(action + ' background video · {0}', button.dataset.filmName));
     }
 
-    function cancelFrame() {
-      if (frame === null) return;
-      if (frameAPI) video.cancelVideoFrameCallback(frame);
-      else cancelAnimationFrame(frame);
-      frame = null;
+    function cancelFirstFrame() {
+      if (firstFrame === null) return;
+      video.cancelVideoFrameCallback(firstFrame);
+      firstFrame = null;
     }
 
-    function keepInClip(time) {
-      if (!video.readyState || video.seeking) return;
-      if (time < start - .04 || time >= end - .025) {
-        video.currentTime = start;
-      } else if (video.readyState >= 2) {
-        surface.classList.add('has-frame');
-      }
-    }
-
-    function watchFrame(now, metadata) {
-      frame = null;
-      if (!wanted || video.paused) return;
-      keepInClip(metadata ? metadata.mediaTime : video.currentTime);
-      frame = frameAPI ? video.requestVideoFrameCallback(watchFrame) : requestAnimationFrame(watchFrame);
+    function reveal() {
+      firstFrame = null;
+      if (wanted && !video.paused && video.readyState >= 2) surface.classList.add('has-frame');
     }
 
     function measure() {
@@ -77,14 +63,11 @@
       video.autoplay = wanted;
       showAction();
       if (!wanted) {
-        cancelFrame();
+        cancelFirstFrame();
         video.pause();
         return;
       }
       if (!video.getAttribute('src')) video.src = video.dataset.src;
-      if (video.readyState && (video.currentTime < start || video.currentTime >= end - .025)) {
-        video.currentTime = start;
-      }
       const attempt = video.play();
       attempt?.catch(() => {
         if (currentRevision !== revision || !wanted) return;
@@ -94,21 +77,19 @@
       });
     }
 
-    video.addEventListener('loadedmetadata', () => {
-      if (Math.abs(video.currentTime - start) > .04) video.currentTime = start;
-    });
     video.addEventListener('playing', () => {
       if (!wanted) {
         video.pause();
         return;
       }
-      cancelFrame();
-      watchFrame();
+      cancelFirstFrame();
+      if (typeof video.requestVideoFrameCallback === 'function') {
+        firstFrame = video.requestVideoFrameCallback(reveal);
+      } else {
+        reveal();
+      }
     });
-    video.addEventListener('pause', cancelFrame);
-    video.addEventListener('timeupdate', () => {
-      if (wanted && !video.paused) keepInClip(video.currentTime);
-    });
+    video.addEventListener('pause', cancelFirstFrame);
     video.addEventListener('error', () => {
       failed = true;
       surface.classList.remove('has-frame');

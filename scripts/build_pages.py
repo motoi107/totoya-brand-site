@@ -3,6 +3,8 @@ from html import escape
 from hashlib import sha256
 from pathlib import Path
 import re
+import json
+from site_languages import LANGUAGES, render_page, local_route
 
 from kamata_company import company_content, privacy_content
 from kamata_sections import intro, news, signatures, story, moments, takeaway
@@ -30,6 +32,7 @@ def rail():
       <a class="rail-logo" href="/" aria-label="TOTOYA home">{stacked_logo()}<img class="flat-logo" src="{LOGO}" width="1059" height="450" alt=""></a>
       <p class="rail-copy"><strong>Totoya</strong>
         <span>Negitoro</span> <span>&amp;</span> <span>Japanese</span> <span>Seafood Bowls</span></p>
+      <!--LANGUAGE_MENU-->
       <div class="rail-actions">{booking_link('reserve')}{booking_link('order')}</div>
       <details class="rail-menu"><summary>Menu</summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Close menu">Close ×</button>
@@ -44,7 +47,7 @@ def rail():
 
 def company_header():
     return f'''<header class="company-top"><a class="company-logo" aria-label="TOTOYA home" href="/"><img src="{LOGO}" width="1059" height="450" alt=""></a>
-    <a class="back-home" href="/">Back to Totoya</a></header>'''
+    <!--LANGUAGE_MENU--><a class="back-home" href="/">Back to Totoya</a></header>'''
 
 
 def footer():
@@ -68,13 +71,11 @@ def hero():
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">Negitoro Bowl.<span>The Totoya taste you’ll come back for.</span></h1>
       </div>
-      <div class="home-hero-foot"><div class="home-caption"><p>TOTOYA · O‘ahu, Hawai‘i</p><p>Japanese Negitoro &amp; Seafood Bowls</p><a href="#menu">Explore our menu</a></div>
-        <div class="slide-controls" role="group" aria-label="Top photographs" hidden>
-          <button type="button" aria-label="Show the Tokujo meal" aria-pressed="true"></button>
-          <button type="button" aria-label="Show egg yolk sauce on a Tokujo bowl" aria-pressed="false"></button>
-          <button type="button" aria-label="Show negitoro at the counter" aria-pressed="false"></button>
-          <button type="button" class="slide-playback">Pause slideshow</button>
-        </div>
+      <div class="slide-controls" role="group" aria-label="Top photographs" hidden>
+        <button type="button" aria-label="Show the Tokujo meal" aria-pressed="true"></button>
+        <button type="button" aria-label="Show egg yolk sauce on a Tokujo bowl" aria-pressed="false"></button>
+        <button type="button" aria-label="Show negitoro at the counter" aria-pressed="false"></button>
+        <button type="button" class="slide-playback" aria-label="Pause slideshow" data-state="playing"></button>
       </div>
     </section>'''
 
@@ -110,7 +111,11 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
 <title>{escape(title)}</title><meta name="description" content="{escape(description, quote=True)}"><meta name="theme-color" content="#f8f7f2">
 <link rel="canonical" href="{canonical}"><meta property="og:type" content="website"><meta property="og:site_name" content="TOTOYA Hawaii"><meta property="og:title" content="{escape(title, quote=True)}">
 <meta property="og:description" content="{escape(description, quote=True)}"><meta property="og:url" content="{canonical}"><meta property="og:image" content="{ORIGIN}/assets/tokujo-meal-hero.webp">
-<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" type="image/png" sizes="32x32" href="/assets/totoya-icon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 96x96 144x144 192x192 256x256">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/totoya-icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/totoya-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<!--LANGUAGE_HEAD-->
 {style_tags}{script_tags}
 </head><body class="{body_class}"><a class="skip-link" href="#main">Skip to content</a>
 {company_header() if company else rail()}
@@ -118,16 +123,26 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
 {footer()}{'' if company else booking_dialog()}
 </body></html>
 '''
-    path = ROOT / filename
-    path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(text, encoding='utf-8')
+    for lang in LANGUAGES:
+        catalog = CATALOGS.get(lang, {})
+        path = ROOT / ('' if lang == 'en' else lang) / filename
+        path.parent.mkdir(parents=True, exist_ok=True)
+        path.write_text(render_page(text,lang,route,catalog,asset_url('language.js')), encoding='utf-8')
+    ROUTES.append(route)
 
 
 def page_heading(fragment):
     return re.sub(r'<h2(\b[^>]*)>(.*?)</h2>', r'<h1\1>\2</h1>', fragment, count=1, flags=re.S)
 
 
+CATALOGS = {}
+ROUTES = []
+
 def build():
+    ROUTES.clear()
+    for lang in LANGUAGES:
+        if lang != 'en':
+            CATALOGS[lang] = json.loads((ROOT / 'translations' / f'{lang}.json').read_text(encoding='utf-8'))
     homepage = ''.join((hero(), intro(), news(), signatures(), menu_section(), story(), moments(), locations_section(), takeaway()))
     write_page('index.html', 'TOTOYA — Japanese Negitoro & Seafood Bowls',
                'Fresh Japanese negitoro and seafood bowls in Kaimuki, Piikoi and Aiea. Explore the menu, reserve a table or order pickup.',
@@ -148,6 +163,10 @@ def build():
     <p><a class="line-link" href="https://funergygroup.com/hiring">Explore careers</a> &nbsp; <a class="line-link" href="https://funergygroup.com/apply">Apply to join our team</a></p>
     <p><a href="/company/#careers">Meet Funergy Group.</a></p></article>'''
     write_page('recruit.html', 'Careers · TOTOYA', 'Join the team at Totoya and Funergy Group.', careers, company=True)
+
+
+    urls = [f'<url><loc>{ORIGIN+local_route(code,route)}</loc></url>' for route in ROUTES for code in LANGUAGES]
+    (ROOT/'sitemap.xml').write_text('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+'\n'.join(urls)+'\n</urlset>\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

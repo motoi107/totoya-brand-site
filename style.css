@@ -126,3 +126,38 @@ button, a, summary { touch-action: manipulation; }
   .site-rail { position: relative; }
   :root { scroll-padding-top: 12px; }
 }
+
+.language-menu { flex: none; font: 500 14px/1.4 var(--body); color: var(--ink); }
+.language-menu summary { list-style: none; display: flex; align-items: center; justify-content: center; gap: 6px; min-height: 44px; padding: 4px 6px; cursor: pointer; white-space: nowrap; }
+.language-menu summary::-webkit-details-marker { display: none; }
+.language-menu summary::after { content: ""; width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: translateY(-2px) rotate(45deg); }
+.language-menu[open] summary::after { transform: translateY(2px) rotate(225deg); }
+.language-panel { position: fixed; z-index: 40; top: 82px; right: 12px; display: grid; gap: 0; min-width: 150px; max-height: calc(100dvh - 12px); overflow-y: auto; padding: 5px; background: var(--paper); border: 1px solid var(--line); box-shadow: 0 6px 24px #10231724; }
+.language-menu .language-panel a { display: flex; align-items: center; min-height: 42px; padding: 6px 12px; text-decoration: none; white-space: nowrap; font: inherit; }
+.language-panel a[aria-current], .language-panel a:hover { background: var(--ink); color: white; }
+.site-rail .language-menu { width: 100%; }
+.company-top { position: sticky; top: 0; z-index: 30; background: var(--paper); }
+.company-top .language-menu { margin-left: auto; }
+.company-top .language-panel { position: fixed; display: grid; width: auto; margin: 0; }
+:lang(ja), :lang(zh), :lang(ko) { overflow-wrap: anywhere; }
+html:is(:lang(ja),:lang(zh),:lang(ko)) .rail-copy span { white-space: normal; }
+html:not(:lang(en)) .rail-copy { overflow-wrap: normal; }
+html:is(:lang(es),:lang(fr)) .rail-copy span { white-space: normal; }
+@media(min-width:768px) {
+  .site-rail .language-panel { left: var(--rail); right: auto; top: 220px; }
+}
+@media(max-width:767px) {
+  .site-rail { grid-template-areas: "logo copy menu" "actions actions language"; }
+  .site-rail .language-menu { grid-area: language; }
+  .site-rail .rail-actions { min-width: 0; }
+  .site-rail .rail-actions a { white-space: normal; }
+  .site-rail .language-menu summary { padding-inline: 2px; }
+  .company-top .language-panel { display: grid; order: 0; }
+  .site-rail .language-panel { top: 142px; }
+}
+@media(max-width:767px) and (max-height:500px) {
+  .site-rail { position: sticky; grid-template-columns: 54px minmax(50px,1fr) minmax(140px,2fr) auto auto; grid-template-areas: "logo copy actions language menu"; gap: 5px; }
+  .site-rail .rail-copy { font-size: 10px; }
+  .site-rail .rail-copy strong { font-size: 13px; }
+  :root { scroll-padding-top: 75px; }
+}

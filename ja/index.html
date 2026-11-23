@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="ja"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOTOYA｜名物ネギトロ丼と海鮮丼</title><meta name="description" content="ハワイのカイムキ、ピイコイ、アイエアで味わう、仕込みたてのネギトロと海鮮丼。お品書きや席のご予約、お持ち帰りのご注文はこちらから。"><meta name="theme-color" content="#f8f7f2">
+<link rel="canonical" href="https://www.totoyahawaii.com/ja/"><meta property="og:type" content="website"><meta property="og:site_name" content="TOTOYA Hawaii"><meta property="og:title" content="TOTOYA｜名物ネギトロ丼と海鮮丼">
+<meta property="og:description" content="ハワイのカイムキ、ピイコイ、アイエアで味わう、仕込みたてのネギトロと海鮮丼。お品書きや席のご予約、お持ち帰りのご注文はこちらから。"><meta property="og:url" content="https://www.totoyahawaii.com/ja/"><meta property="og:image" content="https://www.totoyahawaii.com/assets/tokujo-meal-hero.webp">
+<link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64 96x96 144x144 192x192 256x256">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/totoya-icon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/totoya-icon-192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="alternate" hreflang="en" href="https://www.totoyahawaii.com/">
+<link rel="alternate" hreflang="zh-Hans" href="https://www.totoyahawaii.com/zh-Hans/">
+<link rel="alternate" hreflang="zh-Hant" href="https://www.totoyahawaii.com/zh-Hant/">
+<link rel="alternate" hreflang="ko" href="https://www.totoyahawaii.com/ko/">
+<link rel="alternate" hreflang="es" href="https://www.totoyahawaii.com/es/">
+<link rel="alternate" hreflang="fr" href="https://www.totoyahawaii.com/fr/">
+<link rel="alternate" hreflang="ja" href="https://www.totoyahawaii.com/ja/">
+<link rel="alternate" hreflang="x-default" href="https://www.totoyahawaii.com/">
+<script type="application/json" id="ui-strings">{"Language":"言語","Select language":"表示言語を選ぶ","Pause slideshow":"スライドショーを一時停止","Play slideshow":"スライドショーを再生","Pause":"一時停止","Play":"再生","Pause background video · {0}":"背景動画「{0}」を一時停止","Play background video · {0}":"背景動画「{0}」を再生","Open Google Maps without sharing location":"位置情報を共有せずにGoogle マップを開く","Getting your current location…":"現在地を取得しています…","your location":"現在地","Closest to {0} by straight-line distance: TOTOYA {1}.":"{0}から直線距離で最も近い店舗は、TOTOYA {1}店です。","Choose a landmark to find a nearby TOTOYA.":"目印となる場所を選んで、お近くのTOTOYAをお探しください。","Finding your nearest TOTOYA…":"最寄りのTOTOYAを検索しています…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"現在地を取得できません。目印となる場所を選んで、お近くのTOTOYAをお探しください。","View shop details":"店舗の詳細を見る","Directions from my location":"現在地からの経路","Zoom in":"拡大","Zoom out":"縮小","Close popup":"ポップアップを閉じる","Map":"地図","OpenStreetMap contributors":"OpenStreetMapの貢献者"}</script>
+<script defer src="/language.js?v=49e2f5bece"></script>
+<link rel="stylesheet" href="/style.css?v=c24d67f44f">
+<link rel="stylesheet" href="/home.css?v=b70fec8d0a">
+<link rel="stylesheet" href="/sections.css?v=790c83165d">
+<link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
+<link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=444b9b4871"></script>
+<script defer src="/home.js?v=03c4b65124"></script>
+<script defer src="/sections.js?v=93a0fc4272"></script>
+<script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
+<script defer src="/visit.js?v=aa2e6b4928"></script>
+</head><body class="with-rail"><a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-rail" aria-label="TOTOYA">
+      <a class="rail-logo" href="/ja/" aria-label="TOTOYA トップページ"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+      <p class="rail-copy"><strong>TOTOYA</strong>
+        <span>ネギトロ</span> <span>&amp;</span> <span>和の</span> <span>海鮮丼</span></p>
+      <details class="language-menu"><summary aria-label="表示言語を選ぶ"><span lang="ja">日本語</span></summary><nav class="language-panel" aria-label="表示言語を選ぶ"><a href="/" hreflang="en" lang="en">English</a><a href="/zh-Hans/" hreflang="zh-Hans" lang="zh-Hans">简体中文</a><a href="/zh-Hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a><a href="/ko/" hreflang="ko" lang="ko">한국어</a><a href="/es/" hreflang="es" lang="es">Español</a><a href="/fr/" hreflang="fr" lang="fr">Français</a><a href="/ja/" hreflang="ja" lang="ja" aria-current="true">日本語</a></nav></details>
+      <div class="rail-actions"><a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a></div>
+      <details class="rail-menu"><summary>メニュー</summary><div class="rail-drawer">
+        <button class="drawer-close" type="button" aria-label="メニューを閉じる">閉じる ×</button>
+        <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>名物ネギトロ丼<br>と海鮮丼</p></div>
+        <nav aria-label="メインナビゲーション">
+          <a href="/ja/#home">ホーム</a><a href="/ja/#menu">お品書き</a><a href="/ja/#history">ネギトロへのこだわり</a>
+          <a href="/ja/#moments">TOTOYAのひととき</a><a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a>
+          <a href="/ja/#shopinfo">店舗案内</a><a href="/ja/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
+        </nav></div></details>
+    </header>
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+      <div class="home-slides">
+        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木のお盆にのった、ずわいがに、うに、いくら入りの特上ネギトロ丼と味噌汁"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="特上ネギトロ丼に黄身醤油をかける様子"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYAのカウンターで提供するネギトロ丼"></picture>
+      </div>
+      <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="TOTOYA" fetchpriority="high">
+        <h1 id="hero-title">名物ネギトロ丼。<span>また食べたくなる、TOTOYAの味。</span></h1>
+      </div>
+      <div class="slide-controls" role="group" aria-label="トップページの写真" hidden>
+        <button type="button" aria-label="特上ネギトロ丼と味噌汁の写真を表示" aria-pressed="true"></button>
+        <button type="button" aria-label="特上ネギトロ丼に黄身醤油をかける写真を表示" aria-pressed="false"></button>
+        <button type="button" aria-label="カウンターのネギトロ丼の写真を表示" aria-pressed="false"></button>
+        <button type="button" class="slide-playback" aria-label="スライドショーを一時停止" data-state="playing"></button>
+      </div>
+    </section><section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="ed-kicker">TOTOYAのネギトロ</p>
+  <div class="ed-composition"><div class="ed-intro-copy">
+    <h2 id="intro-title">ここでしか出会えない味。<br>毎日、お店で仕込みます。</h2>
+    <p>TOTOYAならではの、ひと味違うネギトロです。</p>
+    <p>その日に召し上がる分を、その日のうちに。いちばんおいしい状態でお出しできるよう、毎日仕込んでいます。</p>
+    <p>まぐろに、ほたて、きゅうり、数の子。<br>濃厚な旨みと、こりっとした歯ごたえが自慢です。<br>この味を楽しめるのはTOTOYAだけ。</p>
+  </div><ul class="ed-bowls" aria-label="TOTOYAの丼11種"><li><img src="/assets/bowl-ume.webp" loading="lazy" alt="ネギトロ丼「梅」"></li><li><img src="/assets/bowl-take.webp" loading="lazy" alt="ネギトロ丼「竹」"></li><li><img src="/assets/bowl-matsu.webp" loading="lazy" alt="ネギトロ丼「松」"></li><li><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="ネギトロ丼「特上」"></li><li><img src="/assets/bowl-nagomi.webp" loading="lazy" alt="海鮮丼「和」"></li><li><img src="/assets/bowl-miyabi.webp" loading="lazy" alt="海鮮丼「雅」"></li><li><img src="/assets/bowl-nishiki.webp" loading="lazy" alt="海鮮丼「錦」"></li><li><img src="/assets/bowl-fukuju.webp" loading="lazy" alt="海鮮丼「福寿」"></li><li><img src="/assets/bowl-salmon.webp" loading="lazy" alt="サーモン丼"></li><li><img src="/assets/bowl-rainbow-trio.webp" loading="lazy" alt="海鮮三色丼"></li><li><img src="/assets/bowl-maguro-lover.webp" loading="lazy" alt="まぐろづくし丼"></li></ul></div>
+</section><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
+  <h2 id="news-title">お知らせ</h2>
+  <ul>
+    <li><span class="ed-kicker">新店舗のお知らせ</span><p>カポレイ店は2月下旬にオープン予定です。</p></li>
+    <li><span class="ed-kicker">席を予約</span><p><a href="https://toast.app/r/totoya-hawaii">カイムキ</a>店と<a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">アイエア</a>店では、お席のご予約を承っています。</p></li>
+    <li><span class="ed-kicker">お品書き</span><p>3店舗共通のお品書きをご用意しています。<a href="/ja/#menu">お品書きを見る</a></p></li>
+  </ul>
+</section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
+  <div class="ed-heading"><p class="ed-kicker">TOTOYAの看板メニュー</p>
+    <h2 id="signatures-title">名物ネギトロ丼</h2>
+    <p>まずは自慢のネギトロから。<br>お好みの具材で、あなたの一杯に。</p>
+  </div><div class="ed-signature-grid"><a class="ed-signature" href="/ja/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="とびこを添えたネギトロ丼「梅」"></div>
+  <figcaption><div><h3>梅</h3><p>ネギトロととびこ</p></div><span>$21.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/ja/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-take.webp" loading="lazy" alt="いくらをのせたネギトロ丼「竹」"></div>
+  <figcaption><div><h3>竹</h3><p>いくら入り</p></div><span>$28.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/ja/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-matsu.webp" loading="lazy" alt="うにをのせたネギトロ丼「松」"></div>
+  <figcaption><div><h3>松</h3><p>いくら・うに入り</p></div><span>$37.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/ja/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="ずわいがにとうにをのせたネギトロ丼「特上」"></div>
+  <figcaption><div><h3>特上</h3><p>いくら・ずわいがに・うに入り</p></div><span>$41.90</span></figcaption>
+</figure></a></div>
+</section><section id="menu" class="kv-section kv-menu" aria-labelledby="menu-title"><div class="kv-wrap">
+      <header class="kv-heading"><p class="kv-kicker">TOTOYAのお品書き</p><h2 id="menu-title">メニュー</h2>
+      <p>全3店舗で同じメニューをご用意しています。</p>
+      <a class="kv-link" href="/assets/totoya-all-locations-menu.pdf" target="_blank" rel="noopener">英語のお品書き（PDF）</a></header>
+      <div class="kv-menu-list"><details class="kv-accordion" open><summary><span>名物ネギトロ丼</span><small>お店のおすすめ</small></summary><ul><li><div><h3>梅</h3><p>ネギトロ、とびこ</p></div><span class="kv-price">$21.90</span></li><li><div><h3>竹</h3><p>ネギトロ、いくら</p></div><span class="kv-price">$28.90</span></li><li><div><h3>松</h3><p>ネギトロ、いくら、うに</p></div><span class="kv-price">$37.90</span></li><li><div><h3>特上</h3><p>ネギトロ、いくら、ずわいがに、うに</p></div><span class="kv-price">$41.90</span></li></ul><p class="kv-menu-note">ネギトロ丼には、まぐろ、ほたて、きゅうり、数の子、ねぎ、海苔2枚、わさび、海藻サラダが入ります。<br>生の卵黄を使った黄身醤油を追加できます（+$1.50）。</p></details><details class="kv-accordion"><summary><span>刺身・海鮮丼</span><small>人気の海鮮丼</small></summary><ul><li><div><h3>和（なごみ）</h3><p>ネギトロ、サーモン2切れ、えび、ほたて、とびこ</p></div><span class="kv-price">$25.90</span></li><li><div><h3>雅（みやび）</h3><p>ネギトロ、まぐろ2切れ、えび、ほたて、いくら</p></div><span class="kv-price">$31.90</span></li><li><div><h3>錦（にしき）</h3><p>ネギトロ、まぐろ、サーモン、えび、ほたて、ずわいがに、いくら</p></div><span class="kv-price">$36.50</span></li><li><div><h3>福寿（ふくじゅ）</h3><p>ネギトロ、まぐろ、サーモン、えび、ほたて、ずわいがに、うに、いくら</p></div><span class="kv-price">$42.50</span></li><li><div><h3>サーモン丼</h3><p>サーモン、いくら、とびこ、きゅうり</p></div><span class="kv-price">$21.90</span></li><li><div><h3>海鮮三色丼</h3><p>サーモン、ほたて、いくら、とびこ、きゅうり</p></div><span class="kv-price">$29.90</span></li><li><div><h3>まぐろづくし丼</h3><p>まぐろ、ネギトロ、ねぎ、卵黄</p></div><span class="kv-price">$33.90</span></li></ul></details><details class="kv-accordion"><summary><span>味噌汁・うどん</span><small>丼とご一緒に</small></summary><ul><li><div><h3>あおさの味噌汁</h3><p>丼に付いています。</p></div><span class="kv-price">+$0.00</span></li><li><div><h3>本日の味噌汁</h3><p>本日の具材はスタッフにお尋ねください。</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>かにの味噌汁</h3></div><span class="kv-price">+$4.90</span></li><li><div><h3>ハーフサイズのうどん</h3><p>通常価格 $6.50</p></div><span class="kv-price">+$4.90</span></li></ul></details><details class="kv-accordion"><summary><span>トッピング</span><small>お好みで追加</small></summary><ul><li><div><h3>いくら</h3><p>30g</p></div><span class="kv-price">+$9.90</span></li><li><div><h3>うに</h3><p>15g</p></div><span class="kv-price">+$11.50</span></li><li><div><h3>ずわいがに</h3><p>15g</p></div><span class="kv-price">+$8.90</span></li><li><div><h3>海苔</h3><p>4枚</p></div><span class="kv-price">+$1.50</span></li><li><div><h3>黄身醤油</h3></div><span class="kv-price">+$1.50</span></li></ul></details><details class="kv-accordion"><summary><span>サラダ・お飲み物</span><small>ご一緒にどうぞ</small></summary><ul><li><div><h3>ハウスサラダ</h3><p>通常価格 $4.50</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>温かい緑茶</h3></div><span class="kv-price">+$1.50</span></li><li><div><h3>冷たい緑茶</h3></div><span class="kv-price">+$2.00</span></li><li><div><h3>コカ・コーラ／ダイエットコーク</h3></div><span class="kv-price">+$2.50</span></li></ul></details></div>
+      <p class="kv-fine">肉類、鶏肉、魚介類、貝類、卵を生または加熱が不十分な状態で召し上がると、食中毒のリスクが高まることがあります。特に持病のある方はご注意ください。</p>
+    </div></section><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
+  <div class="ed-story-heading"><p class="ed-kicker">ネギトロへのこだわり</p><h2 id="story-title">一杯ずつ、心を込めて。</h2>
+    <p>その日に仕込み、一杯ずつ丁寧に仕上げます。<br>TOTOYAのネギトロができるまでを、少しのぞいてみませんか。</p>
+    <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/">Instagramでお店の様子を見る</a>
+  </div>
+  <div class="ed-story-player"><div><figure class="ed-scene" id="story-scene-1" data-reel>
+  <div class="ed-reel-media">
+  <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="ネギトロ丼を一杯ずつ仕上げるスタッフ">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="手仕事" hidden>一時停止</button>
+  <figcaption><span class="ed-scene-meta">1 / 3 <span>TOTOYAのひととき</span></span>
+    <h3>手仕事から生まれる一杯。</h3><p>最後のひと手間まで、一杯ずつ丁寧に。</p></figcaption>
+</figure><figure class="ed-scene" id="story-scene-2" data-reel hidden>
+  <div class="ed-reel-media">
+  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="仕上げ" hidden>一時停止</button>
+  <figcaption><span class="ed-scene-meta">2 / 3 <span>TOTOYAのひととき</span></span>
+    <h3>仕上げは、いくら。</h3><p>こぼれるほどのいくら。ひと粒はじけるたび、磯の風味が広がります。</p></figcaption>
+</figure><figure class="ed-scene" id="story-scene-3" data-reel hidden>
+  <div class="ed-reel-media">
+  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="最初のひと口" hidden>一時停止</button>
+  <figcaption><span class="ed-scene-meta">3 / 3 <span>TOTOYAのひととき</span></span>
+    <h3>最初のひと口。</h3><p>濃厚な旨みと、みずみずしい食感が広がります。</p></figcaption>
+</figure></div>
+    <div class="ed-scene-chooser" aria-label="場面を選ぶ" role="group" hidden><button type="button" aria-pressed="true" aria-controls="story-scene-1">手仕事</button><button type="button" aria-pressed="false" aria-controls="story-scene-2">仕上げ</button><button type="button" aria-pressed="false" aria-controls="story-scene-3">最初のひと口</button></div>
+    <div class="ed-scene-step" hidden><button type="button" data-step="-1">前へ</button><button type="button" data-step="1">次へ</button></div>
+  </div>
+</section><section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
+  <div class="ed-heading"><p class="ed-kicker">TOTOYAのひととき</p><h2 id="moments-title">一杯を味わうひととき。</h2>
+    <p>最後の仕上げから、最初のひと口まで。<br>思わずじっくり味わいたくなる、そんな瞬間をお届けします。</p>
+  </div>
+  <div class="ed-moments-spread">
+    <article class="ed-moment" data-reel><div class="ed-reel-media">
+  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="仕上げ" hidden>一時停止</button>
+      <div class="ed-moment-copy"><h3>仕上げは、いくら。</h3>
+        <p>いくらをたっぷりのせると、口の中でぷちっとはじけ、磯の風味が広がります。自慢のネギトロ丼が仕上がる瞬間をご覧ください。</p>
+        <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/reels/">Instagramのリールを見る</a>
+      </div>
+    </article>
+    <article class="ed-moment" data-reel><div class="ed-reel-media">
+  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="最初のひと口" hidden>一時停止</button>
+      <div class="ed-moment-copy"><h3>最初のひと口。</h3>
+        <p>濃厚な旨みに、みずみずしさと歯ごたえ。ぜひお店で、TOTOYAならではのひと口をお楽しみください。</p>
+        <a class="ed-link" href="/ja/#shopinfo">お近くの店舗を探す</a>
+      </div>
+    </article>
+  </div>
+  <p class="ed-social">お店の日々の様子は、Instagramの<a href="https://www.instagram.com/totoya_hawaii/">@totoya_hawaii</a>でお届けしています。</p>
+</section><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">お近くのTOTOYAへ</p><h2 id="shop-title">店舗のご案内</h2>
+      <h3>オアフ島の3つの街でお待ちしています。</h3><p>お近くの店舗の場所や営業時間をご確認いただけます。お帰りの際には、お持ち帰りもどうぞ。</p></header>
+      <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>現在地から最寄りの店舗を探す</button>
+      <p>最寄りの店舗は、お使いの端末上で計算します。各店舗の経路案内ボタンから、現在地を出発点にしてGoogle マップを開けます。</p></div>
+      <div class="kv-start"><span>目印となる場所から店舗を探す</span><div role="group" aria-label="目印となる場所を選んで、お近くの店舗をお探しください"><button type="button" data-start="hnl" data-lat="21.3325" data-lon="-157.9203" aria-pressed="false">ホノルル空港（HNL）</button><button type="button" data-start="waikiki" data-lat="21.2771" data-lon="-157.8276" aria-pressed="false">ワイキキ</button><button type="button" data-start="moana" data-lat="21.2915" data-lon="-157.8435" aria-pressed="false">アラモアナセンター</button><button type="button" data-start="downtown" data-lat="21.3069" data-lon="-157.8583" aria-pressed="false">ダウンタウン</button></div></div>
+      <p class="kv-status" aria-live="polite">目印となる場所を選ぶか、現在地を使ってお近くのTOTOYAをお探しください。</p></div>
+      <div class="kv-map-box"><div class="kv-map" aria-label="カイムキ、ピイコイ、アイエアのTOTOYA各店と、周辺の主な目印を示した地図"><div class="kv-map-surface">
+      <svg viewBox="0 0 720 540" preserveAspectRatio="none" width="720" height="540" aria-hidden="true" focusable="false"><polygon points="-166.9,346 -301.2,369.3 -347.1,372.2 -375.9,359.2 -401.7,310.7 -406,293 -373.6,279.3 -380.5,264.8 -396.5,253.5 -415,267.5 -438.9,173.9 -460.5,126.8 -489.4,89.9 -526.2,54.1 -579.7,28.1 -586,10.9 -585.2,-25.4 -590.2,-55.2 -620,-113.3 -659.9,-151.3 -703,-183.6 -744.5,-241.2 -738.9,-358.5 -740.7,-388.1 -748.5,-410.8 -798.7,-466.8 -887,-526.4 -881.4,-536.1 -810.2,-548.7 -614.9,-559.1 -551.5,-547.4 -415.5,-561.8 -357.6,-593.6 -357.5,-614.4 -366.1,-623.1 -362.1,-628.9 -275.4,-695.5 -235.3,-746 -235,-773.9 -226.4,-793.5 -144.6,-877.3 -86.2,-927.9 -7,-953.9 9.1,-968.4 65.5,-969.1 131.2,-894.3 156.3,-827.8 183.5,-783.2 200.4,-770.2 205.9,-721.4 202.8,-699.4 242.7,-640.8 274,-623.7 345.1,-524.7 341.3,-475.9 359.9,-467.5 377.2,-487.3 410.1,-477.5 421.1,-467.3 468.9,-378.1 467.6,-320.4 430.2,-312.4 420.9,-281.2 442.8,-173.8 456.5,-150.3 505.9,-137 532.2,-120.3 539.5,-88.3 564.1,-55.3 623.4,-8.5 643.9,-13.9 660.4,-27 667.3,-59 659,-131.6 667.3,-144.7 690.7,-156.3 722.3,-156.3 773.3,-149 791.2,-138.9 792.5,-102.5 778.8,-82.2 763.6,-35.7 762.2,-5.2 770.2,28.1 796,36 802,35.2 807.6,32.8 814,31.3 815.6,31.4 817.2,31.6 818.9,31.9 819.4,32.2 821.6,36.9 823.9,43.5 830.6,54.6 861.2,96 861.9,109 849.9,142.6 856,176.2 861.5,192.7 897.4,247.7 907.5,259 1005.2,323 1036.2,320.4 1033.6,337.2 1030.4,358.9 905.1,449.8 905.7,473.7 888.2,481.8 858.8,487.9 845.9,482.4 845,473.7 853.6,455.9 851.1,425.5 844.7,415.5 823.3,407.7 713.3,436.5 689.4,433.6 648.9,451.1 603.3,493.4 552.7,502.2 517.5,492.8 508.3,479.9 504.6,457.9 484.4,431.7 442.1,397.7 306.4,344.4 292.5,301.9 278.9,276.8 261,271.1 217.7,305.2 220.8,320.8 234.5,329.9 242.3,346.7 115.6,344.3 120.3,324.9 116.8,304.8 67.5,274.9 51.1,276.7 1.8,307.2 -105.7,335.3 -166.9,346"/><ellipse cx="584.6" cy="424.4" rx="31.0" ry="30.6" fill="#486b56" stroke="#486b56" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/><ellipse cx="438.4" cy="386.5" rx="19.2" ry="18.9" fill="#9c5c3c" stroke="#9c5c3c" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/><ellipse cx="185.1" cy="109.9" rx="32.4" ry="32.0" fill="#4c6b88" stroke="#4c6b88" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/></svg>
+      <span class="kv-landmark hnl" data-point="hnl" style="left:29.66%;top:48.20%"><i></i><b>ホノルル空港（HNL）</b></span><span class="kv-landmark waikiki" data-point="waikiki" style="left:69.11%;top:81.38%"><i></i><b>ワイキキ</b></span><span class="kv-landmark moana" data-point="moana" style="left:62.34%;top:72.75%"><i></i><b>アラモアナセンター</b></span><span class="kv-landmark downtown" data-point="downtown" style="left:56.04%;top:63.53%"><i></i><b>ダウンタウン</b></span><a class="kv-pin" href="#kaimuki" data-select-store="kaimuki" data-point="kaimuki" style="left:81.20%;top:78.60%;--area:#486b56" aria-label="TOTOYA カイムキ店を表示"><i aria-hidden="true"></i><b>カイムキ</b></a><a class="kv-pin" href="#piikoi" data-select-store="piikoi" data-point="piikoi" style="left:60.89%;top:71.57%;--area:#9c5c3c" aria-label="TOTOYA ピイコイ店を表示"><i aria-hidden="true"></i><b>ピイコイ</b></a><a class="kv-pin" href="#aiea" data-select-store="aiea" data-point="aiea" style="left:25.70%;top:20.36%;--area:#4c6b88" aria-label="TOTOYA アイエア店を表示"><i aria-hidden="true"></i><b>アイエア</b></a></div><div class="kv-live-map" aria-hidden="true" inert aria-label="オアフ島のTOTOYA各店を表示する、拡大・縮小できる地図"></div>
+      <div class="kv-map-labels" hidden><svg class="kv-leaders" aria-hidden="true" focusable="false"></svg><a class="kv-map-label shop" href="#kaimuki" data-select-store="kaimuki" data-map-label="kaimuki" style="--area:#486b56" tabindex="-1">カイムキ</a><a class="kv-map-label shop" href="#piikoi" data-select-store="piikoi" data-map-label="piikoi" style="--area:#9c5c3c" tabindex="-1">ピイコイ</a><a class="kv-map-label shop" href="#aiea" data-select-store="aiea" data-map-label="aiea" style="--area:#4c6b88" tabindex="-1">アイエア</a><button type="button" class="kv-map-label landmark" data-map-label="hnl" data-reference="hnl" tabindex="-1">ホノルル空港（HNL）</button><button type="button" class="kv-map-label landmark" data-map-label="waikiki" data-reference="waikiki" tabindex="-1">ワイキキ</button><button type="button" class="kv-map-label landmark" data-map-label="moana" data-reference="moana" tabindex="-1">アラモアナセンター</button><button type="button" class="kv-map-label landmark" data-map-label="downtown" data-reference="downtown" tabindex="-1">ダウンタウン</button></div></div>
+      <p class="kv-map-key"><span>TOTOYAの店舗</span><span>周辺の目印</span><button data-map-reset type="button" hidden>すべての地点を表示</button><a class="kv-outline-credit" href="https://github.com/glynnbird/usstatesgeojson/blob/master/hawaii.geojson" target="_blank" rel="noopener">地図の輪郭データ</a></p>
+      <p class="kv-map-note">色付きの範囲は各店舗の周辺エリア、ピンは店舗の位置を示しています。</p></div>
+      <nav class="kv-tabs" aria-label="TOTOYAの店舗を選ぶ"><a href="#kaimuki" id="visit-tab-kaimuki" data-tab="kaimuki">カイムキ</a><a href="#piikoi" id="visit-tab-piikoi" data-tab="piikoi">ピイコイ</a><a href="#aiea" id="visit-tab-aiea" data-tab="aiea">アイエア</a></nav>
+      <div class="kv-shop-list"><article id="kaimuki" class="kv-shop" data-store="kaimuki" data-label="カイムキ" data-lat="21.281737" data-lon="-157.799182" data-area-radius="1050" data-area-color="#486b56">
+      <div><p class="kv-kicker">TOTOYA</p><h3>カイムキ</h3><address>1127 12th Ave<br>Honolulu, HI 96816</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+1127+12th+Ave%2C+Honolulu%2C+HI+96816&amp;travelmode=driving" data-directions="true" aria-label="現在地からTOTOYA カイムキ店までの経路">現在地からの経路</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">ホノルル空港から車での所要時間（目安）</p><strong>約20〜35分</strong></div>
+      <div><h4>営業案内</h4><a class="kv-phone" href="tel:+18086005017">(808) 600-5017</a>
+      <dl><div><dt>ランチ</dt><dd>11:00〜14:30</dd></div><div><dt>ディナー</dt><dd>17:00〜20:30</dd></div><div><dt>営業日</dt><dd>毎日営業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener">席を予約する</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener">持ち帰りを注文</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/ytFYtxSXhNfaw7ar9" target="_blank" rel="noopener">Google マップで店舗を見る</a></div></div>
+    </article><article id="piikoi" class="kv-shop" data-store="piikoi" data-label="アラモアナ／ピイコイ" data-lat="21.293486" data-lon="-157.846898" data-area-radius="650" data-area-color="#9c5c3c">
+      <div><p class="kv-kicker">TOTOYA</p><h3>アラモアナ／ピイコイ</h3><address>436 Piikoi Street B<br>Honolulu, HI 96814</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+436+Piikoi+Street+B%2C+Honolulu%2C+HI+96814&amp;travelmode=driving" data-directions="true" aria-label="現在地からTOTOYA ピイコイ店までの経路">現在地からの経路</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">ホノルル空港から車での所要時間（目安）</p><strong>約20〜30分</strong></div>
+      <div><h4>営業案内</h4><a class="kv-phone" href="tel:+18082604492">(808) 260-4492</a>
+      <dl><div><dt>ランチ</dt><dd>11:00〜14:30</dd></div><div><dt>ディナー</dt><dd>17:00〜20:30</dd></div><div><dt>営業日</dt><dd>毎日営業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener">持ち帰りを注文</a><span class="kv-no-reservation">ご予約不可</span></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/G2F14NHWvr6UU4Pr6" target="_blank" rel="noopener">Google マップで店舗を見る</a></div></div>
+    </article><article id="aiea" class="kv-shop" data-store="aiea" data-label="アイエア" data-lat="21.379" data-lon="-157.9296" data-area-radius="1100" data-area-color="#4c6b88">
+      <div><p class="kv-kicker">TOTOYA</p><h3>アイエア</h3><address>99-115 Aiea Heights Dr. #250<br>Aiea, HI 96701</address>
+      <a class="kv-btn primary kv-route" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+99-115+Aiea+Heights+Dr.+%23250%2C+Aiea%2C+HI+96701&amp;travelmode=driving" data-directions="true" aria-label="現在地からTOTOYA アイエア店までの経路">現在地からの経路</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">ホノルル空港から車での所要時間（目安）</p><strong>約10〜20分</strong></div>
+      <div><h4>営業案内</h4><a class="kv-phone" href="tel:+18084876808">(808) 487-6808</a>
+      <dl><div><dt>ランチ</dt><dd>11:00〜14:30</dd></div><div><dt>ディナー</dt><dd>17:00〜20:30</dd></div><div><dt>営業日</dt><dd>毎日営業</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener">席を予約する</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener">持ち帰りを注文</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://maps.app.goo.gl/aSD6FYd2DPoCQg7B7" target="_blank" rel="noopener">Google マップで店舗を見る</a></div></div>
+    </article></div>
+      <aside class="kv-next"><div><p class="kv-kicker">新店舗</p><h3>カポレイ</h3></div><p>2月下旬にオープン予定です。<br>詳しい情報は後日お知らせします。</p></aside>
+      <p class="kv-fine">空港からの所要時間は目安です。実際の所要時間は交通状況や乗車場所によって変わります。出発前にGoogle マップで最新の状況をご確認ください。</p>
+    </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
+  <div class="ed-order-image"><img src="/assets/totoya-at-home-closeup-768.webp" srcset="/assets/totoya-at-home-closeup-480.webp 480w, /assets/totoya-at-home-closeup-768.webp 768w" sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 768px)" width="768" height="576" loading="lazy" decoding="async" alt="TOTOYAの木のカウンターに並ぶ、ネギトロ、うに、ずわいがに、いくらを盛った持ち帰り用の特上丼"></div>
+  <div class="ed-order-copy"><p class="ed-kicker">お気に入りの一杯を、お持ち帰りで</p><h2 id="order-title">ご自宅でも、TOTOYAを。</h2>
+    <p>TOTOYA自慢のネギトロを、くつろげる場所でどうぞ。<br>お受け取りになる店舗を選んでご注文ください。</p>
+    <ul class="ed-order-links" aria-label="持ち帰りを注文"><li><a href="https://order.toasttab.com/online/totoya-hawaii">カイムキ</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">アラモアナ／ピイコイ</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">アイエア</a></li></ul>
+  </div>
+</section></main>
+<footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA トップページ" href="/ja/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
+      <p>名物ネギトロ丼と海鮮丼</p><p class="footer-neighborhoods">カイムキ・ピイコイ・アイエア</p></div>
+      <nav aria-label="フッターナビゲーション"><a href="/ja/#history">ネギトロへのこだわり</a><a href="/ja/#menu">メニュー</a><a href="/ja/#shopinfo">店舗案内</a><a href="/ja/company/">会社案内</a><a href="/ja/company/#careers">採用情報</a><a href="/ja/company/#contact">お問い合わせ</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a></nav>
+      <small>© TOTOYA · <a href="/ja/company/">Funergy Group</a> · <a href="/ja/privacy/">プライバシー</a> · <a href="/ja/media-credits.html">写真・映像クレジット</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="店舗選択を閉じる">閉じる ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">席を予約</h2><p>ご予約の店舗をお選びください。</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>カイムキ</b><small>1127 12th Ave</small></span><span>席を予約する</span></a><div class="kv-option kv-unavailable"><span><b>ピイコイ</b><small>436 Piikoi Street B</small></span><span>ご予約不可</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>アイエア</b><small>99-115 Aiea Heights Dr. #250</small></span><span>席を予約する</span></a></div><p class="kv-fine">ご予約はカイムキ店とアイエア店で承ります。ピイコイ店はご予約を承っておりませんので、直接ご来店ください。</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">オンライン注文</h2><p>お持ち帰りの受け取り店舗をお選びください。</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>カイムキ</b><small>1127 12th Ave</small></span><span>持ち帰りを注文</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>ピイコイ</b><small>436 Piikoi Street B</small></span><span>持ち帰りを注文</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>アイエア</b><small>99-115 Aiea Heights Dr. #250</small></span><span>持ち帰りを注文</span></a></div><p class="kv-fine">受け取り可能な時間と受付状況は、各店舗の注文ページでご確認ください。</p></div></dialog>
+</body></html>

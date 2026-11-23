@@ -19,7 +19,7 @@
 .kv-heading h3 { margin: 16px 0 9px; font-size: clamp(27px, 3.1vw, 40px); line-height: 1.2; }
 .kv-link { display: inline-flex; min-height: 44px; align-items: center; color: inherit; text-decoration: underline; text-underline-offset: .36em; text-decoration-thickness: 1px; }
 .kv-heading .kv-link { margin-top: 12px; }
-.kv-link:hover, .kv-option:hover { color: var(--kv-accent); }
+.kv-link:hover, a.kv-option:hover { color: var(--kv-accent); }
 .kv-section :focus-visible, .kv-dialog :focus-visible { outline: 2px solid var(--kv-accent); outline-offset: 3px; }
 .kv-menu-list { max-width: 900px; margin: auto; border-top: 1px solid var(--kv-rule); }
 .kv-accordion { border-bottom: 1px solid var(--kv-rule); }
@@ -172,3 +172,6 @@
 .kv-live-map .leaflet-popup-content { font: 400 14px/1.5 var(--kv-body); color: var(--kv-ink); margin: 16px 22px; }
 .kv-bubble b { display: block; font: 600 22px/1.1 var(--kv-serif); }
 .kv-bubble a { display: block; padding-top: 6px; color: var(--kv-ink); }
+
+.kv-option.kv-unavailable > span:last-child { text-decoration: none; font-weight: 600; }
+.kv-no-reservation { align-self: center; padding: 5px 0; font-weight: 600; }

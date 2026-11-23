@@ -1,5 +1,6 @@
 /* The main photograph and navigation links work with JavaScript disabled. */
 (() => {
+  const t = window.totoyaText || (key => key);
   const hero = document.querySelector('.home-hero');
   const slides = Array.from(hero.querySelectorAll('.home-slides picture'));
   const controls = hero.querySelector('.slide-controls');
@@ -22,7 +23,8 @@
 
   function schedule() {
     clearInterval(timer);
-    playback.textContent = playing ? 'Pause slideshow' : 'Play slideshow';
+    playback.setAttribute('aria-label', t(playing ? 'Pause slideshow' : 'Play slideshow'));
+    playback.dataset.state = playing ? 'playing' : 'paused';
     if (playing && visible && !document.hidden) {
       timer = setInterval(() => select(current + 1), 6000);
     }
