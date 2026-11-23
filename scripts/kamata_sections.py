@@ -86,11 +86,15 @@ def signatures():
 
 
 def film(scene):
-    _, _, _, label, media, poster = scene
-    return f'''<video controls playsinline muted preload="none" poster="{poster}" aria-label="{escape(label, quote=True)}">
-  <source src="{media}" type="video/mp4">
-  <a href="{media}">Play film</a>
-</video>'''
+    name, _, _, label, clip, poster = scene
+    source, interval = clip.split('#t=')
+    start, end = interval.split(',')
+    return f'''<div class="ed-reel-media">
+  <img src="{poster}" loading="lazy" width="630" height="1120" alt="{escape(label, quote=True)}">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
+         data-src="{source}#t={start}" data-start="{start}" data-end="{end}"></video>
+</div>
+<button type="button" class="ed-reel-toggle" data-film-name="{name}" hidden>Pause</button>'''
 
 
 def story():
@@ -100,11 +104,10 @@ def story():
         name, title, description = scene[:3]
         hidden = ' hidden' if i else ''
         pressed = 'true' if i == 0 else 'false'
-        panels.append(f'''<figure class="ed-scene" id="story-scene-{i+1}"{hidden}>
-  <div class="ed-story-screen">{film(scene)}</div>
+        panels.append(f'''<figure class="ed-scene" id="story-scene-{i+1}" data-reel{hidden}>
+  {film(scene)}
   <figcaption><span class="ed-scene-meta">{i+1} / 3 <span>Moments at TOTOYA</span></span>
-    <h3>{title}</h3><p>{description}</p>
-  </figcaption>
+    <h3>{title}</h3><p>{description}</p></figcaption>
 </figure>''')
         buttons.append(f'<button type="button" aria-pressed="{pressed}" aria-controls="story-scene-{i+1}">{name}</button>')
     return f'''<section class="ed-section ed-story" id="history" aria-labelledby="story-title">
@@ -112,7 +115,7 @@ def story():
     <p>Prepared fresh each day. Finished one bowl at a time.<br>Take a closer look at the care behind our original negitoro.</p>
     <a class="ed-link" href="{INSTAGRAM}">More moments on Instagram</a>
   </div>
-  <div class="ed-story-player"><div aria-live="polite">{''.join(panels)}</div>
+  <div class="ed-story-player"><div>{''.join(panels)}</div>
     <div class="ed-scene-chooser" aria-label="Choose a scene" role="group" hidden>{''.join(buttons)}</div>
     <div class="ed-scene-step" hidden><button type="button" data-step="-1">Previous</button><button type="button" data-step="1">Next</button></div>
   </div>
@@ -125,13 +128,17 @@ def moments():
     <p>The finishing touch. The first bite.<br>A few little moments worth savoring.</p>
   </div>
   <div class="ed-moments-grid">
-    <article><div class="ed-moment-screen">{film(STORY_SCENES[1])}</div><h3>The finishing touch.</h3>
-      <p>A cascade of ikura. A bright, briny pop. Watch a favorite topping bring our original negitoro to life.</p>
-      <a class="ed-link" href="{INSTAGRAM}reels/">Discover our Instagram reels</a>
+    <article class="ed-moment" data-reel>{film(STORY_SCENES[1])}
+      <div class="ed-moment-copy"><h3>The finishing touch.</h3>
+        <p>A cascade of ikura. A bright, briny pop. Watch a favorite topping bring our original negitoro to life.</p>
+        <a class="ed-link" href="{INSTAGRAM}reels/">Discover our Instagram reels</a>
+      </div>
     </article>
-    <article><div class="ed-moment-screen">{film(STORY_SCENES[2])}</div><h3>That first bite.</h3>
-      <p>Rich, fresh and full of texture. Pull up a seat and discover the taste that makes Totoya our own.</p>
-      <a class="ed-link" href="/#shopinfo">Find your Totoya</a>
+    <article class="ed-moment" data-reel>{film(STORY_SCENES[2])}
+      <div class="ed-moment-copy"><h3>That first bite.</h3>
+        <p>Rich, fresh and full of texture. Pull up a seat and discover the taste that makes Totoya our own.</p>
+        <a class="ed-link" href="/#shopinfo">Find your Totoya</a>
+      </div>
     </article>
   </div>
   <p class="ed-social">Follow <a href="{INSTAGRAM}">@totoya_hawaii</a> for more from our kitchen.</p>
@@ -141,7 +148,11 @@ def moments():
 def takeaway():
     links = ''.join(f'<li><a href="{url}">{label}</a></li>' for label, url in ORDER_LINKS)
     return f'''<section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
-  <div class="ed-order-image"><img src="/assets/menu-tokujo.jpg" loading="lazy" alt="Tokujo negitoro with sea urchin, snow crab and salmon roe in TOTOYA’s takeout container"></div>
+  <div class="ed-order-image"><img src="/assets/totoya-at-home-1536.webp"
+    srcset="/assets/totoya-at-home-768.webp 768w, /assets/totoya-at-home-1536.webp 1536w"
+    sizes="(max-width: 767px) calc(100vw - 40px), (max-width: 1150px) calc(50vw - 92px), min(calc(50vw - 110px), 1000px)"
+    width="1536" height="1024" loading="lazy" decoding="async"
+    alt="A Tokujo takeout bowl with negitoro, sea urchin, snow crab and salmon roe on the wooden TOTOYA counter"></div>
   <div class="ed-order-copy"><p class="ed-kicker">Your favorite bowl, to go</p><h2 id="order-title">Totoya at home.</h2>
     <p>Our original negitoro, wherever you feel at home.<br>Choose your nearest location and order for pickup.</p>
     <ul class="ed-order-links" aria-label="Order takeout">{links}</ul>

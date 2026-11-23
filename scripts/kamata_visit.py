@@ -63,11 +63,9 @@ def external(url, text, cls='', **attrs):
     target = '' if url.startswith('tel:') else ' target="_blank" rel="noopener"'
     return f'<a class="{cls}" href="{escape(url, quote=True)}"{target}{extras}>{escape(text)}</a>'
 
-def directions(store, origin=None):
+def directions(store):
     dest = 'TOTOYA, ' + store['street'] + ', ' + store['city']
     args = dict(api=1, destination=dest, travelmode='driving')
-    if origin:
-        args['origin'] = origin
     return 'https://www.google.com/maps/dir/?' + urlencode(args)
 
 def menu_section():
@@ -91,13 +89,31 @@ def menu_section():
 def point(lat, lon):
     return f'left:{(lon + 157.990) / .235 * 100:.2f}%;top:{(21.413 - lat) / .167 * 100:.2f}%'
 
+SHOP_AREAS = {
+    # Approximate radius in meters around the actual customer-facing address.
+    'kaimuki': (1050, '#486b56'), 'piikoi': (650, '#9c5c3c'), 'aiea': (1100, '#4c6b88'),
+}
+
 def map_view():
-    shops = ''.join(f'<a class="kv-pin" href="#{s["id"]}" data-select-store="{s["id"]}" style="{point(*s["coords"])}" aria-label="Show {s["name"]} shop details"><i aria-hidden="true"></i><b>{s["tab"]}</b></a>' for s in STORES)
-    cities = ''.join(f'<span class="kv-landmark {key}" style="{point(lat,lon)}"><i></i><b>{name}</b></span>' for key,name,_,lat,lon in LANDMARKS)
-    return f'''<div class="kv-map-box"><div class="kv-map" aria-label="South O‘ahu map, with three TOTOYA shops and local landmarks"><div class="kv-map-surface">
-      <svg viewBox="0 0 720 540" preserveAspectRatio="none" width="720" height="540" aria-hidden="true" focusable="false"><polygon points="{COAST}"/></svg>
-      <span class="kv-geography" aria-hidden="true">O‘ahu</span>{cities}{shops}</div><div class="kv-live-map" aria-hidden="true" inert aria-label="Interactive street map of TOTOYA locations on O‘ahu"></div></div>
-      <p class="kv-map-key"><span>TOTOYA locations</span><span>Local landmarks</span><button data-map-reset type="button" hidden>Show all places</button><a class="kv-outline-credit" href="https://github.com/glynnbird/usstatesgeojson/blob/master/hawaii.geojson" target="_blank" rel="noopener">Map outline</a></p><p class="kv-map-note" data-map-note hidden>Colored areas are visual guides, not neighborhood boundaries.</p></div>'''
+    shops, zones, labels = [], [], []
+    for shop in STORES:
+        sid = shop['id']
+        lat, lon = shop['coords']
+        radius, color = SHOP_AREAS[sid]
+        cx, cy = (lon + 157.990) / .235 * 720, (21.413 - lat) / .167 * 540
+        zones.append(f'<ellipse cx="{cx:.1f}" cy="{cy:.1f}" rx="{.0295*radius:.1f}" ry="{.0291*radius:.1f}" fill="{color}" stroke="{color}" fill-opacity=".2" stroke-opacity=".65" stroke-width="1.5"/>')
+        shops.append(f'<a class="kv-pin" href="#{sid}" data-select-store="{sid}" data-point="{sid}" style="{point(lat,lon)};--area:{color}" aria-label="Show TOTOYA {shop["tab"]}"><i aria-hidden="true"></i><b>{shop["tab"]}</b></a>')
+        labels.append(f'<a class="kv-map-label shop" href="#{sid}" data-select-store="{sid}" data-map-label="{sid}" style="--area:{color}" tabindex="-1">{shop["tab"]}</a>')
+    cities = []
+    for key, label, _, lat, lon in LANDMARKS:
+        cities.append(f'<span class="kv-landmark {key}" data-point="{key}" style="{point(lat,lon)}"><i></i><b>{label}</b></span>')
+        labels.append(f'<button type="button" class="kv-map-label landmark" data-map-label="{key}" data-reference="{key}" tabindex="-1">{label}</button>')
+    return f'''<div class="kv-map-box"><div class="kv-map" aria-label="Map of Kaimuki, Piikoi and Aiea, with TOTOYA shops and local landmarks"><div class="kv-map-surface">
+      <svg viewBox="0 0 720 540" preserveAspectRatio="none" width="720" height="540" aria-hidden="true" focusable="false"><polygon points="{COAST}"/>{''.join(zones)}</svg>
+      {''.join(cities)}{''.join(shops)}</div><div class="kv-live-map" aria-hidden="true" inert aria-label="Interactive street map of TOTOYA locations on O‘ahu"></div>
+      <div class="kv-map-labels" hidden><svg class="kv-leaders" aria-hidden="true" focusable="false"></svg>{''.join(labels)}</div></div>
+      <p class="kv-map-key"><span>TOTOYA shops</span><span>Local landmarks</span><button data-map-reset type="button" hidden>Show all places</button><a class="kv-outline-credit" href="https://github.com/glynnbird/usstatesgeojson/blob/master/hawaii.geojson" target="_blank" rel="noopener">Map outline</a></p>
+      <p class="kv-map-note">Shading highlights the area around each shop. The pins show the restaurant locations.</p></div>'''
 
 def shopping_actions(s):
     if s['reserve']:
@@ -107,25 +123,28 @@ def shopping_actions(s):
 def shop_panel(s):
     ident = s['id']
     lat,lon = s['coords']
-    return f'''<article id="{ident}" class="kv-shop" data-store="{ident}" data-label="{s['name']}" data-lat="{lat}" data-lon="{lon}">
+    radius,color = SHOP_AREAS[ident]
+    route = escape(directions(s), quote=True)
+    return f'''<article id="{ident}" class="kv-shop" data-store="{ident}" data-label="{s['name']}" data-lat="{lat}" data-lon="{lon}" data-area-radius="{radius}" data-area-color="{color}">
       <div><p class="kv-kicker">TOTOYA</p><h3>{s['name']}</h3><address>{s['street']}<br>{s['city']}</address>
-      <p class="kv-caption">Approximate drive from HNL</p><strong>{s['drive']}</strong><br>{external(directions(s, LANDMARKS[0][2]), 'Check route from the airport', 'kv-link')}</div>
+      <a class="kv-btn primary kv-route" href="{route}" data-directions="true" aria-label="Directions from my location to TOTOYA {s['tab']}">Directions from my location</a><p data-route-status class="kv-route-status" role="status"></p>
+      <p class="kv-caption">Approximate drive from HNL</p><strong>{s['drive']}</strong></div>
       <div><h4>Visit us</h4>{external('tel:'+s['tel'], s['phone'], 'kv-phone')}
       <dl><div><dt>Lunch</dt><dd>11:00 am – 2:30 pm</dd></div><div><dt>Dinner</dt><dd>5:00 pm – 8:30 pm</dd></div><div><dt>Open</dt><dd>Daily</dd></div></dl>
       <div class="kv-actions">{shopping_actions(s)}</div>
-      <div class="kv-map-links">{external(directions(s), 'Directions', 'kv-link', **{'data-directions':'true'})}{external(s['place'], 'View place on Google Maps', 'kv-link')}</div></div>
+      <div class="kv-map-links">{external(s['place'], 'View place on Google Maps', 'kv-link')}</div></div>
     </article>'''
 
 def locations_section():
-    starts = ''.join(f'<button type="button" data-start="{key}" data-lat="{lat}" data-lon="{lon}" data-origin="{name}" aria-pressed="false">{label}</button>' for key,label,name,lat,lon in LANDMARKS)
+    starts = ''.join(f'<button type="button" data-start="{key}" data-lat="{lat}" data-lon="{lon}" aria-pressed="false">{label}</button>' for key,label,name,lat,lon in LANDMARKS)
     tabs = ''.join(f'<a href="#{s["id"]}" id="visit-tab-{s["id"]}" data-tab="{s["id"]}">{s["tab"]}</a>' for s in STORES)
     return f'''<section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
       <header class="kv-heading" id="reservations"><p class="kv-kicker">Your next TOTOYA moment</p><h2 id="shop-title">Come find us.</h2>
       <h3>Three neighborhoods. One TOTOYA.</h3><p>Find your closest shop, plan your visit, or pick up your favorites on the way home.</p></header>
-      <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>Use my location</button>
-      <p>Location access is optional. We do not save your location. Directions open in Google Maps.</p></div>
-      <div class="kv-start"><span>Start from</span><div role="group" aria-label="Choose your starting point">{starts}</div></div>
-      <p class="kv-status" aria-live="polite">Choose a starting area, or use your location to find a nearby TOTOYA.</p></div>
+      <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>Find my nearest shop</button>
+      <p>Your nearest shop is calculated on this device. Choose a shop’s directions button to use your current location in Google Maps.</p></div>
+      <div class="kv-start"><span>Find a shop near a landmark</span><div role="group" aria-label="Choose a landmark to find a nearby shop">{starts}</div></div>
+      <p class="kv-status" aria-live="polite">Choose a landmark or use your location to find a nearby TOTOYA.</p></div>
       {map_view()}
       <nav class="kv-tabs" aria-label="Choose a TOTOYA location">{tabs}</nav>
       <div class="kv-shop-list">{''.join(shop_panel(s) for s in STORES)}</div>

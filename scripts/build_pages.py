@@ -1,5 +1,6 @@
 """Build the public TOTOYA site from its shared Kamata layout and page sections."""
 from html import escape
+from hashlib import sha256
 from pathlib import Path
 import re
 
@@ -27,7 +28,8 @@ def booking_link(kind):
 def rail():
     return f'''<header class="site-rail" aria-label="TOTOYA">
       <a class="rail-logo" href="/" aria-label="TOTOYA home">{stacked_logo()}<img class="flat-logo" src="{LOGO}" width="1059" height="450" alt=""></a>
-      <div class="rail-copy"><p>Only at Totoya</p><p>Negitoro &amp; Japanese Seafood Bowls</p></div>
+      <p class="rail-copy"><strong>Totoya</strong>
+        <span>Negitoro</span> <span>&amp;</span> <span>Japanese</span> <span>Seafood Bowls</span></p>
       <div class="rail-actions">{booking_link('reserve')}{booking_link('order')}</div>
       <details class="rail-menu"><summary>Menu</summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Close menu">Close ×</button>
@@ -80,8 +82,13 @@ def hero():
 def credits():
     return f'''<article class="reading-page"><h1>Image &amp; film credits</h1>
     <h2>The Tokujo meal</h2><p>The opening meal photograph is an AI-assisted edit of TOTOYA’s own meal-tray photograph, using our Tokujo product photography for the bowl.</p>
-    <h2>Our bowls</h2><p>The menu shows TOTOYA’s dishes. The takeout photograph is the Tokujo takeout container from <a href="https://order.toasttab.com/online/totoya-hawaii">our official Toast menu</a>.</p>
+    <h2>Our bowls</h2><p>The menu shows TOTOYA’s dishes. The image in “Totoya at home” is an AI-assisted detail enhancement of TOTOYA’s takeout photograph.</p>
     <h2>Moments at TOTOYA</h2><p>Our kitchen and table scenes come from the <a href="/assets/hero-loop.mp4">TOTOYA brand film</a>. Find more from our team on <a href="{INSTAGRAM}">@totoya_hawaii</a>.</p></article>'''
+
+
+def asset_url(path):
+    version = sha256((ROOT / path).read_bytes()).hexdigest()[:10]
+    return f'/{path}?v={version}'
 
 
 def write_page(filename, title, description, content, *, styles=(), scripts=(), company=False):
@@ -93,8 +100,8 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
         leaflet = 'assets/leaflet-1.9.4/leaflet'
         css = tuple(name for item in css for name in ((leaflet, item) if item == 'visit' else (item,)))
         js = tuple(name for item in js for name in ((leaflet, item) if item == 'visit' else (item,)))
-    style_tags = '\n'.join(f'<link rel="stylesheet" href="/{name}.css">' for name in css)
-    script_tags = '\n'.join(f'<script defer src="/{name}.js"></script>' for name in js)
+    style_tags = '\n'.join(f'<link rel="stylesheet" href="{asset_url(name + ".css")}">' for name in css)
+    script_tags = '\n'.join(f'<script defer src="{asset_url(name + ".js")}"></script>' for name in js)
     body_class = 'company-site' if company else 'with-rail'
     main_class = 'front-page' if filename == 'index.html' else 'standalone'
     text = f'''<!doctype html>
