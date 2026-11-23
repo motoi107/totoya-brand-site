@@ -1,18 +1,7 @@
 /* The main photograph and navigation links work with JavaScript disabled. */
 (() => {
-  const menu = document.querySelector('.rail-menu');
-  document.addEventListener('click', event => {
-    if (menu.open && !menu.contains(event.target)) menu.open = false;
-  });
-  document.addEventListener('keydown', event => {
-    if (event.key === 'Escape' && menu.open) {
-      menu.open = false;
-      menu.querySelector('summary').focus();
-    }
-  });
-
   const hero = document.querySelector('.home-hero');
-  const slides = Array.from(hero.querySelectorAll('.home-slides img'));
+  const slides = Array.from(hero.querySelectorAll('.home-slides picture'));
   const controls = hero.querySelector('.slide-controls');
   const dots = Array.from(controls.querySelectorAll('[aria-pressed]'));
   const playback = controls.querySelector('.slide-playback');

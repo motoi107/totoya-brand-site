@@ -1,57 +1,187 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#142c4e"><title>TOTOYA — Japanese Negitoro &amp; Seafood Bowls</title>
-<meta name="description" content="TOTOYA — Japanese Negitoro &amp; Seafood Bowls in Kaimuki, Ala Moana / Piikoi and Aiea. Reserve Kaimuki or Aiea, order takeout, and explore our hand-roll set. Kapolei opens late February."><link rel="canonical" href="https://www.totoyahawaii.com/">
-<meta property="og:type" content="website"><meta property="og:title" content="TOTOYA — Japanese Negitoro &amp; Seafood Bowls"><meta property="og:description" content="TOTOYA — Japanese Negitoro &amp; Seafood Bowls in Kaimuki, Ala Moana / Piikoi and Aiea. Reserve Kaimuki or Aiea, order takeout, and explore our hand-roll set. Kapolei opens late February."><meta property="og:url" content="https://www.totoyahawaii.com/"><meta property="og:image" content="https://www.totoyahawaii.com/assets/hero-poster.jpg"><meta property="og:site_name" content="TOTOYA Hawaii">
-<link rel="icon" href="favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" type="image/png" sizes="32x32" href="assets/totoya-icon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="home.css"><script src="home.js" defer></script>
-</head><body class="home"><a class="skip-link" href="#main">Skip to content</a>
-<header class="home-rail">
-  <a class="rail-brand" href="index.html" aria-label="TOTOYA home"><img src="assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
-  <div class="rail-copy"><p>Only at Totoya</p><p>Negitoro &amp; Japanese Seafood Bowls</p></div>
-  <div class="rail-actions"><a href="locations.html#reservations">Reservations</a><a href="order.html">Order online</a></div>
-  <details class="rail-menu"><summary>Menu</summary>
-    <nav aria-label="Main navigation"><ul><li><a href="menu.html">Menu</a></li><li><a href="about.html">Our story</a></li><li><a href="locations.html">Locations</a></li><li><a href="locations.html#reservations">Reservations</a></li><li><a class="nav-cta" href="order.html">Order takeout</a></li></ul></nav>
-  </details>
-</header>
-<main id="main"><section class="home-hero" aria-labelledby="hero-title">
-  <div class="home-slides">
-    <img class="is-current" src="assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl with snow crab, uni and salmon roe, served with miso soup">
-    <img src="assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="Egg yolk sauce being poured over a Tokujo bowl" aria-hidden="true">
-    <img src="assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the Totoya counter" aria-hidden="true">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TOTOYA — Japanese Negitoro &amp; Seafood Bowls</title><meta name="description" content="Fresh Japanese negitoro and seafood bowls in Kaimuki, Piikoi and Aiea. Explore the menu, reserve a table or order pickup."><meta name="theme-color" content="#f8f7f2">
+<link rel="canonical" href="https://www.totoyahawaii.com/"><meta property="og:type" content="website"><meta property="og:site_name" content="TOTOYA Hawaii"><meta property="og:title" content="TOTOYA — Japanese Negitoro &amp; Seafood Bowls">
+<meta property="og:description" content="Fresh Japanese negitoro and seafood bowls in Kaimuki, Piikoi and Aiea. Explore the menu, reserve a table or order pickup."><meta property="og:url" content="https://www.totoyahawaii.com/"><meta property="og:image" content="https://www.totoyahawaii.com/assets/tokujo-meal-hero.webp">
+<link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48"><link rel="icon" type="image/png" sizes="32x32" href="/assets/totoya-icon-32.png"><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png">
+<link rel="stylesheet" href="/style.css">
+<link rel="stylesheet" href="/home.css">
+<link rel="stylesheet" href="/sections.css">
+<link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css">
+<link rel="stylesheet" href="/visit.css"><script defer src="/nav.js"></script>
+<script defer src="/home.js"></script>
+<script defer src="/sections.js"></script>
+<script defer src="/assets/leaflet-1.9.4/leaflet.js"></script>
+<script defer src="/visit.js"></script>
+</head><body class="with-rail"><a class="skip-link" href="#main">Skip to content</a>
+<header class="site-rail" aria-label="TOTOYA">
+      <a class="rail-logo" href="/" aria-label="TOTOYA home"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><img class="flat-logo" src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+      <div class="rail-copy"><p>Only at Totoya</p><p>Negitoro &amp; Japanese Seafood Bowls</p></div>
+      <div class="rail-actions"><a href="/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">Reservations</a><a href="/order.html" data-booking="order" aria-haspopup="dialog">Order online</a></div>
+      <details class="rail-menu"><summary>Menu</summary><div class="rail-drawer">
+        <button class="drawer-close" type="button" aria-label="Close menu">Close ×</button>
+        <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>Japanese Negitoro<br>&amp; Seafood Bowls</p></div>
+        <nav aria-label="Main navigation">
+          <a href="/#home">Home</a><a href="/#menu">Our menu</a><a href="/#history">Our story</a>
+          <a href="/#moments">Totoya moments</a><a href="/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">Reservations</a><a href="/order.html" data-booking="order" aria-haspopup="dialog">Order online</a>
+          <a href="/#shopinfo">Locations</a><a href="/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
+        </nav></div></details>
+    </header>
+<main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title">
+      <div class="home-slides">
+        <picture class="is-current"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl topped with snow crab, sea urchin and salmon roe, served with miso soup on a wooden tray"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="Egg yolk sauce poured over a Tokujo negitoro bowl"></picture>
+        <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the TOTOYA counter"></picture>
+      </div>
+      <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
+        <h1 id="hero-title">Negitoro Bowl.<span>The Totoya taste you’ll come back for.</span></h1>
+      </div>
+      <div class="home-hero-foot"><div class="home-caption"><p>TOTOYA · O‘ahu, Hawai‘i</p><p>Japanese Negitoro &amp; Seafood Bowls</p><a href="#menu">Explore our menu</a></div>
+        <div class="slide-controls" role="group" aria-label="Top photographs" hidden>
+          <button type="button" aria-label="Show the Tokujo meal" aria-pressed="true"></button>
+          <button type="button" aria-label="Show egg yolk sauce on a Tokujo bowl" aria-pressed="false"></button>
+          <button type="button" aria-label="Show negitoro at the counter" aria-pressed="false"></button>
+          <button type="button" class="slide-playback">Pause slideshow</button>
+        </div>
+      </div>
+    </section><section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="ed-kicker">Our original negitoro</p>
+  <div class="ed-composition"><div class="ed-intro-copy">
+    <h2 id="intro-title">Only at Totoya.<br>Made fresh, every day.</h2>
+    <p>A one-of-a-kind negitoro, made our way.</p>
+    <p>We prepare our original negitoro fresh each day, to be enjoyed that very day—at its freshest.</p>
+    <p>Tuna, scallops, cucumber and herring roe.<br>Our signature blend of rich flavor and delicate crunch.<br>A taste you’ll find only at Totoya.</p>
+  </div><ul class="ed-bowls" aria-label="Eleven Totoya bowls"><li><img src="/assets/bowl-ume.webp" loading="lazy" alt="Ume negitoro bowl"></li><li><img src="/assets/bowl-take.webp" loading="lazy" alt="Take negitoro bowl"></li><li><img src="/assets/bowl-matsu.webp" loading="lazy" alt="Matsu negitoro bowl"></li><li><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="Tokujo negitoro bowl"></li><li><img src="/assets/bowl-nagomi.webp" loading="lazy" alt="Nagomi seafood bowl"></li><li><img src="/assets/bowl-miyabi.webp" loading="lazy" alt="Miyabi seafood bowl"></li><li><img src="/assets/bowl-nishiki.webp" loading="lazy" alt="Nishiki seafood bowl"></li><li><img src="/assets/bowl-fukuju.webp" loading="lazy" alt="Fukuju seafood bowl"></li><li><img src="/assets/bowl-salmon.webp" loading="lazy" alt="Salmon Bowl"></li><li><img src="/assets/bowl-rainbow-trio.webp" loading="lazy" alt="Rainbow Trio bowl"></li><li><img src="/assets/bowl-maguro-lover.webp" loading="lazy" alt="Maguro Lover bowl"></li></ul></div>
+</section><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
+  <h2 id="news-title">News</h2>
+  <ul>
+    <li><span class="ed-kicker">Coming soon</span><p>Kapolei — opening planned for late February.</p></li>
+    <li><span class="ed-kicker">Reservations</span><p>We’re taking reservations at <a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> and <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a>.</p></li>
+    <li><span class="ed-kicker">Our menu</span><p>Explore our menu, available at all three locations. <a href="/#menu">View menu</a></p></li>
+  </ul>
+</section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
+  <div class="ed-heading"><p class="ed-kicker">The heart of Totoya</p>
+    <h2 id="signatures-title">Our signature bowls</h2>
+    <p>It starts with negitoro.<br>Make it yours with the toppings you love.</p>
+  </div><div class="ed-signature-grid"><a class="ed-signature" href="/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="Ume negitoro bowl with tobiko"></div>
+  <figcaption><div><h3>Ume</h3><p>Negitoro + tobiko</p></div><span>$21.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-take.webp" loading="lazy" alt="Take negitoro bowl with salmon roe"></div>
+  <figcaption><div><h3>Take</h3><p>With salmon roe</p></div><span>$28.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-matsu.webp" loading="lazy" alt="Matsu negitoro bowl with sea urchin"></div>
+  <figcaption><div><h3>Matsu</h3><p>With salmon roe + uni</p></div><span>$37.90</span></figcaption>
+</figure></a><a class="ed-signature" href="/#menu"><figure>
+  <div class="ed-dish-photo"><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="Tokujo negitoro bowl with snow crab and sea urchin"></div>
+  <figcaption><div><h3>Tokujo</h3><p>With salmon roe + crab + uni</p></div><span>$41.90</span></figcaption>
+</figure></a></div>
+</section><section id="menu" class="kv-section kv-menu" aria-labelledby="menu-title"><div class="kv-wrap">
+      <header class="kv-heading"><p class="kv-kicker">TOTOYA’s selection</p><h2 id="menu-title">Menu</h2>
+      <p>One TOTOYA menu, at all three locations.</p>
+      <a class="kv-link" href="/assets/totoya-all-locations-menu.pdf" target="_blank" rel="noopener">View full menu (PDF)</a></header>
+      <div class="kv-menu-list"><details class="kv-accordion" open><summary><span>Signature Negitoro Bowls</span><small>Our specialty</small></summary><ul><li><div><h3>Ume</h3><p>Negitoro + tobiko.</p></div><span class="kv-price">$21.90</span></li><li><div><h3>Take</h3><p>Negitoro + salmon roe.</p></div><span class="kv-price">$28.90</span></li><li><div><h3>Matsu</h3><p>Negitoro + salmon roe and sea urchin.</p></div><span class="kv-price">$37.90</span></li><li><div><h3>Tokujo</h3><p>Negitoro + salmon roe, snow crab and sea urchin.</p></div><span class="kv-price">$41.90</span></li></ul><p class="kv-menu-note">Our negitoro includes tuna, scallops, cucumber, herring roe, green onion, nori (2 pieces), wasabi and ocean salad.<br>Premium option: fresh egg yolk soy sauce +$1.50.</p></details><details class="kv-accordion"><summary><span>Sashimi &amp; Seafood Bowls</span><small>More TOTOYA favorites</small></summary><ul><li><div><h3>Nagomi</h3><p>Negitoro, salmon (2 pieces), shrimp, scallops and tobiko.</p></div><span class="kv-price">$25.90</span></li><li><div><h3>Miyabi</h3><p>Negitoro, tuna (2 pieces), shrimp, scallops and salmon roe.</p></div><span class="kv-price">$31.90</span></li><li><div><h3>Nishiki</h3><p>Negitoro, tuna, salmon, shrimp, scallops, snow crab and salmon roe.</p></div><span class="kv-price">$36.50</span></li><li><div><h3>Fukuju</h3><p>Negitoro, tuna, salmon, shrimp, scallops, snow crab, sea urchin and salmon roe.</p></div><span class="kv-price">$42.50</span></li><li><div><h3>Salmon Bowl</h3><p>Salmon, salmon roe, tobiko and cucumber.</p></div><span class="kv-price">$21.90</span></li><li><div><h3>Rainbow Trio</h3><p>Salmon, scallops, salmon roe, tobiko and cucumber.</p></div><span class="kv-price">$29.90</span></li><li><div><h3>Maguro Lover</h3><p>Tuna, negitoro, green onion and egg yolk.</p></div><span class="kv-price">$33.90</span></li></ul></details><details class="kv-accordion"><summary><span>Miso Soup &amp; Udon</span><small>Complete your meal</small></summary><ul><li><div><h3>Aosa Seaweed Miso Soup</h3><p>Included with your bowl.</p></div><span class="kv-price">+$0.00</span></li><li><div><h3>Today’s Miso Soup</h3><p>Ask about today’s selection.</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>Crab Miso Soup</h3></div><span class="kv-price">+$4.90</span></li><li><div><h3>Half Size Udon Noodles</h3><p>Regular price $6.50.</p></div><span class="kv-price">+$4.90</span></li></ul></details><details class="kv-accordion"><summary><span>Toppings</span><small>Make it your own</small></summary><ul><li><div><h3>Salmon Roe</h3><p>30 g.</p></div><span class="kv-price">+$9.90</span></li><li><div><h3>Sea Urchin</h3><p>15 g.</p></div><span class="kv-price">+$11.50</span></li><li><div><h3>Snow Crab</h3><p>15 g.</p></div><span class="kv-price">+$8.90</span></li><li><div><h3>Nori</h3><p>4 pieces.</p></div><span class="kv-price">+$1.50</span></li><li><div><h3>Egg Yolk Soy Sauce</h3></div><span class="kv-price">+$1.50</span></li></ul></details><details class="kv-accordion"><summary><span>Salad &amp; Drinks</span><small>On the side</small></summary><ul><li><div><h3>House Salad</h3><p>Regular price $4.50.</p></div><span class="kv-price">+$2.90</span></li><li><div><h3>Hot Green Tea</h3></div><span class="kv-price">+$1.50</span></li><li><div><h3>Iced Green Tea</h3></div><span class="kv-price">+$2.00</span></li><li><div><h3>Coke / Diet</h3></div><span class="kv-price">+$2.50</span></li></ul></details></div>
+      <p class="kv-fine">Consuming raw or undercooked meats, poultry, seafood, shellfish or eggs may increase your risk of foodborne illness, especially if you have certain medical conditions.</p>
+    </div></section><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
+  <div class="ed-story-heading"><p class="ed-kicker">Our story</p><h2 id="story-title">Made with care.</h2>
+    <p>Prepared fresh each day. Finished one bowl at a time.<br>Take a closer look at the care behind our original negitoro.</p>
+    <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/">More moments on Instagram</a>
   </div>
-  <div class="home-hero-brand">
-    <img class="hero-vertical-logo" src="assets/totoya-vertical-logo.webp" width="835" height="1883" fetchpriority="high" alt="Totoya">
-    <h1 id="hero-title">Negitoro Bowl.<span>The Totoya taste you’ll come back for.</span></h1>
+  <div class="ed-story-player"><div aria-live="polite"><figure class="ed-scene" id="story-scene-1">
+  <div class="ed-story-screen"><video controls playsinline muted preload="none" poster="/assets/story-craft.webp" aria-label="The team adds finishing touches to TOTOYA negitoro bowls">
+  <source src="/assets/hero-loop.mp4#t=8.95,11.7" type="video/mp4">
+  <a href="/assets/hero-loop.mp4#t=8.95,11.7">Play film</a>
+</video></div>
+  <figcaption><span class="ed-scene-meta">1 / 3 <span>Moments at TOTOYA</span></span>
+    <h3>Made by hand.</h3><p>Finishing touches, one bowl at a time.</p>
+  </figcaption>
+</figure><figure class="ed-scene" id="story-scene-2" hidden>
+  <div class="ed-story-screen"><video controls playsinline muted preload="none" poster="/assets/story-ikura.webp" aria-label="Salmon roe cascading onto a TOTOYA negitoro bowl">
+  <source src="/assets/hero-loop.mp4#t=0.4,4.55" type="video/mp4">
+  <a href="/assets/hero-loop.mp4#t=0.4,4.55">Play film</a>
+</video></div>
+  <figcaption><span class="ed-scene-meta">2 / 3 <span>Moments at TOTOYA</span></span>
+    <h3>The finishing touch.</h3><p>A cascade of ikura. A bright, briny pop.</p>
+  </figcaption>
+</figure><figure class="ed-scene" id="story-scene-3" hidden>
+  <div class="ed-story-screen"><video controls playsinline muted preload="none" poster="/assets/story-bite.webp" aria-label="A spoonful of TOTOYA negitoro above a seafood bowl">
+  <source src="/assets/hero-loop.mp4#t=20.48,22.2" type="video/mp4">
+  <a href="/assets/hero-loop.mp4#t=20.48,22.2">Play film</a>
+</video></div>
+  <figcaption><span class="ed-scene-meta">3 / 3 <span>Moments at TOTOYA</span></span>
+    <h3>That first bite.</h3><p>Rich, fresh and full of texture.</p>
+  </figcaption>
+</figure></div>
+    <div class="ed-scene-chooser" aria-label="Choose a scene" role="group" hidden><button type="button" aria-pressed="true" aria-controls="story-scene-1">The craft</button><button type="button" aria-pressed="false" aria-controls="story-scene-2">The finish</button><button type="button" aria-pressed="false" aria-controls="story-scene-3">The first bite</button></div>
+    <div class="ed-scene-step" hidden><button type="button" data-step="-1">Previous</button><button type="button" data-step="1">Next</button></div>
   </div>
-  <div class="home-hero-foot">
-    <div class="home-caption"><p>TOTOYA · O‘ahu, Hawai‘i</p><p>Japanese Negitoro &amp; Seafood Bowls</p><a href="menu.html">Explore our menu</a></div>
-    <div class="slide-controls" role="group" aria-label="Hero photographs" hidden>
-      <button type="button" aria-label="Show the Tokujo meal" aria-pressed="true"></button>
-      <button type="button" aria-label="Show egg yolk sauce on a Tokujo bowl" aria-pressed="false"></button>
-      <button type="button" aria-label="Show negitoro at the counter" aria-pressed="false"></button>
-      <button type="button" class="slide-playback">Pause slideshow</button>
-    </div>
+</section><section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
+  <div class="ed-heading"><p class="ed-kicker">Moments at Totoya</p><h2 id="moments-title">More than a bowl.</h2>
+    <p>The finishing touch. The first bite.<br>A few little moments worth savoring.</p>
   </div>
-</section><div class="announcement"><a href="news.html#kapolei"><span>COMING SOON</span> TOTOYA Kapolei · Opening late February</a></div>
-<section class="section sea-section"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">Meet your next favorite</span><h2>Seafood, at the center.</h2></div><p class="intro">From our signature negitoro bowls to a hand-roll night at home, there’s more than one way to enjoy TOTOYA.</p></div><div class="food-grid">
-<article class="food-card"><img src="assets/kaisendon-ikura.jpg" width="720" height="1280" alt="TOTOYA negitoro seafood bowl topped with salmon roe" loading="lazy"><h3>Signature bowls</h3><p>Original negitoro, with your choice of salmon roe, uni, or snow crab.</p><span class="card-label">Ume · Take · Matsu · Tokujo</span></article>
-<article class="food-card"><img src="assets/sashimi-bowl.jpg" width="720" height="1280" alt="A TOTOYA bowl with sliced seafood" loading="lazy"><h3>Sashimi favorites</h3><p>Explore our sashimi bowls and find your own favorite combination.</p><span class="card-label">See each location’s menu</span></article>
-<article class="food-card"><img src="assets/handroll.jpg" width="540" height="720" alt="TOTOYA takeout hand-roll set with seafood and ingredients" loading="lazy"><h3>Hand-roll set</h3><p>Make it a hand-roll night. A set for 2–3, with 600g of sushi rice and 20 nori sheets.</p><span class="card-label">Kaimuki only · Takeout</span></article>
-</div><div class="btn-row"><a class="btn btn--outline" href="menu.html">Discover the menu</a></div></div></section>
-<section class="section"><div class="wrap experience"><img src="assets/kaisendon-uni.jpg" width="720" height="1280" alt="TOTOYA seafood bowl with uni and salmon roe" loading="lazy"><div class="experience-copy"><span class="eyebrow">The TOTOYA way</span><h2>A little Japan.<br>Right here in Hawai‘i.</h2><p class="kicker" lang="ja">海の恵みを、一杯に。</p><p class="intro">Kaisendon brings seafood and rice together in one satisfying bowl. At TOTOYA, enjoy it with us or take your favorites home.</p><div class="steps"><div class="step"><strong>Your bowl</strong><p>Start with our original negitoro or explore the sashimi selection.</p></div><div class="step"><strong>Your toppings</strong><p>Discover salmon roe, uni, snow crab, and more on the menu.</p></div><div class="step"><strong>Your moment</strong><p>A lunch break, an evening together, or a bowl to take home.</p></div></div><a class="text-link" href="about.html">Get to know TOTOYA</a></div></div></section><section class="home-film wrap" aria-labelledby="film-heading"><div><h2 id="film-heading">A taste of Japan.<br>A bowl of aloha.</h2><p class="intro">Beautiful seafood. A generous bowl. Find your favorite kaisendon at TOTOYA.</p><div class="btn-row"><a class="btn" href="menu.html">Explore the menu</a><a class="btn btn--outline" href="locations.html#reservations">Reserve a table</a></div></div>
-<div class="home-film-media"><video id="brand-film" data-src="assets/hero-loop.mp4" poster="assets/hero-poster.jpg" muted loop playsinline preload="none" aria-label="TOTOYA seafood bowls and restaurant brand film"></video><button id="film-control" class="film-control" type="button" hidden>Play film</button></div></section><section class="reservation-band" id="reservations"><div class="wrap reservation-inner"><div><span class="eyebrow">Stay a little. Enjoy a bowl.</span><h2>A seat at TOTOYA.</h2><p>Reservations are now welcome at Kaimuki and Aiea. Book Kaimuki online, or call our Aiea team to arrange your visit.</p></div><div class="btn-row"><a class="btn btn--light" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener">Reserve Kaimuki</a><a class="btn btn--light" href="tel:+18084876808">Call Aiea to reserve</a></div></div></section><section class="section"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">Find your TOTOYA</span><h2>Three neighborhoods.<br>One love of seafood.</h2></div><p class="intro">Visit us in Kaimuki, Ala Moana / Piikoi, or Aiea. Kapolei is coming next.</p></div><div class="locations-grid"><article class="location" id="kaimuki"><span class="tag">Reservations welcome</span><h3>Kaimuki</h3><address>1127 12th Ave, Honolulu, HI 96816</address>
-<p class="hours">Open daily<br>Lunch 11:00 AM – 2:30 PM<br>Dinner 5:00 PM – 8:30 PM</p><a class="phone" href="tel:+18086005017">(808) 600-5017</a>
-<div class="btn-row"><a class="btn" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener">Order takeout</a><a class="btn btn--outline" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener">Reserve Kaimuki</a></div>
-<a class="text-link" href="https://maps.google.com/?q=1127+12th+Ave%2C+Honolulu%2C+HI+96816" target="_blank" rel="noopener">Get directions</a></article><article class="location" id="piikoi"><span class="tag">Dine-in &amp; takeout</span><h3>Ala Moana / Piikoi</h3><address>436 Piikoi Street B, Honolulu, HI 96814</address>
-<p class="hours">Open daily<br>Lunch 11:00 AM – 2:30 PM<br>Dinner 5:00 PM – 8:30 PM</p><a class="phone" href="tel:+18082604492">(808) 260-4492</a>
-<div class="btn-row"><a class="btn" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener">Order takeout</a></div>
-<a class="text-link" href="https://maps.google.com/?q=436+Piikoi+Street+B%2C+Honolulu%2C+HI+96814" target="_blank" rel="noopener">Get directions</a></article><article class="location" id="aiea"><span class="tag">Reservations welcome</span><h3>Aiea</h3><address>99-115 Aiea Heights Dr. #250, Aiea, HI 96701</address>
-<p class="hours">Open daily<br>Lunch 11:00 AM – 2:30 PM<br>Dinner 5:00 PM – 8:30 PM</p><a class="phone" href="tel:+18084876808">(808) 487-6808</a>
-<div class="btn-row"><a class="btn" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener">Order takeout</a><a class="btn btn--outline" href="tel:+18084876808">Call to reserve</a></div>
-<a class="text-link" href="https://maps.google.com/?q=99-115+Aiea+Heights+Dr.+%23250%2C+Aiea%2C+HI+96701" target="_blank" rel="noopener">Get directions</a></article></div><div class="new-location"><div><span class="eyebrow">Our next chapter</span><h3>See you soon, Kapolei.</h3></div><div><p>Our Kapolei location is planned to open in late February. Stay tuned for the opening date, address, and more details.</p><a class="text-link" href="news.html#kapolei">Opening updates</a></div></div></div></section><section class="section sea-section"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">From TOTOYA</span><h2>Fresh from the feed.</h2></div><a class="text-link" href="news.html">All news</a></div><div class="news-grid"><article class="news-card"><time datetime="2026-11-17">NOVEMBER 17, 2026</time><h3>Hand-roll night, made easy.</h3><p>Our Hand-roll Set brings a little TOTOYA to your table. Available for takeout at Kaimuki.</p><a class="text-link" href="https://www.instagram.com/totoya_hawaii/p/Df3TPyGmlrC/" target="_blank" rel="noopener">View the Instagram post</a></article><article class="news-card"><time datetime="2026-10-28">OCTOBER 28, 2026</time><h3>Reservations are welcome.</h3><p>Plan your next visit to our Kaimuki or Aiea location. We look forward to seeing you.</p><a class="text-link" href="locations.html#reservations">Plan your visit</a></article></div></div></section></main><div class="wrap social-banner"><p>A little closer to your next bowl. Follow our latest dishes and news.</p><a class="text-link" href="https://www.instagram.com/totoya_hawaii/" target="_blank" rel="noopener">@totoya_hawaii</a></div>
-<footer class="site-footer"><div class="wrap footer-main"><div><a class="brand" href="index.html" aria-label="TOTOYA home"><img class="brand-image" src="assets/totoya-official-logo.webp" width="1059" height="450" alt=""><span class="brand-subtitle">Japanese Negitoro &amp; Seafood Bowls</span></a><p>Japanese Negitoro &amp; Seafood Bowls<br>Kaimuki · Ala Moana / Piikoi · Aiea</p><a class="text-link" href="https://www.instagram.com/totoya_hawaii/" target="_blank" rel="noopener">Instagram</a></div>
-<nav class="footer-links" aria-label="Footer navigation"><a href="menu.html">Menu</a><a href="about.html">Our story</a><a href="craft.html">The bowl</a><a href="locations.html">Locations</a><a href="locations.html#reservations">Reservations</a><a href="order.html">Order takeout</a><a href="news.html">News</a><a href="recruit.html">Join the team</a></nav></div>
-<div class="wrap footer-bottom"><span>© <span data-year>2026</span> TOTOYA. All rights reserved.</span><span>A Funergy Group concept.</span></div></footer>
-<script src="nav.js" defer></script></body></html>
+  <div class="ed-moments-grid">
+    <article><div class="ed-moment-screen"><video controls playsinline muted preload="none" poster="/assets/story-ikura.webp" aria-label="Salmon roe cascading onto a TOTOYA negitoro bowl">
+  <source src="/assets/hero-loop.mp4#t=0.4,4.55" type="video/mp4">
+  <a href="/assets/hero-loop.mp4#t=0.4,4.55">Play film</a>
+</video></div><h3>The finishing touch.</h3>
+      <p>A cascade of ikura. A bright, briny pop. Watch a favorite topping bring our original negitoro to life.</p>
+      <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/reels/">Discover our Instagram reels</a>
+    </article>
+    <article><div class="ed-moment-screen"><video controls playsinline muted preload="none" poster="/assets/story-bite.webp" aria-label="A spoonful of TOTOYA negitoro above a seafood bowl">
+  <source src="/assets/hero-loop.mp4#t=20.48,22.2" type="video/mp4">
+  <a href="/assets/hero-loop.mp4#t=20.48,22.2">Play film</a>
+</video></div><h3>That first bite.</h3>
+      <p>Rich, fresh and full of texture. Pull up a seat and discover the taste that makes Totoya our own.</p>
+      <a class="ed-link" href="/#shopinfo">Find your Totoya</a>
+    </article>
+  </div>
+  <p class="ed-social">Follow <a href="https://www.instagram.com/totoya_hawaii/">@totoya_hawaii</a> for more from our kitchen.</p>
+</section><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">Your next TOTOYA moment</p><h2 id="shop-title">Come find us.</h2>
+      <h3>Three neighborhoods. One TOTOYA.</h3><p>Find your closest shop, plan your visit, or pick up your favorites on the way home.</p></header>
+      <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>Use my location</button>
+      <p>Location access is optional. We do not save your location. Directions open in Google Maps.</p></div>
+      <div class="kv-start"><span>Start from</span><div role="group" aria-label="Choose your starting point"><button type="button" data-start="hnl" data-lat="21.3325" data-lon="-157.9203" data-origin="Daniel K. Inouye International Airport, Honolulu" aria-pressed="false">HNL Airport</button><button type="button" data-start="waikiki" data-lat="21.2771" data-lon="-157.8276" data-origin="Waikiki Beach, Honolulu, HI" aria-pressed="false">Waikīkī</button><button type="button" data-start="moana" data-lat="21.2915" data-lon="-157.8435" data-origin="Ala Moana Center, Honolulu, HI" aria-pressed="false">Ala Moana Center</button><button type="button" data-start="downtown" data-lat="21.3069" data-lon="-157.8583" data-origin="Iolani Palace, Downtown Honolulu, HI" aria-pressed="false">Downtown</button></div></div>
+      <p class="kv-status" aria-live="polite">Choose a starting area, or use your location to find a nearby TOTOYA.</p></div>
+      <div class="kv-map-box"><div class="kv-map" aria-label="South O‘ahu map, with three TOTOYA shops and local landmarks"><div class="kv-map-surface">
+      <svg viewBox="0 0 720 540" preserveAspectRatio="none" width="720" height="540" aria-hidden="true" focusable="false"><polygon points="-166.9,346 -301.2,369.3 -347.1,372.2 -375.9,359.2 -401.7,310.7 -406,293 -373.6,279.3 -380.5,264.8 -396.5,253.5 -415,267.5 -438.9,173.9 -460.5,126.8 -489.4,89.9 -526.2,54.1 -579.7,28.1 -586,10.9 -585.2,-25.4 -590.2,-55.2 -620,-113.3 -659.9,-151.3 -703,-183.6 -744.5,-241.2 -738.9,-358.5 -740.7,-388.1 -748.5,-410.8 -798.7,-466.8 -887,-526.4 -881.4,-536.1 -810.2,-548.7 -614.9,-559.1 -551.5,-547.4 -415.5,-561.8 -357.6,-593.6 -357.5,-614.4 -366.1,-623.1 -362.1,-628.9 -275.4,-695.5 -235.3,-746 -235,-773.9 -226.4,-793.5 -144.6,-877.3 -86.2,-927.9 -7,-953.9 9.1,-968.4 65.5,-969.1 131.2,-894.3 156.3,-827.8 183.5,-783.2 200.4,-770.2 205.9,-721.4 202.8,-699.4 242.7,-640.8 274,-623.7 345.1,-524.7 341.3,-475.9 359.9,-467.5 377.2,-487.3 410.1,-477.5 421.1,-467.3 468.9,-378.1 467.6,-320.4 430.2,-312.4 420.9,-281.2 442.8,-173.8 456.5,-150.3 505.9,-137 532.2,-120.3 539.5,-88.3 564.1,-55.3 623.4,-8.5 643.9,-13.9 660.4,-27 667.3,-59 659,-131.6 667.3,-144.7 690.7,-156.3 722.3,-156.3 773.3,-149 791.2,-138.9 792.5,-102.5 778.8,-82.2 763.6,-35.7 762.2,-5.2 770.2,28.1 796,36 802,35.2 807.6,32.8 814,31.3 815.6,31.4 817.2,31.6 818.9,31.9 819.4,32.2 821.6,36.9 823.9,43.5 830.6,54.6 861.2,96 861.9,109 849.9,142.6 856,176.2 861.5,192.7 897.4,247.7 907.5,259 1005.2,323 1036.2,320.4 1033.6,337.2 1030.4,358.9 905.1,449.8 905.7,473.7 888.2,481.8 858.8,487.9 845.9,482.4 845,473.7 853.6,455.9 851.1,425.5 844.7,415.5 823.3,407.7 713.3,436.5 689.4,433.6 648.9,451.1 603.3,493.4 552.7,502.2 517.5,492.8 508.3,479.9 504.6,457.9 484.4,431.7 442.1,397.7 306.4,344.4 292.5,301.9 278.9,276.8 261,271.1 217.7,305.2 220.8,320.8 234.5,329.9 242.3,346.7 115.6,344.3 120.3,324.9 116.8,304.8 67.5,274.9 51.1,276.7 1.8,307.2 -105.7,335.3 -166.9,346"/></svg>
+      <span class="kv-geography" aria-hidden="true">O‘ahu</span><span class="kv-landmark hnl" style="left:29.66%;top:48.20%"><i></i><b>HNL Airport</b></span><span class="kv-landmark waikiki" style="left:69.11%;top:81.38%"><i></i><b>Waikīkī</b></span><span class="kv-landmark moana" style="left:62.34%;top:72.75%"><i></i><b>Ala Moana Center</b></span><span class="kv-landmark downtown" style="left:56.04%;top:63.53%"><i></i><b>Downtown</b></span><a class="kv-pin" href="#kaimuki" data-select-store="kaimuki" style="left:81.20%;top:78.60%" aria-label="Show Kaimuki shop details"><i aria-hidden="true"></i><b>Kaimuki</b></a><a class="kv-pin" href="#piikoi" data-select-store="piikoi" style="left:60.89%;top:71.57%" aria-label="Show Ala Moana / Piikoi shop details"><i aria-hidden="true"></i><b>Piikoi</b></a><a class="kv-pin" href="#aiea" data-select-store="aiea" style="left:25.70%;top:20.36%" aria-label="Show Aiea shop details"><i aria-hidden="true"></i><b>Aiea</b></a></div><div class="kv-live-map" aria-hidden="true" inert aria-label="Interactive street map of TOTOYA locations on O‘ahu"></div></div>
+      <p class="kv-map-key"><span>TOTOYA locations</span><span>Local landmarks</span><button data-map-reset type="button" hidden>Show all places</button><a class="kv-outline-credit" href="https://github.com/glynnbird/usstatesgeojson/blob/master/hawaii.geojson" target="_blank" rel="noopener">Map outline</a></p><p class="kv-map-note" data-map-note hidden>Colored areas are visual guides, not neighborhood boundaries.</p></div>
+      <nav class="kv-tabs" aria-label="Choose a TOTOYA location"><a href="#kaimuki" id="visit-tab-kaimuki" data-tab="kaimuki">Kaimuki</a><a href="#piikoi" id="visit-tab-piikoi" data-tab="piikoi">Piikoi</a><a href="#aiea" id="visit-tab-aiea" data-tab="aiea">Aiea</a></nav>
+      <div class="kv-shop-list"><article id="kaimuki" class="kv-shop" data-store="kaimuki" data-label="Kaimuki" data-lat="21.281737" data-lon="-157.799182">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Kaimuki</h3><address>1127 12th Ave<br>Honolulu, HI 96816</address>
+      <p class="kv-caption">Approximate drive from HNL</p><strong>20–35 minutes</strong><br><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+1127+12th+Ave%2C+Honolulu%2C+HI+96816&amp;travelmode=driving&amp;origin=Daniel+K.+Inouye+International+Airport%2C+Honolulu" target="_blank" rel="noopener">Check route from the airport</a></div>
+      <div><h4>Visit us</h4><a class="kv-phone" href="tel:+18086005017">(808) 600-5017</a>
+      <dl><div><dt>Lunch</dt><dd>11:00 am – 2:30 pm</dd></div><div><dt>Dinner</dt><dd>5:00 pm – 8:30 pm</dd></div><div><dt>Open</dt><dd>Daily</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener">Reserve a table</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener">Order takeout</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+1127+12th+Ave%2C+Honolulu%2C+HI+96816&amp;travelmode=driving" target="_blank" rel="noopener" data-directions="true">Directions</a><a class="kv-link" href="https://maps.app.goo.gl/ytFYtxSXhNfaw7ar9" target="_blank" rel="noopener">View place on Google Maps</a></div></div>
+    </article><article id="piikoi" class="kv-shop" data-store="piikoi" data-label="Ala Moana / Piikoi" data-lat="21.293486" data-lon="-157.846898">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Ala Moana / Piikoi</h3><address>436 Piikoi Street B<br>Honolulu, HI 96814</address>
+      <p class="kv-caption">Approximate drive from HNL</p><strong>20–30 minutes</strong><br><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+436+Piikoi+Street+B%2C+Honolulu%2C+HI+96814&amp;travelmode=driving&amp;origin=Daniel+K.+Inouye+International+Airport%2C+Honolulu" target="_blank" rel="noopener">Check route from the airport</a></div>
+      <div><h4>Visit us</h4><a class="kv-phone" href="tel:+18082604492">(808) 260-4492</a>
+      <dl><div><dt>Lunch</dt><dd>11:00 am – 2:30 pm</dd></div><div><dt>Dinner</dt><dd>5:00 pm – 8:30 pm</dd></div><div><dt>Open</dt><dd>Daily</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener">Order takeout</a><a class="kv-btn" href="tel:+18082604492">Call the restaurant</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+436+Piikoi+Street+B%2C+Honolulu%2C+HI+96814&amp;travelmode=driving" target="_blank" rel="noopener" data-directions="true">Directions</a><a class="kv-link" href="https://maps.app.goo.gl/G2F14NHWvr6UU4Pr6" target="_blank" rel="noopener">View place on Google Maps</a></div></div>
+    </article><article id="aiea" class="kv-shop" data-store="aiea" data-label="Aiea" data-lat="21.379" data-lon="-157.9296">
+      <div><p class="kv-kicker">TOTOYA</p><h3>Aiea</h3><address>99-115 Aiea Heights Dr. #250<br>Aiea, HI 96701</address>
+      <p class="kv-caption">Approximate drive from HNL</p><strong>10–20 minutes</strong><br><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+99-115+Aiea+Heights+Dr.+%23250%2C+Aiea%2C+HI+96701&amp;travelmode=driving&amp;origin=Daniel+K.+Inouye+International+Airport%2C+Honolulu" target="_blank" rel="noopener">Check route from the airport</a></div>
+      <div><h4>Visit us</h4><a class="kv-phone" href="tel:+18084876808">(808) 487-6808</a>
+      <dl><div><dt>Lunch</dt><dd>11:00 am – 2:30 pm</dd></div><div><dt>Dinner</dt><dd>5:00 pm – 8:30 pm</dd></div><div><dt>Open</dt><dd>Daily</dd></div></dl>
+      <div class="kv-actions"><a class="kv-btn primary" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener">Reserve a table</a><a class="kv-btn" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener">Order takeout</a></div>
+      <div class="kv-map-links"><a class="kv-link" href="https://www.google.com/maps/dir/?api=1&amp;destination=TOTOYA%2C+99-115+Aiea+Heights+Dr.+%23250%2C+Aiea%2C+HI+96701&amp;travelmode=driving" target="_blank" rel="noopener" data-directions="true">Directions</a><a class="kv-link" href="https://maps.app.goo.gl/aSD6FYd2DPoCQg7B7" target="_blank" rel="noopener">View place on Google Maps</a></div></div>
+    </article></div>
+      <aside class="kv-next"><div><p class="kv-kicker">Next stop</p><h3>Kapolei</h3></div><p>Opening planned for late February.<br>More details to come.</p></aside>
+      <p class="kv-fine">Airport drive times are approximate planning estimates, not live travel times. Traffic and your pickup point may change your trip. Check Google Maps before you leave.</p>
+    </div></section><section class="ed-section ed-takeaway" id="onlinestore" aria-labelledby="order-title">
+  <div class="ed-order-image"><img src="/assets/menu-tokujo.jpg" loading="lazy" alt="Tokujo negitoro with sea urchin, snow crab and salmon roe in TOTOYA’s takeout container"></div>
+  <div class="ed-order-copy"><p class="ed-kicker">Your favorite bowl, to go</p><h2 id="order-title">Totoya at home.</h2>
+    <p>Our original negitoro, wherever you feel at home.<br>Choose your nearest location and order for pickup.</p>
+    <ul class="ed-order-links" aria-label="Order takeout"><li><a href="https://order.toasttab.com/online/totoya-hawaii">Kaimuki</a></li><li><a href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b">Ala Moana / Piikoi</a></li><li><a href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250">Aiea</a></li></ul>
+  </div>
+</section></main>
+<footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA home" href="/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
+      <p>Japanese Negitoro &amp; Seafood Bowls</p><p class="footer-neighborhoods">Kaimuki · Piikoi · Aiea</p></div>
+      <nav aria-label="Footer navigation"><a href="/#history">Our story</a><a href="/#menu">Menu</a><a href="/#shopinfo">Shop info</a><a href="/company/">Our company</a><a href="/company/#careers">Careers</a><a href="/company/#contact">Contact</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a></nav>
+      <small>© TOTOYA · <a href="/company/">Funergy Group</a> · <a href="/privacy/">Privacy</a> · <a href="/media-credits.html">Credits</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="Close location selector">Close ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">Reservations</h2><p>Choose your location to reserve a table.</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Reserve a table</span></a><a class="kv-option" href="tel:+18082604492"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Call to inquire</span></a><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Reserve a table</span></a></div><p class="kv-fine">Online reservations are available for Kaimuki and Aiea. Please call Piikoi to ask about seating.</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">Order online</h2><p>Choose a TOTOYA location for pickup.</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Order takeout</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Order takeout</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Order takeout</span></a></div><p class="kv-fine">Pickup times and availability are shown on each shop’s ordering page.</p></div></dialog>
+</body></html>
