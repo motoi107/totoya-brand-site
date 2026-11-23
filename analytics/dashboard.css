@@ -1,0 +1,96 @@
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('/assets/eb-garamond-latin.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+:root {
+  color-scheme: light;
+  --paper: #f8f7f2;
+  --ink: #142c4e;
+  --muted: #53626b;
+  --line: #d2d8d4;
+  --accent: #8a4736;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", Meiryo, sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { margin: 0; min-height: 100vh; }
+button, a, summary { touch-action: manipulation; }
+button { font: inherit; color: inherit; cursor: pointer; }
+button:focus-visible, summary:focus-visible, a:focus-visible { outline: 3px solid #936342; outline-offset: 3px; }
+a { color: var(--ink); text-underline-offset: .25em; }
+.frame { width: min(76rem, calc(100% - clamp(2rem, 8vw, 8rem))); margin-inline: auto; }
+.masthead { border-bottom: 1px solid var(--line); }
+.masthead-inner, footer { display: flex; align-items: center; justify-content: space-between; }
+.masthead-inner { min-height: 4.65rem; }
+.masthead img { display: block; width: 5.7rem; height: auto; }
+.site-link, footer a { font-size: .875rem; }
+main { padding-block: clamp(2rem, 5vw, 4.2rem) 2.5rem; min-height: 63vh; }
+.title-row { display: flex; justify-content: space-between; align-items: center; gap: .75rem; }
+h1, h2, p, dl, dd { margin: 0; }
+h1 { font-size: clamp(1.95rem, 4.4vw, 3.35rem); font-weight: 600; letter-spacing: -.05em; line-height: 1.24; }
+.period-range { margin-top: .7rem; font-size: clamp(.875rem, 2vw, 1rem); line-height: 1.6; }
+.refresh { flex: none; padding: .55rem 1rem; min-height: 44px; border: 1px solid var(--ink); border-radius: 4px; background: transparent; font-size: .875rem; }
+.refresh:hover { background: #e9ede5; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .45rem 1rem; margin-top: 1.75rem; padding-bottom: 1.25rem; border-bottom: 1px solid var(--ink); }
+.period-buttons { display: flex; flex-wrap: wrap; gap: 2px; background: #e8ebe4; border-radius: 5px; padding: 2px; }
+.period-buttons button { min-width: 3.3rem; min-height: 44px; padding: .35rem .8rem; border: 0; border-radius: 3px; background: transparent; font-size: .875rem; white-space: nowrap; }
+.period-buttons button[aria-pressed="true"] { background: var(--ink); color: white; }
+.period-buttons button:hover:not([aria-pressed="true"]) { background: #d9dfd6; }
+.fetched, #status, .definition, .empty { font-size: .875rem; line-height: 1.6; color: var(--muted); }
+#status { margin-block: 1rem; }
+#status:empty { margin: 0; }
+#status[data-error] { color: #813d2d; }
+.metrics { display: grid; grid-template-columns: 3fr 2fr; padding: 1.6rem 0; margin-bottom: 1.3rem; border-bottom: 1px solid var(--line); }
+.metrics dl { display: grid; }
+.traffic { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.outbound { grid-template-columns: repeat(2,minmax(0,1fr)); }
+.metrics dl > div { min-width: 0; padding-left: clamp(.65rem,2vw,1.8rem); border-left: 1px solid var(--line); }
+.metrics .traffic > div:first-child { padding-left: 0; border: 0; }
+.metrics dt { font-size: .875rem; line-height: 1.5; font-weight: 550; }
+.metrics dd { margin-top: .35rem; font: 600 clamp(2.4rem,4.6vw,3.9rem)/1.05 'EB Garamond', Georgia, serif; font-variant-numeric: lining-nums tabular-nums; overflow-wrap: anywhere; }
+.outbound dd { color: var(--accent); }
+.report-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 1rem; align-items: start; }
+.panel { min-width: 0; padding: clamp(1.1rem,2.3vw,1.85rem); background: #fffefa; border: 1px solid var(--line); border-radius: 5px; }
+.panel h2 { font-weight: 600; font-size: clamp(1.12rem,1.75vw,1.5rem); line-height: 1.5; letter-spacing: -.03em; }
+.panel .definition { margin-top: .35rem; }
+table { border-collapse: collapse; width: 100%; margin-top: .85rem; font-size: .9375rem; font-variant-numeric: tabular-nums; }
+th, td { text-align: right; padding: .65rem .3rem; vertical-align: middle; border-bottom: 1px solid var(--line); }
+th:first-child { text-align: left; padding-left: 0; }
+th:last-child, td:last-child { padding-right: 0; }
+thead th { color: var(--muted); font-weight: 500; font-size: .8125rem; }
+tbody th { font-weight: 500; }
+tbody tr:last-child > * { border-bottom: none; }
+.na { color: var(--muted); font-size: .8125rem; }
+.chart { display: grid; grid-template-columns: auto minmax(0,1fr); gap: .3rem .5rem; margin: 1.5rem 0 1.05rem; }
+.chart-scale { display:flex; flex-direction:column; justify-content:space-between; padding-block: 0; font-variant-numeric: tabular-nums; }
+.chart-scale, .chart-dates { color: var(--muted); font-size: .75rem; }
+.chart-bars { position: relative; height: 9rem; display: grid; align-items: end; column-gap: 1px; border-block: 1px solid var(--line); background: linear-gradient(var(--line),var(--line)) 50% 50% / 100% 1px no-repeat; }
+.chart-bar { width: min(70%, 2rem); margin: 0 auto; background: var(--ink); min-width: 1px; }
+.chart-dates { grid-column: 2; display: flex; justify-content: space-between; }
+.chart-dates span:only-child { margin-inline: auto; }
+.daily-details summary { cursor: pointer; color: var(--ink); font-size: .875rem; padding-block: .65rem; }
+.daily-details[open] table { margin-top: 0; }
+.empty { padding: 1.45rem 0; }
+footer { border-top: 1px solid var(--line); padding-block: 1.25rem 1.8rem; color: var(--muted); font-size: .875rem; }
+@media (max-width: 760px) {
+  .frame { width: calc(100% - 2rem); }
+  .masthead-inner { min-height: 3.8rem; }
+  .masthead img { width: 4.8rem; }
+  .controls { margin-top: 1.2rem; }
+  .period-buttons button { min-width: 0; padding-inline: clamp(.67rem,3vw,1rem); }
+  .metrics { grid-template-columns: 1fr; padding-block: 1.25rem; gap: 1.2rem; }
+  .metrics dl > div { padding-left: .6rem; }
+  .metrics .outbound { padding-top: 1rem; border-top: 1px solid var(--line); }
+  .metrics .outbound > div:first-child { padding-left: 0; border-left: 0; }
+  .metrics dt { font-size: .8125rem; }
+  .metrics dd { font-size: 2.55rem; }
+  .report-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 390px) {
+  .period-buttons { width: 100%; }
+  .period-buttons button { flex: 1; padding-inline: .3rem; }
+}
