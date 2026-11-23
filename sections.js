@@ -1,22 +1,39 @@
-/* Load muted reel backgrounds when their surfaces enter the viewport. */
+/* Start each silent reel when its own surface is visible. */
 (() => {
+  const elements = document.querySelectorAll('[data-reel]');
+  if (!elements.length) return;
+
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const t = window.totoyaText || ((key, ...parts) => key.replace(/\{(\d+)\}/g, (_, i) => parts[i]));
-  const reels = [];
-  const preferences = new Map();
 
-  function preferenceFor(element) {
-    const group = element.closest('.ed-story') || element;
-    if (!preferences.has(group)) preferences.set(group, { enabled: null });
-    return preferences.get(group);
+  function surfaceIsVisible(surface) {
+    const rect = surface.getBoundingClientRect();
+    let left = Math.max(rect.left, 0);
+    let top = Math.max(rect.top, 0);
+    let right = Math.min(rect.right, innerWidth);
+    let bottom = Math.min(rect.bottom, innerHeight);
+    for (let parent = surface.parentElement; parent && left < right && top < bottom; parent = parent.parentElement) {
+      const style = getComputedStyle(parent);
+      if (style.overflowX === 'visible' && style.overflowY === 'visible') continue;
+      const bounds = parent.getBoundingClientRect();
+      if (style.overflowX !== 'visible') {
+        left = Math.max(left, bounds.left);
+        right = Math.min(right, bounds.right);
+      }
+      if (style.overflowY !== 'visible') {
+        top = Math.max(top, bounds.top);
+        bottom = Math.min(bottom, bounds.bottom);
+      }
+    }
+    return left < right && top < bottom;
   }
 
   function makeReel(element) {
     const surface = element.querySelector('.ed-reel-media');
     const video = surface.querySelector('video');
     const button = element.querySelector('.ed-reel-toggle');
-    const preference = preferenceFor(element);
-    const reel = { surface, visible: false, update, measure };
+    const reel = { surface, visible: false, update, motionChanged };
+    let preference = null;
     let wanted = false;
     let blocked = false;
     let failed = false;
@@ -24,6 +41,8 @@
     let firstFrame = null;
 
     video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
     video.autoplay = false;
     button.hidden = false;
 
@@ -45,19 +64,11 @@
       if (wanted && !video.paused && video.readyState >= 2) surface.classList.add('has-frame');
     }
 
-    function measure() {
-      const box = surface.getBoundingClientRect();
-      reel.visible = box.width > 0 && box.height > 0 && box.bottom > 0 && box.top < innerHeight &&
-        box.right > 0 && box.left < innerWidth;
-    }
-
     function update() {
-      const allowed = preference.enabled === null ? !reduced.matches : preference.enabled;
+      const allowed = preference ?? !reduced.matches;
+      if (reduced.matches && !allowed) surface.classList.remove('has-frame');
       const play = reel.visible && !element.hidden && !document.hidden && allowed && !blocked && !failed;
-      if (play === wanted) {
-        showAction();
-        return;
-      }
+      if (play === wanted) return;
       wanted = play;
       const currentRevision = ++revision;
       video.autoplay = wanted;
@@ -68,13 +79,17 @@
         return;
       }
       if (!video.getAttribute('src')) video.src = video.dataset.src;
-      const attempt = video.play();
-      attempt?.catch(() => {
+      video.play()?.catch(() => {
         if (currentRevision !== revision || !wanted) return;
         blocked = true;
         surface.classList.remove('has-frame');
         update();
       });
+    }
+
+    function motionChanged() {
+      if (reduced.matches && preference === true) preference = null;
+      update();
     }
 
     video.addEventListener('playing', () => {
@@ -97,26 +112,26 @@
       update();
     });
     button.addEventListener('click', () => {
-      preference.enabled = !wanted;
+      preference = !wanted;
       blocked = false;
-      reel.measure();
-      reels.forEach(item => item.update());
+      reel.visible = surfaceIsVisible(surface);
+      update();
     });
     showAction();
     return reel;
   }
 
-  document.querySelectorAll('[data-reel]').forEach(element => reels.push(makeReel(element)));
-  if (!reels.length) return;
+  const reels = Array.from(elements, makeReel);
+  const observed = 'IntersectionObserver' in window;
 
-  function measureAll() {
-    reels.forEach(reel => {
-      reel.measure();
+  function refresh() {
+    for (const reel of reels) {
+      if (!observed) reel.visible = surfaceIsVisible(reel.surface);
       reel.update();
-    });
+    }
   }
 
-  if ('IntersectionObserver' in window) {
+  if (observed) {
     const bySurface = new Map(reels.map(reel => [reel.surface, reel]));
     const observer = new IntersectionObserver(entries => {
       for (const entry of entries) {
@@ -131,52 +146,16 @@
     const onScroll = () => {
       if (scheduled) return;
       scheduled = true;
-      requestAnimationFrame(() => { scheduled = false; measureAll(); });
+      requestAnimationFrame(() => { scheduled = false; refresh(); });
     };
-    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('scroll', onScroll, { capture: true, passive: true });
     window.addEventListener('resize', onScroll);
+    refresh();
   }
-  measureAll();
-  document.addEventListener('visibilitychange', measureAll);
-  window.addEventListener('pageshow', measureAll);
-  reduced.addEventListener('change', () => {
-    if (reduced.matches) {
-      preferences.forEach(preference => {
-        if (preference.enabled === true) preference.enabled = null;
-      });
-    }
-    reels.forEach(reel => reel.update());
-  });
 
-  const story = document.querySelector('.ed-story-player');
-  if (!story) return;
-  const chooser = story.querySelector('.ed-scene-chooser');
-  const stepper = story.querySelector('.ed-scene-step');
-  const options = Array.from(chooser.querySelectorAll('button'));
-  const scenes = Array.from(story.querySelectorAll('.ed-scene'));
-  let selected = 0;
-  function show(index) {
-    const next = (index + scenes.length) % scenes.length;
-    if (selected === next) return;
-    scenes[selected].hidden = true;
-    options[selected].setAttribute('aria-pressed', 'false');
-    selected = next;
-    scenes[next].hidden = false;
-    options[next].setAttribute('aria-pressed', 'true');
-    measureAll();
-  }
-  options.forEach((button, index) => {
-    button.addEventListener('click', () => show(index));
-    button.addEventListener('keydown', event => {
-      if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft') return;
-      event.preventDefault();
-      show(index + (event.key === 'ArrowRight' ? 1 : -1));
-      options[selected].focus();
-    });
-  });
-  stepper.querySelectorAll('button').forEach(button => {
-    button.addEventListener('click', () => show(selected + Number(button.dataset.step)));
-  });
-  chooser.hidden = false;
-  stepper.hidden = false;
+  document.addEventListener('visibilitychange', refresh);
+  window.addEventListener('pageshow', refresh);
+  const onMotionChange = () => reels.forEach(reel => reel.motionChanged());
+  if (typeof reduced.addEventListener === 'function') reduced.addEventListener('change', onMotionChange);
+  else reduced.addListener(onMotionChange);
 })();

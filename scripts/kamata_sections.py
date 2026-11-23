@@ -25,7 +25,7 @@ SIGNATURES = (
 
 INSTAGRAM = 'https://www.instagram.com/totoya_hawaii/'
 STORY_SCENES = (
-    ('The craft', 'Made by hand.', 'Finishing touches, one bowl at a time.',
+    ('The craft', 'Made by hand.', 'Prepared fresh each day. Finished one bowl at a time.',
      'The team adds finishing touches to TOTOYA negitoro bowls',
      '/assets/film-craft.mp4', '/assets/story-craft.webp'),
     ('The finish', 'The finishing touch.', 'A cascade of ikura. A bright, briny pop.',
@@ -96,50 +96,18 @@ def film(scene):
 
 
 def story():
-    panels = []
-    buttons = []
-    for i, scene in enumerate(STORY_SCENES):
-        name, title, description = scene[:3]
-        hidden = ' hidden' if i else ''
-        pressed = 'true' if i == 0 else 'false'
-        panels.append(f'''<figure class="ed-scene" id="story-scene-{i+1}" data-reel{hidden}>
-  {film(scene)}
-  <figcaption><span class="ed-scene-meta">{i+1} / 3 <span>Moments at TOTOYA</span></span>
-    <h3>{title}</h3><p>{description}</p></figcaption>
-</figure>''')
-        buttons.append(f'<button type="button" aria-pressed="{pressed}" aria-controls="story-scene-{i+1}">{name}</button>')
+    links = (None, (INSTAGRAM + 'reels/', 'Discover our Instagram reels'), ('/#shopinfo', 'Find your Totoya'))
+    chapters = []
+    for number, (scene, link) in enumerate(zip(STORY_SCENES, links), start=1):
+        _, title, description = scene[:3]
+        action = f'<a class="ed-story-link" href="{link[0]}">{link[1]}</a>' if link else ''
+        chapters.append(f'''<figure class="ed-story-scene" id="story-scene-{number}" data-reel>
+      {film(scene)}
+      <figcaption><h3>{title}</h3><p>{description}</p>{action}</figcaption>
+    </figure>''')
     return f'''<section class="ed-section ed-story" id="history" aria-labelledby="story-title">
-  <div class="ed-story-heading"><p class="ed-kicker">Our story</p><h2 id="story-title">Made with care.</h2>
-    <p>Prepared fresh each day. Finished one bowl at a time.<br>Take a closer look at the care behind our original negitoro.</p>
-    <a class="ed-link" href="{INSTAGRAM}">More moments on Instagram</a>
-  </div>
-  <div class="ed-story-player"><div>{''.join(panels)}</div>
-    <div class="ed-scene-chooser" aria-label="Choose a scene" role="group" hidden>{''.join(buttons)}</div>
-    <div class="ed-scene-step" hidden><button type="button" data-step="-1">Previous</button><button type="button" data-step="1">Next</button></div>
-  </div>
-</section>'''
-
-
-def moments():
-    return f'''<section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
-  <div class="ed-heading"><p class="ed-kicker">Moments at Totoya</p><h2 id="moments-title">More than a bowl.</h2>
-    <p>The finishing touch. The first bite.<br>A few little moments worth savoring.</p>
-  </div>
-  <div class="ed-moments-spread">
-    <article class="ed-moment" data-reel>{film(STORY_SCENES[1])}
-      <div class="ed-moment-copy"><h3>The finishing touch.</h3>
-        <p>A cascade of ikura. A bright, briny pop. Watch a favorite topping bring our original negitoro to life.</p>
-        <a class="ed-link" href="{INSTAGRAM}reels/">Discover our Instagram reels</a>
-      </div>
-    </article>
-    <article class="ed-moment" data-reel>{film(STORY_SCENES[2])}
-      <div class="ed-moment-copy"><h3>That first bite.</h3>
-        <p>Rich, fresh and full of texture. Pull up a seat and discover the taste that makes Totoya our own.</p>
-        <a class="ed-link" href="/#shopinfo">Find your Totoya</a>
-      </div>
-    </article>
-  </div>
-  <p class="ed-social">Follow <a href="{INSTAGRAM}">@totoya_hawaii</a> for more from our kitchen.</p>
+  <h2 id="story-title" class="ed-story-heading"><span id="moments-title">Our story</span></h2>
+  <div class="ed-story-grid" id="moments">{''.join(chapters)}</div>
 </section>'''
 
 

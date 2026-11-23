@@ -19,9 +19,9 @@
 <script type="application/json" id="ui-strings">{"Language":"言語","Select language":"表示言語を選ぶ","Pause slideshow":"スライドショーを一時停止","Play slideshow":"スライドショーを再生","Pause":"一時停止","Play":"再生","Pause background video · {0}":"背景動画「{0}」を一時停止","Play background video · {0}":"背景動画「{0}」を再生","Open Google Maps without sharing location":"位置情報を共有せずにGoogle マップを開く","Getting your current location…":"現在地を取得しています…","your location":"現在地","Closest to {0} by straight-line distance: TOTOYA {1}.":"{0}から直線距離で最も近い店舗は、TOTOYA {1}店です。","Choose a landmark to find a nearby TOTOYA.":"目印となる場所を選んで、お近くのTOTOYAをお探しください。","Finding your nearest TOTOYA…":"最寄りのTOTOYAを検索しています…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"現在地を取得できません。目印となる場所を選んで、お近くのTOTOYAをお探しください。","View shop details":"店舗の詳細を見る","Directions from my location":"現在地からの経路","Zoom in":"拡大","Zoom out":"縮小","Close popup":"ポップアップを閉じる","Map":"地図","OpenStreetMap contributors":"OpenStreetMapの貢献者"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
 <link rel="stylesheet" href="/style.css?v=8858a51b35">
-<link rel="stylesheet" href="/sections.css?v=790c83165d">
+<link rel="stylesheet" href="/sections.css?v=2eb25628b6">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/sections.js?v=93a0fc4272"></script>
+<script defer src="/sections.js?v=546aef88bd"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -36,70 +36,34 @@
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>名物ネギトロ丼<br>と海鮮丼</p></div>
         <nav aria-label="メインナビゲーション">
           <a href="/ja/#home">ホーム</a><a href="/ja/#menu">お品書き</a><a href="/ja/#history">ネギトロへのこだわり</a>
-          <a href="/ja/#moments">TOTOYAのひととき</a><a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a>
+          <a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a>
           <a href="/ja/#shopinfo">店舗案内</a><a href="/ja/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
         </nav></div></details>
     </header>
 <main id="main" class="standalone"><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
-  <div class="ed-story-heading"><p class="ed-kicker">ネギトロへのこだわり</p><h1 id="story-title">一杯ずつ、心を込めて。</h1>
-    <p>その日に仕込み、一杯ずつ丁寧に仕上げます。<br>TOTOYAのネギトロができるまでを、少しのぞいてみませんか。</p>
-    <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/">Instagramでお店の様子を見る</a>
-  </div>
-  <div class="ed-story-player"><div><figure class="ed-scene" id="story-scene-1" data-reel>
-  <div class="ed-reel-media">
+  <h1 id="story-title" class="ed-story-heading"><span id="moments-title">ネギトロへのこだわり</span></h1>
+  <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="ネギトロ丼を一杯ずつ仕上げるスタッフ">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="手仕事" hidden>一時停止</button>
-  <figcaption><span class="ed-scene-meta">1 / 3 <span>TOTOYAのひととき</span></span>
-    <h3>手仕事から生まれる一杯。</h3><p>最後のひと手間まで、一杯ずつ丁寧に。</p></figcaption>
-</figure><figure class="ed-scene" id="story-scene-2" data-reel hidden>
-  <div class="ed-reel-media">
+      <figcaption><h3>手仕事から生まれる一杯。</h3><p>その日に仕込み、一杯ずつ丁寧に仕上げます。</p></figcaption>
+    </figure><figure class="ed-story-scene" id="story-scene-2" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="仕上げ" hidden>一時停止</button>
-  <figcaption><span class="ed-scene-meta">2 / 3 <span>TOTOYAのひととき</span></span>
-    <h3>仕上げは、いくら。</h3><p>こぼれるほどのいくら。ひと粒はじけるたび、磯の風味が広がります。</p></figcaption>
-</figure><figure class="ed-scene" id="story-scene-3" data-reel hidden>
-  <div class="ed-reel-media">
+      <figcaption><h3>仕上げは、いくら。</h3><p>こぼれるほどのいくら。ひと粒はじけるたび、磯の風味が広がります。</p><a class="ed-story-link" href="https://www.instagram.com/totoya_hawaii/reels/">Instagramのリールを見る</a></figcaption>
+    </figure><figure class="ed-story-scene" id="story-scene-3" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="最初のひと口" hidden>一時停止</button>
-  <figcaption><span class="ed-scene-meta">3 / 3 <span>TOTOYAのひととき</span></span>
-    <h3>最初のひと口。</h3><p>濃厚な旨みと、みずみずしい食感が広がります。</p></figcaption>
-</figure></div>
-    <div class="ed-scene-chooser" aria-label="場面を選ぶ" role="group" hidden><button type="button" aria-pressed="true" aria-controls="story-scene-1">手仕事</button><button type="button" aria-pressed="false" aria-controls="story-scene-2">仕上げ</button><button type="button" aria-pressed="false" aria-controls="story-scene-3">最初のひと口</button></div>
-    <div class="ed-scene-step" hidden><button type="button" data-step="-1">前へ</button><button type="button" data-step="1">次へ</button></div>
-  </div>
-</section><section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
-  <div class="ed-heading"><p class="ed-kicker">TOTOYAのひととき</p><h2 id="moments-title">一杯を味わうひととき。</h2>
-    <p>最後の仕上げから、最初のひと口まで。<br>思わずじっくり味わいたくなる、そんな瞬間をお届けします。</p>
-  </div>
-  <div class="ed-moments-spread">
-    <article class="ed-moment" data-reel><div class="ed-reel-media">
-  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
-</div>
-<button type="button" class="ed-reel-toggle" data-film-name="仕上げ" hidden>一時停止</button>
-      <div class="ed-moment-copy"><h3>仕上げは、いくら。</h3>
-        <p>いくらをたっぷりのせると、口の中でぷちっとはじけ、磯の風味が広がります。自慢のネギトロ丼が仕上がる瞬間をご覧ください。</p>
-        <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/reels/">Instagramのリールを見る</a>
-      </div>
-    </article>
-    <article class="ed-moment" data-reel><div class="ed-reel-media">
-  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
-</div>
-<button type="button" class="ed-reel-toggle" data-film-name="最初のひと口" hidden>一時停止</button>
-      <div class="ed-moment-copy"><h3>最初のひと口。</h3>
-        <p>濃厚な旨みに、みずみずしさと歯ごたえ。ぜひお店で、TOTOYAならではのひと口をお楽しみください。</p>
-        <a class="ed-link" href="/ja/#shopinfo">お近くの店舗を探す</a>
-      </div>
-    </article>
-  </div>
-  <p class="ed-social">お店の日々の様子は、Instagramの<a href="https://www.instagram.com/totoya_hawaii/">@totoya_hawaii</a>でお届けしています。</p>
+      <figcaption><h3>最初のひと口。</h3><p>濃厚な旨みと、みずみずしい食感が広がります。</p><a class="ed-story-link" href="/ja/#shopinfo">お近くの店舗を探す</a></figcaption>
+    </figure></div>
 </section></main>
 <footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA トップページ" href="/ja/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
       <p>名物ネギトロ丼と海鮮丼</p><p class="footer-neighborhoods">カイムキ・ピイコイ・アイエア</p></div>

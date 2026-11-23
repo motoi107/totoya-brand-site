@@ -7,7 +7,7 @@ import json
 from site_languages import LANGUAGES, render_page, local_route
 
 from kamata_company import company_content, privacy_content
-from kamata_sections import intro, news, signatures, story, moments, takeaway
+from kamata_sections import intro, news, signatures, story, takeaway
 from kamata_visit import menu_section, locations_section, booking_dialog
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -40,7 +40,7 @@ def rail():
         <div class="drawer-brand">{stacked_logo()}<p>Japanese Negitoro<br>&amp; Seafood Bowls</p></div>
         <nav aria-label="Main navigation">
           <a href="/#home">Home</a><a href="/#menu">Our menu</a><a href="/#history">Our story</a>
-          <a href="/#moments">Totoya moments</a>{booking_link('reserve')}{booking_link('order')}
+          {booking_link('reserve')}{booking_link('order')}
           <a href="/#shopinfo">Locations</a><a href="/company/">Funergy Group</a><a href="{INSTAGRAM}">Instagram</a>
         </nav></div></details>
     </header>'''
@@ -144,14 +144,14 @@ def build():
     for lang in LANGUAGES:
         if lang != 'en':
             CATALOGS[lang] = json.loads((ROOT / 'translations' / f'{lang}.json').read_text(encoding='utf-8'))
-    homepage = ''.join((hero(), intro(), news(), signatures(), menu_section(), story(), moments(), locations_section(), takeaway()))
+    homepage = ''.join((hero(), intro(), news(), signatures(), menu_section(), story(), locations_section(), takeaway()))
     write_page('index.html', 'TOTOYA — Japanese Negitoro & Seafood Bowls',
                'Fresh Japanese negitoro and seafood bowls in Kaimuki, Piikoi and Aiea. Explore the menu, reserve a table or order pickup.',
                homepage, styles=('home','sections'), scripts=('home','sections'))
     write_page('menu.html', 'Menu · TOTOYA', 'Dine-in menu, seafood bowls and toppings for all three TOTOYA locations.', page_heading(menu_section()))
     write_page('locations.html', 'Locations & reservations · TOTOYA', 'Find TOTOYA in Kaimuki, Piikoi and Aiea. View hours, directions and reservations.', page_heading(locations_section()))
     write_page('order.html', 'Order online · TOTOYA', 'Choose your neighborhood TOTOYA for pickup.', page_heading(takeaway()), styles=('sections',))
-    write_page('about.html', 'Our story · TOTOYA', 'Watch the care behind our original negitoro and moments from our kitchen.', page_heading(story()) + moments(), styles=('sections',), scripts=('sections',))
+    write_page('about.html', 'Our story · TOTOYA', 'Watch the care behind our original negitoro and moments from our kitchen.', page_heading(story()), styles=('sections',), scripts=('sections',))
     write_page('craft.html', 'Our original negitoro · TOTOYA', 'Meet our original negitoro and the toppings that make it yours.', page_heading(intro()) + signatures(), styles=('sections',), scripts=('sections',))
     news_archive = page_heading(news()).replace('<li><span class="ed-kicker">Coming soon', '<li id="kapolei"><span class="ed-kicker">Coming soon').replace('<li><span class="ed-kicker">Reservations', '<li id="reservation-news"><span class="ed-kicker">Reservations')
     news_archive += '''<article class="reading-page" id="handroll"><p class="section-kicker">NOVEMBER 17, 2026</p><h2>Hand-roll night, made easy.</h2><p>Our Hand-roll Set serves 2–3 and is available for takeout at Kaimuki.</p><p><a class="line-link" href="https://www.instagram.com/totoya_hawaii/p/Df3TPyGmlrC/">See the announcement from our kitchen</a></p></article>'''

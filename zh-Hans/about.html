@@ -19,9 +19,9 @@
 <script type="application/json" id="ui-strings">{"Language":"语言","Select language":"选择语言","Pause slideshow":"暂停照片轮播","Play slideshow":"播放照片轮播","Pause":"暂停","Play":"播放","Pause background video · {0}":"暂停背景视频 · {0}","Play background video · {0}":"播放背景视频 · {0}","Open Google Maps without sharing location":"不分享我的位置，直接打开 Google 地图","Getting your current location…":"正在获取您的当前位置…","your location":"您的位置","Closest to {0} by straight-line distance: TOTOYA {1}.":"按直线距离计算，离{0}最近的是 TOTOYA {1} 店。","Choose a landmark to find a nearby TOTOYA.":"选择地标，查找附近的 TOTOYA。","Finding your nearest TOTOYA…":"正在查找离您最近的 TOTOYA…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"无法获取您的位置。请选择地标，查找附近的 TOTOYA。","View shop details":"查看门店详情","Directions from my location":"从我的位置出发","Zoom in":"放大地图","Zoom out":"缩小地图","Close popup":"关闭弹出窗口","Map":"地图","OpenStreetMap contributors":"OpenStreetMap 贡献者"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
 <link rel="stylesheet" href="/style.css?v=8858a51b35">
-<link rel="stylesheet" href="/sections.css?v=790c83165d">
+<link rel="stylesheet" href="/sections.css?v=2eb25628b6">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/sections.js?v=93a0fc4272"></script>
+<script defer src="/sections.js?v=546aef88bd"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">跳至主要内容</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -36,70 +36,34 @@
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>日式金枪鱼蓉<br>与海鲜丼</p></div>
         <nav aria-label="主导航">
           <a href="/zh-Hans/#home">首页</a><a href="/zh-Hans/#menu">我们的菜单</a><a href="/zh-Hans/#history">我们的故事</a>
-          <a href="/zh-Hans/#moments">TOTOYA 的日常</a><a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a>
+          <a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a>
           <a href="/zh-Hans/#shopinfo">门店</a><a href="/zh-Hans/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
         </nav></div></details>
     </header>
 <main id="main" class="standalone"><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
-  <div class="ed-story-heading"><p class="ed-kicker">我们的故事</p><h1 id="story-title">每一碗都用心。</h1>
-    <p>每天新鲜备料，每一碗都亲手完成。<br>近距离看看，我们的招牌金枪鱼蓉是怎么做出来的。</p>
-    <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/">去 Instagram 看更多日常</a>
-  </div>
-  <div class="ed-story-player"><div><figure class="ed-scene" id="story-scene-1" data-reel>
-  <div class="ed-reel-media">
+  <h1 id="story-title" class="ed-story-heading"><span id="moments-title">我们的故事</span></h1>
+  <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYA 的厨师为金枪鱼蓉丼添上最后的配料">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="手艺" hidden>暂停</button>
-  <figcaption><span class="ed-scene-meta">1 / 3 <span>TOTOYA 的日常</span></span>
-    <h3>亲手制作。</h3><p>每一碗，都用心做好最后的点缀。</p></figcaption>
-</figure><figure class="ed-scene" id="story-scene-2" data-reel hidden>
-  <div class="ed-reel-media">
+      <figcaption><h3>亲手制作。</h3><p>每天新鲜备料，每一碗都亲手完成。</p></figcaption>
+    </figure><figure class="ed-story-scene" id="story-scene-2" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="三文鱼籽落在 TOTOYA 的金枪鱼蓉丼上">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="最后的点缀" hidden>暂停</button>
-  <figcaption><span class="ed-scene-meta">2 / 3 <span>TOTOYA 的日常</span></span>
-    <h3>最后的点缀。</h3><p>三文鱼籽倾落碗中，轻轻一咬，咸鲜滋味迸开。</p></figcaption>
-</figure><figure class="ed-scene" id="story-scene-3" data-reel hidden>
-  <div class="ed-reel-media">
+      <figcaption><h3>最后的点缀。</h3><p>三文鱼籽倾落碗中，轻轻一咬，咸鲜滋味迸开。</p><a class="ed-story-link" href="https://www.instagram.com/totoya_hawaii/reels/">观看 Instagram 短视频</a></figcaption>
+    </figure><figure class="ed-story-scene" id="story-scene-3" data-reel>
+      <div class="ed-reel-media">
   <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="从海鲜丼上舀起一勺 TOTOYA 招牌金枪鱼蓉">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="第一口" hidden>暂停</button>
-  <figcaption><span class="ed-scene-meta">3 / 3 <span>TOTOYA 的日常</span></span>
-    <h3>第一口的滋味。</h3><p>鲜美浓郁，口感层次丰富。</p></figcaption>
-</figure></div>
-    <div class="ed-scene-chooser" aria-label="选择片段" role="group" hidden><button type="button" aria-pressed="true" aria-controls="story-scene-1">手艺</button><button type="button" aria-pressed="false" aria-controls="story-scene-2">最后的点缀</button><button type="button" aria-pressed="false" aria-controls="story-scene-3">第一口</button></div>
-    <div class="ed-scene-step" hidden><button type="button" data-step="-1">上一段</button><button type="button" data-step="1">下一段</button></div>
-  </div>
-</section><section class="ed-section ed-moments" id="moments" aria-labelledby="moments-title">
-  <div class="ed-heading"><p class="ed-kicker">TOTOYA 的日常</p><h2 id="moments-title">一碗之外。</h2>
-    <p>从添上最后一味，到送入口中的第一口。<br>有些小小的瞬间，值得慢慢品味。</p>
-  </div>
-  <div class="ed-moments-spread">
-    <article class="ed-moment" data-reel><div class="ed-reel-media">
-  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="三文鱼籽落在 TOTOYA 的金枪鱼蓉丼上">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
-</div>
-<button type="button" class="ed-reel-toggle" data-film-name="最后的点缀" hidden>暂停</button>
-      <div class="ed-moment-copy"><h3>最后的点缀。</h3>
-        <p>看三文鱼籽洒落在招牌金枪鱼蓉上，粒粒饱满，轻轻一咬，咸鲜的滋味在嘴里迸开。</p>
-        <a class="ed-link" href="https://www.instagram.com/totoya_hawaii/reels/">观看 Instagram 短视频</a>
-      </div>
-    </article>
-    <article class="ed-moment" data-reel><div class="ed-reel-media">
-  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="从海鲜丼上舀起一勺 TOTOYA 招牌金枪鱼蓉">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
-</div>
-<button type="button" class="ed-reel-toggle" data-film-name="第一口" hidden>暂停</button>
-      <div class="ed-moment-copy"><h3>第一口的滋味。</h3>
-        <p>坐下来尝一口，从浓郁的鱼鲜到层层交织的口感，细品 TOTOYA 独有的滋味。</p>
-        <a class="ed-link" href="/zh-Hans/#shopinfo">查找附近的 TOTOYA</a>
-      </div>
-    </article>
-  </div>
-  <p class="ed-social">关注 <a href="https://www.instagram.com/totoya_hawaii/">@totoya_hawaii</a>，看看我们厨房里的新鲜事。</p>
+      <figcaption><h3>第一口的滋味。</h3><p>鲜美浓郁，口感层次丰富。</p><a class="ed-story-link" href="/zh-Hans/#shopinfo">查找附近的 TOTOYA</a></figcaption>
+    </figure></div>
 </section></main>
 <footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA 首页" href="/zh-Hans/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
       <p>日式金枪鱼蓉与海鲜丼</p><p class="footer-neighborhoods">Kaimuki · Piikoi · Aiea</p></div>

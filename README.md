@@ -18,7 +18,7 @@ The booking selector links to Toast for Kaimuki and Google Reserve for Aiea. Pii
 
 ## Brand media
 
-The homepage uses the approved Tokujo composition and the restaurant’s official logos and bowl photographs. Story and Moments play three silent full-HD loops from TOTOYA’s portrait film master. Public photography and film credits are at `/media-credits.html`.
+The homepage uses the approved Tokujo composition and the restaurant’s official logos and bowl photographs. The Our Story section pairs three silent full-HD loops from TOTOYA’s portrait film master with on-screen captions. Both `#history` and `#moments` open this section. Public photography and film credits are at `/media-credits.html`.
 
 ## Public routes
 
