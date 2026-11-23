@@ -39,6 +39,6 @@
     if (document.hidden) video.pause();
     else if (!userPaused && video.getBoundingClientRect().bottom > 0 && video.getBoundingClientRect().top < innerHeight) play();
   });
-  if (!userPaused) play();
+  if (!userPaused && video.getBoundingClientRect().top < innerHeight) play();
   sync();
 })();
