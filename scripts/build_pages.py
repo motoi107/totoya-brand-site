@@ -1,7 +1,6 @@
 """Build the public TOTOYA site from its shared Kamata layout and page sections."""
 from html import escape
-from hashlib import sha256
-from pathlib import Path
+from site_assets import ROOT, asset_url
 import re
 import json
 from site_languages import LANGUAGES, render_page, local_route
@@ -10,7 +9,6 @@ from kamata_company import company_content, privacy_content
 from kamata_sections import STORY_SCENES, intro, news, signatures, story, takeaway
 from kamata_visit import menu_section, locations_section, booking_dialog
 
-ROOT = Path(__file__).resolve().parents[1]
 ORIGIN = "https://www.totoyahawaii.com"
 LOGO = "/assets/totoya-official-logo.webp"
 INSTAGRAM = "https://www.instagram.com/totoya_hawaii/"
@@ -63,7 +61,7 @@ def footer():
 
 
 def hero():
-    scenes = [{"src": clip, "poster": poster + "?v=hd"} for _, _, _, _, clip, poster in STORY_SCENES]
+    scenes = [{"src": clip, "poster": poster} for _, _, _, _, clip, poster in STORY_SCENES]
     playlist = escape(json.dumps(scenes, separators=(",", ":")), quote=True)
     poster = scenes[0]["poster"]
     return f'''<section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
@@ -93,12 +91,7 @@ def credits():
     return f'''<article class="reading-page"><h1>Image &amp; film credits</h1>
     <h2>The Tokujo meal</h2><p>The opening meal photograph is an AI-assisted edit of TOTOYA’s own meal-tray photograph, using our Tokujo product photography for the bowl.</p>
     <h2>Our bowls</h2><p>The menu shows TOTOYA’s dishes. The image in “Totoya at home” is an AI-assisted detail enhancement of TOTOYA’s takeout photograph.</p>
-    <h2>Moments at TOTOYA</h2><p>Our kitchen and table scenes come from the <a href="/assets/hero-loop.mp4">TOTOYA brand film</a>. Find more from our team on <a href="{INSTAGRAM}">@totoya_hawaii</a>.</p></article>'''
-
-
-def asset_url(path):
-    version = sha256((ROOT / path).read_bytes()).hexdigest()[:10]
-    return f'/{path}?v={version}'
+    <h2>Moments at TOTOYA</h2><p>Our kitchen and table scenes come from the <a href="{asset_url('assets/brand-film-clean.mp4')}">TOTOYA brand film</a>. Find more from our team on <a href="{INSTAGRAM}">@totoya_hawaii</a>.</p></article>'''
 
 
 def write_page(filename, title, description, content, *, styles=(), scripts=(), company=False):

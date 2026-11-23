@@ -101,6 +101,17 @@
 .ed-news li a { text-decoration: underline; text-underline-offset: .2em; }
 
 .ed-signatures { padding-block: 110px 36px; }
+.ed-signature-title { display: grid; justify-items: center; gap: .3rem; }
+.ed-signature-lead {
+  font-size: clamp(1.5rem, 2.6vw, 2.375rem);
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+.ed-signature-name {
+  font-size: clamp(3.75rem, 8vw, 6.25rem);
+  line-height: 1.04;
+}
 .ed-signature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 52px 40px; margin-top: 52px; }
 .ed-signature { display: block; min-width: 0; text-decoration: none; }
 .ed-dish-photo {

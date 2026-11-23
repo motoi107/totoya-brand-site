@@ -19,8 +19,8 @@
 <script type="application/json" id="ui-strings">{"Language":"言語","Select language":"表示言語を選ぶ","Pause slideshow":"スライドショーを一時停止","Play slideshow":"スライドショーを再生","Pause":"一時停止","Play":"再生","Pause background video · {0}":"背景動画「{0}」を一時停止","Play background video · {0}":"背景動画「{0}」を再生","Open Google Maps without sharing location":"位置情報を共有せずにGoogle マップを開く","Getting your current location…":"現在地を取得しています…","your location":"現在地","Closest to {0} by straight-line distance: TOTOYA {1}.":"{0}から直線距離で最も近い店舗は、TOTOYA {1}店です。","Choose a landmark to find a nearby TOTOYA.":"目印となる場所を選んで、お近くのTOTOYAをお探しください。","Finding your nearest TOTOYA…":"最寄りのTOTOYAを検索しています…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"現在地を取得できません。目印となる場所を選んで、お近くのTOTOYAをお探しください。","View shop details":"店舗の詳細を見る","Directions from my location":"現在地からの経路","Zoom in":"拡大","Zoom out":"縮小","Close popup":"ポップアップを閉じる","Map":"地図","OpenStreetMap contributors":"OpenStreetMapの貢献者"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
 <link rel="stylesheet" href="/style.css?v=c91ff0a73a">
-<link rel="stylesheet" href="/home.css?v=3b47907e18">
-<link rel="stylesheet" href="/sections.css?v=cb51d7a421">
+<link rel="stylesheet" href="/home.css?v=10c7a21c69">
+<link rel="stylesheet" href="/sections.css?v=e77d1751a4">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
 <script defer src="/home.js?v=de64d09524"></script>
@@ -46,13 +46,13 @@
     </header>
 <main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=hd"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木のお盆にのった、ずわいがに、うに、いくら入りの特上ネギトロ丼と味噌汁"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=cfc3ab651e"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木のお盆にのった、ずわいがに、うに、いくら入りの特上ネギトロ丼と味噌汁"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="特上ネギトロ丼に黄身醤油をかける様子"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYAのカウンターで提供するネギトロ丼"></picture>
       </div>
       <div class="ed-reel-media home-film" aria-hidden="true">
-        <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="">
-        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=hd&quot;}]"></video>
+        <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4?v=5c2f86777c&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=cfc3ab651e&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4?v=f7513f30ec&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=c0cdbc1306&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4?v=8e7ca5f1ee&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=6c7baa20a3&quot;}]"></video>
       </div>
       <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="ネギトロへのこだわり" hidden>再生</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="TOTOYA" fetchpriority="high">
@@ -80,8 +80,11 @@
     <li><span class="ed-kicker">お品書き</span><p>3店舗共通のお品書きをご用意しています。<a href="/ja/#menu">お品書きを見る</a></p></li>
   </ul>
 </section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
-  <div class="ed-heading"><p class="ed-kicker">TOTOYAの看板メニュー</p>
-    <h2 id="signatures-title">名物ネギトロ丼</h2>
+  <div class="ed-heading">
+    <h2 id="signatures-title" class="ed-signature-title">
+      <span class="ed-signature-lead">TOTOYAの名物</span>
+      <span class="ed-signature-name">ネギトロ</span>
+    </h2>
     <p>まずは自慢のネギトロから。<br>お好みの具材で、あなたの一杯に。</p>
   </div><div class="ed-signature-grid"><a class="ed-signature" href="/ja/#menu"><figure>
   <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="とびこを添えたネギトロ丼「梅」"></div>
@@ -106,22 +109,22 @@
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">ネギトロへのこだわり</span></h2>
   <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="ネギトロ丼を一杯ずつ仕上げるスタッフ">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
+  <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="ネギトロ丼を一杯ずつ仕上げるスタッフ">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4?v=5c2f86777c"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="手仕事" hidden>一時停止</button>
       <figcaption><h3>手仕事から生まれる一杯。</h3><p>その日に仕込み、一杯ずつ丁寧に仕上げます。</p></figcaption>
     </figure><figure class="ed-story-scene" id="story-scene-2" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+  <img src="/assets/story-ikura.webp?v=c0cdbc1306" loading="lazy" width="1080" height="1920" alt="TOTOYAのネギトロ丼にたっぷりのいくらをのせる様子">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4?v=f7513f30ec"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="仕上げ" hidden>一時停止</button>
       <figcaption><h3>仕上げは、いくら。</h3><p>こぼれるほどのいくら。ひと粒はじけるたび、磯の風味が広がります。</p><a class="ed-story-link" href="https://www.instagram.com/totoya_hawaii/reels/">Instagramのリールを見る</a></figcaption>
     </figure><figure class="ed-story-scene" id="story-scene-3" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+  <img src="/assets/story-bite.webp?v=6c7baa20a3" loading="lazy" width="1080" height="1920" alt="海鮮丼からひとさじすくい上げたTOTOYAのネギトロ">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4?v=8e7ca5f1ee"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="最初のひと口" hidden>一時停止</button>
       <figcaption><h3>最初のひと口。</h3><p>濃厚な旨みと、みずみずしい食感が広がります。</p><a class="ed-story-link" href="/ja/#shopinfo">お近くの店舗を探す</a></figcaption>

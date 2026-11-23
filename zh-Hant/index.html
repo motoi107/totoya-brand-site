@@ -19,8 +19,8 @@
 <script type="application/json" id="ui-strings">{"Language":"語言","Select language":"選擇語言","Pause slideshow":"暫停照片輪播","Play slideshow":"播放照片輪播","Pause":"暫停","Play":"播放","Pause background video · {0}":"暫停背景影片 · {0}","Play background video · {0}":"播放背景影片 · {0}","Open Google Maps without sharing location":"不分享我的位置，直接開啟 Google 地圖","Getting your current location…":"正在取得您目前的位置…","your location":"您的位置","Closest to {0} by straight-line distance: TOTOYA {1}.":"按直線距離計算，離{0}最近的是 TOTOYA {1} 店。","Choose a landmark to find a nearby TOTOYA.":"選擇地標，尋找附近的 TOTOYA。","Finding your nearest TOTOYA…":"正在尋找離您最近的 TOTOYA…","Location unavailable. Choose a landmark to find a nearby TOTOYA.":"無法取得您的位置。請選擇地標，尋找附近的 TOTOYA。","View shop details":"查看分店詳情","Directions from my location":"從我的位置出發","Zoom in":"放大地圖","Zoom out":"縮小地圖","Close popup":"關閉彈出視窗","Map":"地圖","OpenStreetMap contributors":"OpenStreetMap 貢獻者"}</script>
 <script defer src="/language.js?v=7b0b143c5b"></script>
 <link rel="stylesheet" href="/style.css?v=c91ff0a73a">
-<link rel="stylesheet" href="/home.css?v=3b47907e18">
-<link rel="stylesheet" href="/sections.css?v=cb51d7a421">
+<link rel="stylesheet" href="/home.css?v=10c7a21c69">
+<link rel="stylesheet" href="/sections.css?v=e77d1751a4">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327"><script defer src="/nav.js?v=4870bde8d6"></script>
 <script defer src="/home.js?v=de64d09524"></script>
@@ -46,13 +46,13 @@
     </header>
 <main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=hd"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木托盤上盛著特上鮪魚泥丼和味噌湯，丼上鋪有雪蟹、海膽和鮭魚卵。"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/story-craft.webp?v=cfc3ab651e"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="木托盤上盛著特上鮪魚泥丼和味噌湯，丼上鋪有雪蟹、海膽和鮭魚卵。"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="蛋黃醬油淋在特上鮪魚泥丼上"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYA 的吧台上擺著剛做好的鮪魚泥丼"></picture>
       </div>
       <div class="ed-reel-media home-film" aria-hidden="true">
-        <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="">
-        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=hd&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=hd&quot;}]"></video>
+        <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="">
+        <video muted playsinline preload="none" disablepictureinpicture tabindex="-1" data-playlist="[{&quot;src&quot;:&quot;/assets/film-craft.mp4?v=5c2f86777c&quot;,&quot;poster&quot;:&quot;/assets/story-craft.webp?v=cfc3ab651e&quot;},{&quot;src&quot;:&quot;/assets/film-ikura.mp4?v=f7513f30ec&quot;,&quot;poster&quot;:&quot;/assets/story-ikura.webp?v=c0cdbc1306&quot;},{&quot;src&quot;:&quot;/assets/film-bite.mp4?v=8e7ca5f1ee&quot;,&quot;poster&quot;:&quot;/assets/story-bite.webp?v=6c7baa20a3&quot;}]"></video>
       </div>
       <button class="ed-reel-toggle hero-film-toggle" type="button" data-film-name="我們的故事" hidden>播放</button>
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
@@ -80,8 +80,11 @@
     <li><span class="ed-kicker">我們的菜單</span><p>三家分店供應同一份菜單。<a href="/zh-Hant/#menu">查看菜單</a></p></li>
   </ul>
 </section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
-  <div class="ed-heading"><p class="ed-kicker">TOTOYA 的招牌</p>
-    <h2 id="signatures-title">招牌丼飯</h2>
+  <div class="ed-heading">
+    <h2 id="signatures-title" class="ed-signature-title">
+      <span class="ed-signature-lead">本店招牌</span>
+      <span class="ed-signature-name">鮪魚泥</span>
+    </h2>
     <p>每一碗，都從鮪魚泥開始。<br>加上喜歡的配料，就是最合你口味的一碗。</p>
   </div><div class="ed-signature-grid"><a class="ed-signature" href="/zh-Hant/#menu"><figure>
   <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="配飛魚卵的梅鮪魚泥丼"></div>
@@ -106,22 +109,22 @@
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">我們的故事</span></h2>
   <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-craft.webp?v=hd" loading="lazy" width="1080" height="1920" alt="TOTOYA 的廚師為鮪魚泥丼添上最後的配料">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4"></video>
+  <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="TOTOYA 的廚師為鮪魚泥丼添上最後的配料">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-craft.mp4?v=5c2f86777c"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="手藝" hidden>暫停</button>
       <figcaption><h3>親手製作。</h3><p>每天新鮮備料，每一碗都親手完成。</p></figcaption>
     </figure><figure class="ed-story-scene" id="story-scene-2" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-ikura.webp?v=hd" loading="lazy" width="1080" height="1920" alt="鮭魚卵落在 TOTOYA 的鮪魚泥丼上">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4"></video>
+  <img src="/assets/story-ikura.webp?v=c0cdbc1306" loading="lazy" width="1080" height="1920" alt="鮭魚卵落在 TOTOYA 的鮪魚泥丼上">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-ikura.mp4?v=f7513f30ec"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="最後的點綴" hidden>暫停</button>
       <figcaption><h3>最後的點綴。</h3><p>鮭魚卵傾落碗中，輕輕一咬，鹹鮮滋味迸開。</p><a class="ed-story-link" href="https://www.instagram.com/totoya_hawaii/reels/">觀看 Instagram Reels 短片</a></figcaption>
     </figure><figure class="ed-story-scene" id="story-scene-3" data-reel>
       <div class="ed-reel-media">
-  <img src="/assets/story-bite.webp?v=hd" loading="lazy" width="1080" height="1920" alt="從海鮮丼上舀起一勺 TOTOYA 招牌鮪魚泥">
-  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4"></video>
+  <img src="/assets/story-bite.webp?v=6c7baa20a3" loading="lazy" width="1080" height="1920" alt="從海鮮丼上舀起一勺 TOTOYA 招牌鮪魚泥">
+  <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1" data-src="/assets/film-bite.mp4?v=8e7ca5f1ee"></video>
 </div>
 <button type="button" class="ed-reel-toggle" data-film-name="第一口" hidden>暫停</button>
       <figcaption><h3>第一口的滋味。</h3><p>鮮美濃郁，口感層次豐富。</p><a class="ed-story-link" href="/zh-Hant/#shopinfo">尋找附近的 TOTOYA</a></figcaption>

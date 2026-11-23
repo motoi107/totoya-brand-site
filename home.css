@@ -95,17 +95,28 @@
     height: auto;
     background: linear-gradient(180deg, #14222e66, transparent 26%, transparent 55%, #0d1620ba);
   }
-  .home-hero-brand { position: absolute; inset: 0; place-self: stretch; z-index: 1; text-align: left; pointer-events: none; }
-  .home-hero-brand .hero-vertical-logo {
+  .home-hero-brand {
     position: absolute;
-    top: var(--hero-gutter);
-    left: var(--hero-gutter);
-    height: clamp(84px, 23vw, 134px);
+    inset: 0;
+    place-self: stretch;
+    z-index: 1;
+    display: grid;
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: .75rem;
+    padding: var(--hero-gutter);
+    text-align: left;
+    pointer-events: none;
+  }
+  .home-hero-brand .hero-vertical-logo {
+    place-self: start;
+    height: clamp(504px, 138vw, 804px);
+    max-height: 100%;
+    object-fit: contain;
+    object-position: top left;
     margin: 0;
   }
   .home-hero h1 {
-    position: absolute;
-    inset: auto calc(var(--hero-gutter) + 52px) var(--hero-gutter) var(--hero-gutter);
+    margin-right: 52px;
     font-size: clamp(2.55rem, 10vw, 4.25rem);
     line-height: 1.04;
   }
@@ -126,6 +137,14 @@
     color: white;
     background: #11213780;
     font-size: 0;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
+  .home-hero-brand {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+    grid-template-rows: minmax(0, 1fr);
+    align-items: end;
   }
 }
 

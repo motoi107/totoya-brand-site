@@ -1,6 +1,8 @@
 """Customer-facing editorial sections of the TOTOYA Kamata design."""
 from html import escape
 
+from site_assets import asset_url
+
 
 BOWLS = (
     ('ume', 'Ume negitoro bowl'),
@@ -27,13 +29,13 @@ INSTAGRAM = 'https://www.instagram.com/totoya_hawaii/'
 STORY_SCENES = (
     ('The craft', 'Made by hand.', 'Prepared fresh each day. Finished one bowl at a time.',
      'The team adds finishing touches to TOTOYA negitoro bowls',
-     '/assets/film-craft.mp4', '/assets/story-craft.webp'),
+     asset_url('/assets/film-craft.mp4'), asset_url('/assets/story-craft.webp')),
     ('The finish', 'The finishing touch.', 'A cascade of ikura. A bright, briny pop.',
      'Salmon roe cascading onto a TOTOYA negitoro bowl',
-     '/assets/film-ikura.mp4', '/assets/story-ikura.webp'),
+     asset_url('/assets/film-ikura.mp4'), asset_url('/assets/story-ikura.webp')),
     ('The first bite', 'That first bite.', 'Rich, fresh and full of texture.',
      'A spoonful of TOTOYA negitoro above a seafood bowl',
-     '/assets/film-bite.mp4', '/assets/story-bite.webp'),
+     asset_url('/assets/film-bite.mp4'), asset_url('/assets/story-bite.webp')),
 )
 
 ORDER_LINKS = (
@@ -78,8 +80,11 @@ def signatures():
   <figcaption><div><h3>{name}</h3><p>{detail}</p></div><span>{price}</span></figcaption>
 </figure></a>''')
     return f'''<section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
-  <div class="ed-heading"><p class="ed-kicker">The heart of Totoya</p>
-    <h2 id="signatures-title">Our signature bowls</h2>
+  <div class="ed-heading">
+    <h2 id="signatures-title" class="ed-signature-title">
+      <span class="ed-signature-lead">Our signature</span>
+      <span class="ed-signature-name">Negitoro</span>
+    </h2>
     <p>It starts with negitoro.<br>Make it yours with the toppings you love.</p>
   </div><div class="ed-signature-grid">{''.join(cards)}</div>
 </section>'''
@@ -88,7 +93,7 @@ def signatures():
 def film(scene):
     name, _, _, label, clip, poster = scene
     return f'''<div class="ed-reel-media">
-  <img src="{poster}?v=hd" loading="lazy" width="1080" height="1920" alt="{escape(label, quote=True)}">
+  <img src="{poster}" loading="lazy" width="1080" height="1920" alt="{escape(label, quote=True)}">
   <video autoplay loop muted playsinline preload="none" disablepictureinpicture aria-hidden="true" tabindex="-1"
          data-src="{clip}"></video>
 </div>
