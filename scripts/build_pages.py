@@ -36,11 +36,17 @@ def rail():
       <details class="rail-menu"><summary><span class="rail-menu-label">Menu</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Close menu">Close ×</button>
         <div class="drawer-brand">{stacked_logo()}<p>Japanese Negitoro<br>&amp; Seafood Bowls</p></div>
-        <nav aria-label="Main navigation">
+        <nav class="desktop-navigation" aria-label="Main navigation">
           <a href="/#home">Home</a><a href="/#menu">Our menu</a><a href="/#history">Our story</a>
           {booking_link('reserve')}{booking_link('order')}
           <a href="/#shopinfo">Locations</a><a href="/company/">Funergy Group</a><a href="{INSTAGRAM}">Instagram</a>
-        </nav></div></details>
+        </nav>
+        <a class="mobile-only mobile-menu-brand" href="/" aria-label="TOTOYA home"><img src="{LOGO}" width="1059" height="450" alt=""></a>
+        <nav class="mobile-only mobile-navigation" aria-label="Main navigation">
+          <a href="/#intro">About</a><a href="/#gallery">Menu</a><a href="/#news">Information</a><a href="/#shopinfo">Access</a>
+        </nav>
+        <div class="mobile-only mobile-booking-actions">{booking_link('reserve')}{booking_link('order')}</div>
+        </div></details>
     </header>'''
 
 
@@ -78,6 +84,11 @@ def hero():
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">Negitoro Bowl.<span>The Totoya taste you’ll come back for.</span></h1>
       </div>
+      <div class="mobile-only mobile-hero-brand" aria-hidden="true">
+        <img src="{LOGO}" width="1059" height="450" alt="">
+        <p>Japanese Negitoro &amp; Seafood Bowls</p>
+        <p>The Totoya taste you’ll come back for.</p>
+      </div>
       <div class="slide-controls" role="group" aria-label="Top photographs" hidden>
         <button type="button" aria-label="Show the Tokujo meal" aria-pressed="true"></button>
         <button type="button" aria-label="Show egg yolk sauce on a Tokujo bowl" aria-pressed="false"></button>
@@ -98,7 +109,7 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
     route = '/' + filename.removesuffix('index.html')
     canonical = ORIGIN + route
     css = ('style', *styles) if company else ('style', *dict.fromkeys((*styles, 'visit')))
-    js = scripts if company else tuple(dict.fromkeys(('nav', *scripts, 'visit')))
+    js = scripts if company else tuple(dict.fromkeys(('nav', *scripts, 'visit', 'mobile')))
     if 'id="shopinfo"' in content:
         leaflet = 'assets/leaflet-1.9.4/leaflet'
         css = tuple(name for item in css for name in ((leaflet, item) if item == 'visit' else (item,)))
@@ -108,6 +119,7 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
     script_tags = '\n'.join(f'<script defer src="{asset_url(name + ".js")}"></script>' for name in js)
     body_class = 'company-site' if company else 'with-rail'
     main_class = 'front-page' if filename == 'index.html' else 'standalone'
+    mobile_menu = '''<dialog id="mobile-menu-dialog" class="mobile-menu-dialog" aria-labelledby="mobile-menu-title"><button class="mobile-menu-close" type="button" aria-label="Close menu">Close ×</button><h2 id="mobile-menu-title"></h2><div class="mobile-menu-content"></div></dialog>''' if 'mobile-menu-cards' in content else ''
     text = f'''<!doctype html>
 <html lang="en"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
@@ -124,7 +136,7 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
 </head><body class="{body_class}"><a class="skip-link" href="#main">Skip to content</a>
 {company_header() if company else rail()}
 <main id="main" class="{main_class}">{content}</main>
-{footer()}{'' if company else booking_dialog()}
+{footer()}{'' if company else booking_dialog()}{mobile_menu}
 </body></html>
 '''
     for lang in LANGUAGES:

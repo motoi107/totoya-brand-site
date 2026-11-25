@@ -23,11 +23,12 @@
 <link rel="stylesheet" href="/sections.css?v=e77d1751a4">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327">
-<link rel="stylesheet" href="/mobile.css?v=5a596fb069"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/home.js?v=de64d09524"></script>
-<script defer src="/sections.js?v=22a730e7d3"></script>
+<link rel="stylesheet" href="/mobile.css?v=063abe42dd"><script defer src="/nav.js?v=0d939d0615"></script>
+<script defer src="/home.js?v=307e067fa5"></script>
+<script defer src="/sections.js?v=1326cbc433"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
+<script defer src="/mobile.js?v=6fd8dc53b9"></script>
 <script defer src="/analytics.js?v=44d3a8a78d" data-page="/"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">Aller au contenu</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -40,11 +41,17 @@
       <details class="rail-menu"><summary><span class="rail-menu-label">Menu</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="Fermer le menu">Fermer ×</button>
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>Negitoro japonais<br>et bols de riz au poisson et aux fruits de mer</p></div>
-        <nav aria-label="Navigation principale">
+        <nav class="desktop-navigation" aria-label="Navigation principale">
           <a href="/fr/#home">Accueil</a><a href="/fr/#menu">Notre carte</a><a href="/fr/#history">Notre histoire</a>
           <a href="/fr/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">Réservations</a><a href="/fr/order.html" data-booking="order" aria-haspopup="dialog">Commander en ligne</a>
           <a href="/fr/#shopinfo">Nos adresses</a><a href="/fr/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
-        </nav></div></details>
+        </nav>
+        <a class="mobile-only mobile-menu-brand" href="/fr/" aria-label="Accueil TOTOYA"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+        <nav class="mobile-only mobile-navigation" aria-label="Navigation principale">
+          <a href="/fr/#intro">About</a><a href="/fr/#gallery">Menu</a><a href="/fr/#news">Information</a><a href="/fr/#shopinfo">Access</a>
+        </nav>
+        <div class="mobile-only mobile-booking-actions"><a href="/fr/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">Réservations</a><a href="/fr/order.html" data-booking="order" aria-haspopup="dialog">Commander en ligne</a></div>
+        </div></details>
     </header>
 <main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
@@ -60,6 +67,11 @@
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">Un bol de negitoro.<span>Ce goût de Totoya qui donne envie de revenir.</span></h1>
       </div>
+      <div class="mobile-only mobile-hero-brand" aria-hidden="true">
+        <img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt="">
+        <p>Negitoro japonais et bols de riz au poisson et aux fruits de mer</p>
+        <p>Ce goût de Totoya qui donne envie de revenir.</p>
+      </div>
       <div class="slide-controls" role="group" aria-label="Photos d’accueil" hidden>
         <button type="button" aria-label="Afficher le repas Tokujo" aria-pressed="true"></button>
         <button type="button" aria-label="Afficher la sauce au jaune d’œuf versée sur le bol Tokujo" aria-pressed="false"></button>
@@ -67,6 +79,7 @@
         <button type="button" class="slide-playback" aria-label="Mettre le diaporama en pause" data-state="playing"></button>
       </div>
     </section><section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="mobile-only mobile-section-title">About</p>
   <p class="ed-kicker">Notre recette de negitoro</p>
   <div class="ed-composition"><div class="ed-intro-copy">
     <h2 id="intro-title">Seulement chez Totoya.<br>Préparé chaque jour.</h2>
@@ -74,8 +87,12 @@
     <p>Nous préparons notre negitoro chaque jour pour que vous le dégustiez le jour même, dans toute sa fraîcheur.</p>
     <p>Thon, noix de Saint-Jacques, concombre et œufs de hareng.<br>Notre mélange maison allie une saveur généreuse à une délicate touche de croquant.<br>Un goût que vous ne trouverez que chez Totoya.</p>
   </div><ul class="ed-bowls" aria-label="Les onze bols de Totoya"><li><img src="/assets/bowl-ume.webp" loading="lazy" alt="Bol Ume de negitoro"></li><li><img src="/assets/bowl-take.webp" loading="lazy" alt="Bol Take de negitoro"></li><li><img src="/assets/bowl-matsu.webp" loading="lazy" alt="Bol Matsu de negitoro"></li><li><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="Bol Tokujo de negitoro"></li><li><img src="/assets/bowl-nagomi.webp" loading="lazy" alt="Bol Nagomi de la mer"></li><li><img src="/assets/bowl-miyabi.webp" loading="lazy" alt="Bol Miyabi de la mer"></li><li><img src="/assets/bowl-nishiki.webp" loading="lazy" alt="Bol Nishiki de la mer"></li><li><img src="/assets/bowl-fukuju.webp" loading="lazy" alt="Bol Fukuju de la mer"></li><li><img src="/assets/bowl-salmon.webp" loading="lazy" alt="Bol au saumon"></li><li><img src="/assets/bowl-rainbow-trio.webp" loading="lazy" alt="Bol Rainbow Trio"></li><li><img src="/assets/bowl-maguro-lover.webp" loading="lazy" alt="Bol Maguro Lover"></li></ul></div>
+  <div class="mobile-only mobile-about-strip" aria-hidden="true"><div class="mobile-photo-track">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+  </div></div>
 </section><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
-  <h2 id="news-title">Actualités</h2>
+  <h2 id="news-title"><span class="desktop-only">Actualités</span><span class="mobile-only">Information</span></h2>
   <ul>
     <li><span class="ed-kicker">Prochainement</span><p>Kapolei : ouverture prévue fin février.</p></li>
     <li><span class="ed-kicker">Réservations</span><p>Nous prenons les réservations à <a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> et à <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a>.</p></li>
@@ -83,12 +100,13 @@
   </ul>
 </section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
   <div class="ed-heading">
+    <p class="mobile-only mobile-section-title">Menu</p>
     <h2 id="signatures-title" class="ed-signature-title">
       <span class="ed-signature-lead">Notre spécialité</span>
       <span class="ed-signature-name">Negitoro</span>
     </h2>
     <p>Tout commence par notre negitoro.<br>Ajoutez vos garnitures préférées.</p>
-  </div><div class="ed-signature-grid"><a class="ed-signature" href="/fr/#menu"><figure>
+  </div><div class="mobile-only mobile-menu-cards"><a class="mobile-menu-card" href="/fr/menu.html" data-mobile-menu="0" aria-haspopup="dialog"><img src="/assets/bowl-tokujo.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">Nos bols de negitoro maison</span><span class="mobile-card-subtitle">Notre spécialité</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/fr/menu.html" data-mobile-menu="1" aria-haspopup="dialog"><img src="/assets/bowl-fukuju.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">Bols de sashimi, de poisson et de fruits de mer</span><span class="mobile-card-subtitle">Les autres favoris de TOTOYA</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/fr/menu.html" data-mobile-menu="2" aria-haspopup="dialog"><img src="/assets/tokujo-meal-hero.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">Pour accompagner votre bol</span><span class="mobile-card-subtitle">Soupes miso et udon</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/fr/order.html" data-booking="order" aria-haspopup="dialog"><img src="/assets/totoya-at-home-closeup-768.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">Commander en ligne</span><span class="mobile-card-subtitle">Votre bol préféré à emporter</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a></div><div class="ed-signature-grid"><a class="ed-signature" href="/fr/#menu"><figure>
   <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="Bol Ume de negitoro au tobiko"></div>
   <figcaption><div><h3>Ume</h3><p>Negitoro et tobiko</p></div><span>$21.90</span></figcaption>
 </figure></a><a class="ed-signature" href="/fr/#menu"><figure>
@@ -109,6 +127,8 @@
       <p class="kv-fine">La consommation de viande, de volaille, de poisson, de fruits de mer ou d’œufs crus ou insuffisamment cuits peut augmenter le risque de maladie d’origine alimentaire, en particulier pour les personnes atteintes de certaines pathologies.</p>
     </div></section><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">Notre histoire</span></h2>
+  <div class="mobile-only mobile-brand-band" aria-hidden="true"><div><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span></div></div>
+  <div class="mobile-only mobile-shop-photo"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Bols de negitoro servis au comptoir de TOTOYA"></div>
   <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
       <div class="ed-reel-media">
   <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="L’équipe de TOTOYA apporte la touche finale aux bols de negitoro">
@@ -132,7 +152,7 @@
       <figcaption><h3>La première bouchée.</h3><p>Un goût généreux, de la fraîcheur et du relief.</p><a class="ed-story-link" href="/fr/#shopinfo">Trouvez votre Totoya</a></figcaption>
     </figure></div>
 </section><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
-      <header class="kv-heading" id="reservations"><p class="kv-kicker">Votre prochaine visite chez TOTOYA</p><h2 id="shop-title">Venez nous retrouver.</h2>
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">Votre prochaine visite chez TOTOYA</p><h2 id="shop-title"><span class="desktop-only">Venez nous retrouver.</span><span class="mobile-only">Access</span></h2>
       <h3>Trois quartiers. Un même TOTOYA.</h3><p>Trouvez le restaurant le plus proche, préparez votre visite ou emportez vos plats préférés sur le chemin du retour.</p></header>
       <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>Trouver le restaurant le plus proche</button>
       <p>La recherche du restaurant le plus proche se fait sur votre appareil. Sélectionnez le bouton d’itinéraire du restaurant pour partir de votre position actuelle dans Google Maps.</p></div>
@@ -183,5 +203,5 @@
 <footer class="public-footer"><div><a class="footer-logo" aria-label="Accueil TOTOYA" href="/fr/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
       <p>Negitoro japonais et bols de riz au poisson et aux fruits de mer</p><p class="footer-neighborhoods">Kaimuki · Piikoi · Aiea</p></div>
       <nav aria-label="Liens de pied de page"><a href="/fr/#history">Notre histoire</a><a href="/fr/#menu">Menu</a><a href="/fr/#shopinfo">Nos adresses</a><a href="/fr/company/">Notre groupe</a><a href="/fr/company/#careers">Recrutement</a><a href="/fr/company/#contact">Contact</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a></nav>
-      <small>© TOTOYA · <a href="/fr/company/">Funergy Group</a> · <a href="/fr/privacy/">Confidentialité</a> · <a href="/fr/media-credits.html">Crédits</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="Fermer la sélection du restaurant">Fermer ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">Réservations</h2><p>Choisissez le restaurant dans lequel vous souhaitez réserver.</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Réserver une table</span></a><div class="kv-option kv-unavailable"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Pas de réservation possible</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Réserver une table</span></a></div><p class="kv-fine">Les réservations sont possibles à Kaimuki et à Aiea. À Piikoi, nous vous accueillons uniquement sans réservation.</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">Commander en ligne</h2><p>Choisissez le restaurant TOTOYA où retirer votre commande.</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Commander à emporter</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Commander à emporter</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Commander à emporter</span></a></div><p class="kv-fine">Les horaires de retrait et les disponibilités figurent sur la page de commande de chaque restaurant.</p></div></dialog>
+      <small>© TOTOYA · <a href="/fr/company/">Funergy Group</a> · <a href="/fr/privacy/">Confidentialité</a> · <a href="/fr/media-credits.html">Crédits</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="Fermer la sélection du restaurant">Fermer ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">Réservations</h2><p>Choisissez le restaurant dans lequel vous souhaitez réserver.</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Réserver une table</span></a><div class="kv-option kv-unavailable"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Pas de réservation possible</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Réserver une table</span></a></div><p class="kv-fine">Les réservations sont possibles à Kaimuki et à Aiea. À Piikoi, nous vous accueillons uniquement sans réservation.</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">Commander en ligne</h2><p>Choisissez le restaurant TOTOYA où retirer votre commande.</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>Commander à emporter</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>Commander à emporter</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>Commander à emporter</span></a></div><p class="kv-fine">Les horaires de retrait et les disponibilités figurent sur la page de commande de chaque restaurant.</p></div></dialog><dialog id="mobile-menu-dialog" class="mobile-menu-dialog" aria-labelledby="mobile-menu-title"><button class="mobile-menu-close" type="button" aria-label="Fermer le menu">Fermer ×</button><h2 id="mobile-menu-title"></h2><div class="mobile-menu-content"></div></dialog>
 </body></html>

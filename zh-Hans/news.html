@@ -21,8 +21,9 @@
 <link rel="stylesheet" href="/style.css?v=c91ff0a73a">
 <link rel="stylesheet" href="/sections.css?v=e77d1751a4">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327">
-<link rel="stylesheet" href="/mobile.css?v=5a596fb069"><script defer src="/nav.js?v=4870bde8d6"></script>
+<link rel="stylesheet" href="/mobile.css?v=063abe42dd"><script defer src="/nav.js?v=0d939d0615"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
+<script defer src="/mobile.js?v=6fd8dc53b9"></script>
 <script defer src="/analytics.js?v=44d3a8a78d" data-page="/news.html"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">跳至主要内容</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -35,14 +36,20 @@
       <details class="rail-menu"><summary><span class="rail-menu-label">菜单</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="关闭菜单">关闭 ×</button>
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>日式金枪鱼蓉<br>与海鲜丼</p></div>
-        <nav aria-label="主导航">
+        <nav class="desktop-navigation" aria-label="主导航">
           <a href="/zh-Hans/#home">首页</a><a href="/zh-Hans/#menu">我们的菜单</a><a href="/zh-Hans/#history">我们的故事</a>
           <a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a>
           <a href="/zh-Hans/#shopinfo">门店</a><a href="/zh-Hans/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
-        </nav></div></details>
+        </nav>
+        <a class="mobile-only mobile-menu-brand" href="/zh-Hans/" aria-label="TOTOYA 首页"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+        <nav class="mobile-only mobile-navigation" aria-label="主导航">
+          <a href="/zh-Hans/#intro">About</a><a href="/zh-Hans/#gallery">菜单</a><a href="/zh-Hans/#news">Information</a><a href="/zh-Hans/#shopinfo">Access</a>
+        </nav>
+        <div class="mobile-only mobile-booking-actions"><a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a></div>
+        </div></details>
     </header>
 <main id="main" class="standalone"><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
-  <h1 id="news-title">最新消息</h1>
+  <h1 id="news-title"><span class="desktop-only">最新消息</span><span class="mobile-only">Information</span></h1>
   <ul>
     <li id="kapolei"><span class="ed-kicker">即将开业</span><p>Kapolei 新店计划于二月下旬开业。</p></li>
     <li id="reservation-news"><span class="ed-kicker">订座</span><p><a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> 和 <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a> 门店现已开放订座。</p></li>

@@ -23,11 +23,12 @@
 <link rel="stylesheet" href="/sections.css?v=e77d1751a4">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327">
-<link rel="stylesheet" href="/mobile.css?v=5a596fb069"><script defer src="/nav.js?v=4870bde8d6"></script>
-<script defer src="/home.js?v=de64d09524"></script>
-<script defer src="/sections.js?v=22a730e7d3"></script>
+<link rel="stylesheet" href="/mobile.css?v=063abe42dd"><script defer src="/nav.js?v=0d939d0615"></script>
+<script defer src="/home.js?v=307e067fa5"></script>
+<script defer src="/sections.js?v=1326cbc433"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
+<script defer src="/mobile.js?v=6fd8dc53b9"></script>
 <script defer src="/analytics.js?v=44d3a8a78d" data-page="/"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">跳至主要内容</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -40,11 +41,17 @@
       <details class="rail-menu"><summary><span class="rail-menu-label">菜单</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="关闭菜单">关闭 ×</button>
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>日式金枪鱼蓉<br>与海鲜丼</p></div>
-        <nav aria-label="主导航">
+        <nav class="desktop-navigation" aria-label="主导航">
           <a href="/zh-Hans/#home">首页</a><a href="/zh-Hans/#menu">我们的菜单</a><a href="/zh-Hans/#history">我们的故事</a>
           <a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a>
           <a href="/zh-Hans/#shopinfo">门店</a><a href="/zh-Hans/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
-        </nav></div></details>
+        </nav>
+        <a class="mobile-only mobile-menu-brand" href="/zh-Hans/" aria-label="TOTOYA 首页"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+        <nav class="mobile-only mobile-navigation" aria-label="主导航">
+          <a href="/zh-Hans/#intro">About</a><a href="/zh-Hans/#gallery">菜单</a><a href="/zh-Hans/#news">Information</a><a href="/zh-Hans/#shopinfo">Access</a>
+        </nav>
+        <div class="mobile-only mobile-booking-actions"><a href="/zh-Hans/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">订座</a><a href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog">在线点餐</a></div>
+        </div></details>
     </header>
 <main id="main" class="front-page"><section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
@@ -60,6 +67,11 @@
       <div class="home-hero-brand"><img class="hero-vertical-logo" src="/assets/totoya-vertical-logo.webp" width="835" height="1883" alt="Totoya" fetchpriority="high">
         <h1 id="hero-title">金枪鱼蓉丼<span>让人想再来一碗的 TOTOYA 滋味。</span></h1>
       </div>
+      <div class="mobile-only mobile-hero-brand" aria-hidden="true">
+        <img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt="">
+        <p>日式金枪鱼蓉与海鲜丼</p>
+        <p>让人想再来一碗的 TOTOYA 滋味。</p>
+      </div>
       <div class="slide-controls" role="group" aria-label="首页照片" hidden>
         <button type="button" aria-label="查看特上丼套餐照片" aria-pressed="true"></button>
         <button type="button" aria-label="查看特上丼淋上蛋黄酱油的照片" aria-pressed="false"></button>
@@ -67,6 +79,7 @@
         <button type="button" class="slide-playback" aria-label="暂停照片轮播" data-state="playing"></button>
       </div>
     </section><section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="mobile-only mobile-section-title">About</p>
   <p class="ed-kicker">我们的独家金枪鱼蓉</p>
   <div class="ed-composition"><div class="ed-intro-copy">
     <h2 id="intro-title">TOTOYA 独有的味道。<br>每天新鲜现做。</h2>
@@ -74,8 +87,12 @@
     <p>我们的招牌金枪鱼蓉每天现做，当天享用，正是最鲜美的时候。</p>
     <p>金枪鱼、扇贝、黄瓜，还有鲱鱼籽。<br>浓郁的鱼鲜里带着细腻的脆感，这是我们的招牌口感。<br>这份滋味，只在 TOTOYA。</p>
   </div><ul class="ed-bowls" aria-label="TOTOYA 的十一款丼饭"><li><img src="/assets/bowl-ume.webp" loading="lazy" alt="梅金枪鱼蓉丼"></li><li><img src="/assets/bowl-take.webp" loading="lazy" alt="竹金枪鱼蓉丼"></li><li><img src="/assets/bowl-matsu.webp" loading="lazy" alt="松金枪鱼蓉丼"></li><li><img src="/assets/bowl-tokujo.webp" loading="lazy" alt="特上金枪鱼蓉丼"></li><li><img src="/assets/bowl-nagomi.webp" loading="lazy" alt="和海鲜丼（Nagomi）"></li><li><img src="/assets/bowl-miyabi.webp" loading="lazy" alt="雅海鲜丼（Miyabi）"></li><li><img src="/assets/bowl-nishiki.webp" loading="lazy" alt="锦海鲜丼（Nishiki）"></li><li><img src="/assets/bowl-fukuju.webp" loading="lazy" alt="福寿海鲜丼（Fukuju）"></li><li><img src="/assets/bowl-salmon.webp" loading="lazy" alt="三文鱼丼"></li><li><img src="/assets/bowl-rainbow-trio.webp" loading="lazy" alt="缤纷三味丼（Rainbow Trio）"></li><li><img src="/assets/bowl-maguro-lover.webp" loading="lazy" alt="金枪鱼爱好者丼（Maguro Lover）"></li></ul></div>
+  <div class="mobile-only mobile-about-strip" aria-hidden="true"><div class="mobile-photo-track">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+  </div></div>
 </section><section class="ed-section ed-news" id="news" aria-labelledby="news-title">
-  <h2 id="news-title">最新消息</h2>
+  <h2 id="news-title"><span class="desktop-only">最新消息</span><span class="mobile-only">Information</span></h2>
   <ul>
     <li><span class="ed-kicker">即将开业</span><p>Kapolei 新店计划于二月下旬开业。</p></li>
     <li><span class="ed-kicker">订座</span><p><a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> 和 <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a> 门店现已开放订座。</p></li>
@@ -83,12 +100,13 @@
   </ul>
 </section><section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
   <div class="ed-heading">
+    <p class="mobile-only mobile-section-title">菜单</p>
     <h2 id="signatures-title" class="ed-signature-title">
       <span class="ed-signature-lead">本店招牌</span>
       <span class="ed-signature-name">金枪鱼蓉</span>
     </h2>
     <p>每一碗，都从金枪鱼蓉开始。<br>加上喜欢的配料，就是最合你口味的一碗。</p>
-  </div><div class="ed-signature-grid"><a class="ed-signature" href="/zh-Hans/#menu"><figure>
+  </div><div class="mobile-only mobile-menu-cards"><a class="mobile-menu-card" href="/zh-Hans/menu.html" data-mobile-menu="0" aria-haspopup="dialog"><img src="/assets/bowl-tokujo.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">招牌金枪鱼蓉丼</span><span class="mobile-card-subtitle">本店特色</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/zh-Hans/menu.html" data-mobile-menu="1" aria-haspopup="dialog"><img src="/assets/bowl-fukuju.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">刺身与海鲜丼</span><span class="mobile-card-subtitle">人气之选</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/zh-Hans/menu.html" data-mobile-menu="2" aria-haspopup="dialog"><img src="/assets/tokujo-meal-hero.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">配碗热汤</span><span class="mobile-card-subtitle">味噌汤与乌冬面</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a><a class="mobile-menu-card" href="/zh-Hans/order.html" data-booking="order" aria-haspopup="dialog"><img src="/assets/totoya-at-home-closeup-768.webp" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">在线点餐</span><span class="mobile-card-subtitle">把喜欢的丼饭带走</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a></div><div class="ed-signature-grid"><a class="ed-signature" href="/zh-Hans/#menu"><figure>
   <div class="ed-dish-photo"><img src="/assets/bowl-ume.webp" loading="lazy" alt="配飞鱼籽的梅金枪鱼蓉丼"></div>
   <figcaption><div><h3>梅（Ume）</h3><p>金枪鱼蓉配飞鱼籽</p></div><span>$21.90</span></figcaption>
 </figure></a><a class="ed-signature" href="/zh-Hans/#menu"><figure>
@@ -109,6 +127,8 @@
       <p class="kv-fine">食用生的或未充分煮熟的肉类、禽肉、海鲜、贝类或蛋类，可能增加患食源性疾病的风险。患有某些疾病的人士尤其需要留意。</p>
     </div></section><section class="ed-section ed-story" id="history" aria-labelledby="story-title">
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">我们的故事</span></h2>
+  <div class="mobile-only mobile-brand-band" aria-hidden="true"><div><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span></div></div>
+  <div class="mobile-only mobile-shop-photo"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="TOTOYA 的吧台上摆着刚做好的金枪鱼蓉丼"></div>
   <div class="ed-story-grid" id="moments"><figure class="ed-story-scene" id="story-scene-1" data-reel>
       <div class="ed-reel-media">
   <img src="/assets/story-craft.webp?v=cfc3ab651e" loading="lazy" width="1080" height="1920" alt="TOTOYA 的厨师为金枪鱼蓉丼添上最后的配料">
@@ -132,7 +152,7 @@
       <figcaption><h3>第一口的滋味。</h3><p>鲜美浓郁，口感层次丰富。</p><a class="ed-story-link" href="/zh-Hans/#shopinfo">查找附近的 TOTOYA</a></figcaption>
     </figure></div>
 </section><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
-      <header class="kv-heading" id="reservations"><p class="kv-kicker">下一次相聚，在 TOTOYA</p><h2 id="shop-title">来店里坐坐。</h2>
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">下一次相聚，在 TOTOYA</p><h2 id="shop-title"><span class="desktop-only">来店里坐坐。</span><span class="mobile-only">Access</span></h2>
       <h3>三个街区，同一个 TOTOYA。</h3><p>查找离你最近的门店，安排到店用餐，或在回家途中顺路带走爱吃的丼饭。</p></header>
       <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>查找离我最近的门店</button>
       <p>您的设备会在本机计算哪家门店最近。如需从当前位置出发，请选择门店的路线按钮，在 Google 地图中规划路线。</p></div>
@@ -183,5 +203,5 @@
 <footer class="public-footer"><div><a class="footer-logo" aria-label="TOTOYA 首页" href="/zh-Hans/"><img src="/assets/totoya-official-logo.webp" alt="" width="1059" height="450"></a>
       <p>日式金枪鱼蓉与海鲜丼</p><p class="footer-neighborhoods">Kaimuki · Piikoi · Aiea</p></div>
       <nav aria-label="页脚导航"><a href="/zh-Hans/#history">我们的故事</a><a href="/zh-Hans/#menu">菜单</a><a href="/zh-Hans/#shopinfo">门店信息</a><a href="/zh-Hans/company/">关于我们</a><a href="/zh-Hans/company/#careers">加入我们</a><a href="/zh-Hans/company/#contact">联系我们</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a></nav>
-      <small>© TOTOYA · <a href="/zh-Hans/company/">Funergy Group</a> · <a href="/zh-Hans/privacy/">隐私政策</a> · <a href="/zh-Hans/media-credits.html">影像制作说明</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="关闭门店选择窗口">关闭 ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">订座</h2><p>选择门店并预订座位。</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>预订座位</span></a><div class="kv-option kv-unavailable"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>不接受订座</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>预订座位</span></a></div><p class="kv-fine">Kaimuki 和 Aiea 门店可订座。Piikoi 门店不接受预约，请直接到店。</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">在线点餐</h2><p>选择自取餐点的 TOTOYA 门店。</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>外带点餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>外带点餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>外带点餐</span></a></div><p class="kv-fine">取餐时间及可供应的餐点请见各门店的点餐页面。</p></div></dialog>
+      <small>© TOTOYA · <a href="/zh-Hans/company/">Funergy Group</a> · <a href="/zh-Hans/privacy/">隐私政策</a> · <a href="/zh-Hans/media-credits.html">影像制作说明</a></small></footer><dialog id="booking-dialog" class="kv-dialog" aria-labelledby="visit-dialog-reserve"><button type="button" class="kv-close" aria-label="关闭门店选择窗口">关闭 ×</button><div data-booking-view="reserve"><h2 id="visit-dialog-reserve">订座</h2><p>选择门店并预订座位。</p><div class="kv-option-list"><a class="kv-option" href="https://toast.app/r/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>预订座位</span></a><div class="kv-option kv-unavailable"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>不接受订座</span></div><a class="kv-option" href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>预订座位</span></a></div><p class="kv-fine">Kaimuki 和 Aiea 门店可订座。Piikoi 门店不接受预约，请直接到店。</p></div><div data-booking-view="order"><h2 id="visit-dialog-order">在线点餐</h2><p>选择自取餐点的 TOTOYA 门店。</p><div class="kv-option-list"><a class="kv-option" href="https://order.toasttab.com/online/totoya-hawaii" target="_blank" rel="noopener"><span><b>Kaimuki</b><small>1127 12th Ave</small></span><span>外带点餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-ala-moana-436-piikoi-st-suite-b" target="_blank" rel="noopener"><span><b>Piikoi</b><small>436 Piikoi Street B</small></span><span>外带点餐</span></a><a class="kv-option" href="https://order.toasttab.com/online/totoya-aiea-nro-99-115-aiea-heights-drive-unit-250" target="_blank" rel="noopener"><span><b>Aiea</b><small>99-115 Aiea Heights Dr. #250</small></span><span>外带点餐</span></a></div><p class="kv-fine">取餐时间及可供应的餐点请见各门店的点餐页面。</p></div></dialog><dialog id="mobile-menu-dialog" class="mobile-menu-dialog" aria-labelledby="mobile-menu-title"><button class="mobile-menu-close" type="button" aria-label="关闭菜单">关闭 ×</button><h2 id="mobile-menu-title"></h2><div class="mobile-menu-content"></div></dialog>
 </body></html>

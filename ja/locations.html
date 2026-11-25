@@ -21,9 +21,10 @@
 <link rel="stylesheet" href="/style.css?v=c91ff0a73a">
 <link rel="stylesheet" href="/assets/leaflet-1.9.4/leaflet.css?v=a783710282">
 <link rel="stylesheet" href="/visit.css?v=1f787cc327">
-<link rel="stylesheet" href="/mobile.css?v=5a596fb069"><script defer src="/nav.js?v=4870bde8d6"></script>
+<link rel="stylesheet" href="/mobile.css?v=063abe42dd"><script defer src="/nav.js?v=0d939d0615"></script>
 <script defer src="/assets/leaflet-1.9.4/leaflet.js?v=db49d009c8"></script>
 <script defer src="/visit.js?v=aa2e6b4928"></script>
+<script defer src="/mobile.js?v=6fd8dc53b9"></script>
 <script defer src="/analytics.js?v=44d3a8a78d" data-page="/locations.html"></script>
 </head><body class="with-rail"><a class="skip-link" href="#main">本文へ移動</a>
 <header class="site-rail" aria-label="TOTOYA">
@@ -36,14 +37,20 @@
       <details class="rail-menu"><summary><span class="rail-menu-label">メニュー</span></summary><div class="rail-drawer">
         <button class="drawer-close" type="button" aria-label="メニューを閉じる">閉じる ×</button>
         <div class="drawer-brand"><span class="stacked-logo" aria-hidden="true"><span class="logo-emblem"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span><span class="logo-word"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></span></span><p>名物ネギトロ丼<br>と海鮮丼</p></div>
-        <nav aria-label="メインナビゲーション">
+        <nav class="desktop-navigation" aria-label="メインナビゲーション">
           <a href="/ja/#home">ホーム</a><a href="/ja/#menu">お品書き</a><a href="/ja/#history">ネギトロへのこだわり</a>
           <a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a>
           <a href="/ja/#shopinfo">店舗案内</a><a href="/ja/company/">Funergy Group</a><a href="https://www.instagram.com/totoya_hawaii/">Instagram</a>
-        </nav></div></details>
+        </nav>
+        <a class="mobile-only mobile-menu-brand" href="/ja/" aria-label="TOTOYA トップページ"><img src="/assets/totoya-official-logo.webp" width="1059" height="450" alt=""></a>
+        <nav class="mobile-only mobile-navigation" aria-label="メインナビゲーション">
+          <a href="/ja/#intro">About</a><a href="/ja/#gallery">メニュー</a><a href="/ja/#news">Information</a><a href="/ja/#shopinfo">Access</a>
+        </nav>
+        <div class="mobile-only mobile-booking-actions"><a href="/ja/locations.html#reservations" data-booking="reserve" aria-haspopup="dialog">席を予約</a><a href="/ja/order.html" data-booking="order" aria-haspopup="dialog">オンライン注文</a></div>
+        </div></details>
     </header>
 <main id="main" class="standalone"><section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
-      <header class="kv-heading" id="reservations"><p class="kv-kicker">お近くのTOTOYAへ</p><h1 id="shop-title">店舗のご案内</h1>
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">お近くのTOTOYAへ</p><h1 id="shop-title"><span class="desktop-only">店舗のご案内</span><span class="mobile-only">Access</span></h1>
       <h3>オアフ島の3つの街でお待ちしています。</h3><p>お近くの店舗の場所や営業時間をご確認いただけます。お帰りの際には、お持ち帰りもどうぞ。</p></header>
       <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>現在地から最寄りの店舗を探す</button>
       <p>最寄りの店舗は、お使いの端末上で計算します。各店舗の経路案内ボタンから、現在地を出発点にしてGoogle マップを開けます。</p></div>

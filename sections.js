@@ -4,6 +4,7 @@
   if (!elements.length) return;
 
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  const phone = matchMedia('(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)');
   const t = window.totoyaText || ((key, ...parts) => key.replace(/\{(\d+)\}/g, (_, i) => parts[i]));
 
   function surfaceIsVisible(surface) {
@@ -68,6 +69,22 @@
     }
 
     function update() {
+      // Mobile uses still photography. Never assign an MP4 URL on a phone,
+      // and release a desktop video's resource when the viewport changes.
+      if (phone.matches) {
+        wanted = false;
+        revision++;
+        video.autoplay = false;
+        cancelFirstFrame();
+        video.pause();
+        if (video.hasAttribute('src')) {
+          video.removeAttribute('src');
+          video.load();
+        }
+        surface.classList.remove('has-frame');
+        showAction();
+        return;
+      }
       const allowed = preference ?? !(reduced.matches || (playlist && navigator.connection?.saveData));
       if (reduced.matches && !allowed) surface.classList.remove('has-frame');
       const play = reel.visible && (!mobileScreen || mobileScreen.matches)
@@ -174,6 +191,16 @@
 
   document.addEventListener('visibilitychange', refresh);
   window.addEventListener('pageshow', refresh);
+  function viewportChanged() {
+    for (const reel of reels) {
+      reel.visible = surfaceIsVisible(reel.surface);
+      reel.update();
+    }
+  }
+  if (typeof phone.addEventListener === 'function') phone.addEventListener('change', viewportChanged);
+  else phone.addListener(viewportChanged);
+  // Apply the mobile resource gate before the first intersection callback.
+  if (phone.matches) refresh();
   const onMotionChange = () => reels.forEach(reel => reel.motionChanged());
   if (typeof reduced.addEventListener === 'function') reduced.addEventListener('change', onMotionChange);
   else reduced.addListener(onMotionChange);

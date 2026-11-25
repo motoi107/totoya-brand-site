@@ -51,6 +51,7 @@ def intro():
         for slug, name in BOWLS
     )
     return f'''<section class="ed-section ed-intro" id="intro" aria-labelledby="intro-title">
+  <p class="mobile-only mobile-section-title">About</p>
   <p class="ed-kicker">Our original negitoro</p>
   <div class="ed-composition"><div class="ed-intro-copy">
     <h2 id="intro-title">Only at Totoya.<br>Made fresh, every day.</h2>
@@ -58,12 +59,16 @@ def intro():
     <p>We prepare our original negitoro fresh each day, to be enjoyed that very day—at its freshest.</p>
     <p>Tuna, scallops, cucumber and herring roe.<br>Our signature blend of rich flavor and delicate crunch.<br>A taste you’ll find only at Totoya.</p>
   </div><ul class="ed-bowls" aria-label="Eleven Totoya bowls">{bowls}</ul></div>
+  <div class="mobile-only mobile-about-strip" aria-hidden="true"><div class="mobile-photo-track">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+    <img src="/assets/story-craft.webp" width="1080" height="1920" loading="lazy" alt=""><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt=""><img src="/assets/story-bite.webp" width="1080" height="1920" loading="lazy" alt="">
+  </div></div>
 </section>'''
 
 
 def news():
     return '''<section class="ed-section ed-news" id="news" aria-labelledby="news-title">
-  <h2 id="news-title">News</h2>
+  <h2 id="news-title"><span class="desktop-only">News</span><span class="mobile-only">Information</span></h2>
   <ul>
     <li><span class="ed-kicker">Coming soon</span><p>Kapolei — opening planned for late February.</p></li>
     <li><span class="ed-kicker">Reservations</span><p>We’re taking reservations at <a href="https://toast.app/r/totoya-hawaii">Kaimuki</a> and <a href="https://www.google.com/maps/reserve/v/dine/c/HFvPblyZHtM">Aiea</a>.</p></li>
@@ -73,6 +78,14 @@ def news():
 
 
 def signatures():
+    categories = (
+        ('bowl-tokujo.webp', 'Signature Negitoro Bowls', 'Our specialty'),
+        ('bowl-fukuju.webp', 'Sashimi & Seafood Bowls', 'More TOTOYA favorites'),
+        ('tokujo-meal-hero.webp', 'Complete your meal', 'Miso Soup & Udon'),
+        ('totoya-at-home-closeup-768.webp', 'Order online', 'Your favorite bowl, to go'),
+    )
+    mobile_cards = ''.join(f'''<a class="mobile-menu-card" href="/menu.html" data-mobile-menu="{index}" aria-haspopup="dialog"><img src="/assets/{photo}" loading="lazy" alt=""><div class="mobile-card-copy"><span class="mobile-card-title">{escape(title)}</span><span class="mobile-card-subtitle">{subtitle}</span><span class="mobile-card-open" aria-hidden="true">＋</span></div></a>''' for index, (photo, title, subtitle) in enumerate(categories))
+    mobile_cards = mobile_cards.replace('href="/menu.html" data-mobile-menu="3"', 'href="/order.html" data-booking="order"')
     cards = []
     for slug, name, detail, price, alt in SIGNATURES:
         cards.append(f'''<a class="ed-signature" href="/#menu"><figure>
@@ -81,12 +94,13 @@ def signatures():
 </figure></a>''')
     return f'''<section class="ed-section ed-signatures" id="gallery" aria-labelledby="signatures-title">
   <div class="ed-heading">
+    <p class="mobile-only mobile-section-title">Menu</p>
     <h2 id="signatures-title" class="ed-signature-title">
       <span class="ed-signature-lead">Our signature</span>
       <span class="ed-signature-name">Negitoro</span>
     </h2>
     <p>It starts with negitoro.<br>Make it yours with the toppings you love.</p>
-  </div><div class="ed-signature-grid">{''.join(cards)}</div>
+  </div><div class="mobile-only mobile-menu-cards">{mobile_cards}</div><div class="ed-signature-grid">{''.join(cards)}</div>
 </section>'''
 
 
@@ -112,6 +126,8 @@ def story():
     </figure>''')
     return f'''<section class="ed-section ed-story" id="history" aria-labelledby="story-title">
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">Our story</span></h2>
+  <div class="mobile-only mobile-brand-band" aria-hidden="true"><div><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span></div></div>
+  <div class="mobile-only mobile-shop-photo"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the TOTOYA counter"></div>
   <div class="ed-story-grid" id="moments">{''.join(chapters)}</div>
 </section>'''
 

@@ -141,7 +141,7 @@ def locations_section():
     starts = ''.join(f'<button type="button" data-start="{key}" data-lat="{lat}" data-lon="{lon}" aria-pressed="false">{label}</button>' for key,label,name,lat,lon in LANDMARKS)
     tabs = ''.join(f'<a href="#{s["id"]}" id="visit-tab-{s["id"]}" data-tab="{s["id"]}">{s["tab"]}</a>' for s in STORES)
     return f'''<section id="shopinfo" class="kv-section kv-visit" aria-labelledby="shop-title"><div class="kv-wrap">
-      <header class="kv-heading" id="reservations"><p class="kv-kicker">Your next TOTOYA moment</p><h2 id="shop-title">Come find us.</h2>
+      <header class="kv-heading" id="reservations"><p class="kv-kicker">Your next TOTOYA moment</p><h2 id="shop-title"><span class="desktop-only">Come find us.</span><span class="mobile-only">Access</span></h2>
       <h3>Three neighborhoods. One TOTOYA.</h3><p>Find your closest shop, plan your visit, or pick up your favorites on the way home.</p></header>
       <div class="kv-locator" data-locator hidden><div class="kv-locator-top"><button type="button" class="kv-btn primary" data-current-location>Find my nearest shop</button>
       <p>Your nearest shop is calculated on this device. Choose a shop’s directions button to use your current location in Google Maps.</p></div>

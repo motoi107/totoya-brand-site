@@ -26,7 +26,8 @@
     clearInterval(timer);
     playback.setAttribute('aria-label', t(playing ? 'Pause slideshow' : 'Play slideshow'));
     playback.dataset.state = playing ? 'playing' : 'paused';
-    if (!phone.matches && playing && visible && !document.hidden) {
+    document.documentElement.classList.toggle('mobile-motion-paused', !playing);
+    if (playing && visible && !document.hidden) {
       timer = setInterval(() => select(current + 1), 6000);
     }
   }
