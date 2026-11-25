@@ -66,7 +66,7 @@ def hero():
     poster = scenes[0]["poster"]
     return f'''<section class="home-hero" id="home" aria-labelledby="hero-title" data-reel>
       <div class="home-slides">
-        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="{poster}"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl topped with snow crab, sea urchin and salmon roe, served with miso soup on a wooden tray"></picture>
+        <picture class="is-current"><source media="(max-width: 767px), (orientation: landscape) and (max-height: 500px) and (max-width: 1000px)" srcset="/assets/tokujo-meal-hero.webp"><img src="/assets/tokujo-meal-hero.webp" width="1536" height="1024" fetchpriority="high" alt="Tokujo negitoro bowl topped with snow crab, sea urchin and salmon roe, served with miso soup on a wooden tray"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-yolk-pour.webp" width="1171" height="1640" loading="lazy" alt="Egg yolk sauce poured over a Tokujo negitoro bowl"></picture>
         <picture aria-hidden="true"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the TOTOYA counter"></picture>
       </div>
@@ -103,6 +103,7 @@ def write_page(filename, title, description, content, *, styles=(), scripts=(), 
         leaflet = 'assets/leaflet-1.9.4/leaflet'
         css = tuple(name for item in css for name in ((leaflet, item) if item == 'visit' else (item,)))
         js = tuple(name for item in js for name in ((leaflet, item) if item == 'visit' else (item,)))
+    css = (*css, 'mobile')
     style_tags = '\n'.join(f'<link rel="stylesheet" href="{asset_url(name + ".css")}">' for name in css)
     script_tags = '\n'.join(f'<script defer src="{asset_url(name + ".js")}"></script>' for name in js)
     body_class = 'company-site' if company else 'with-rail'

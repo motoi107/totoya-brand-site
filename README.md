@@ -4,7 +4,7 @@ The public restaurant website runs at https://www.totoyahawaii.com through GitHu
 
 ## Editing
 
-Run `python3 scripts/build_pages.py` and commit the generated HTML alongside the source. The shared layout, public routes and homepage composition live in `scripts/build_pages.py`. Editorial sections, menu and locations, and company pages have corresponding `kamata_*.py` modules and page stylesheets. The site uses EB Garamond and Lora with navy type, warm paper and a sage navigation rail. Preserve the existing `CNAME` when updating the site.
+Run `python3 scripts/build_pages.py` and commit the generated HTML alongside the source. The shared layout, public routes and homepage composition live in `scripts/build_pages.py`. Editorial sections, menu and locations, and company pages have corresponding `kamata_*.py` modules and page stylesheets. The desktop site uses EB Garamond and Lora with navy type, warm paper and a sage navigation rail. The final `mobile.css` stylesheet applies the black-and-white phone edition, with a split film/photo hero, centered brand chapter, and framed dish photography. Keep its rules inside the existing phone/landscape media queries so desktop styles remain unchanged. Preserve the existing `CNAME` when updating the site.
 
 ## Languages
 
