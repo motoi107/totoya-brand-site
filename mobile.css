@@ -105,7 +105,11 @@
     display: table; margin: 0 auto 50px; padding-bottom: 8px;
     font: 600 1.5625rem/1.2 var(--body); letter-spacing: 0; border-bottom: 2px solid currentColor;
   }
-  .ed-intro { padding: 110px 10vw 0; color: #fff; background: #111; overflow: hidden; }
+  .ed-intro { position: relative; isolation: isolate; padding: 110px 10vw 0; color: #fff; background: #111; overflow: hidden; }
+  .ed-intro::before {
+    content: ""; position: absolute; inset: 0 0 300px; z-index: -1; pointer-events: none;
+    background: linear-gradient(180deg, #0008, #0009 40%, #000a), url("/assets/about-chef.jpg") 60% center / cover no-repeat;
+  }
   .ed-intro > .ed-kicker, .ed-intro .ed-bowls { display: none; }
   .ed-composition { padding: 0; min-height: 0; }
   .ed-intro-copy { max-width: none; text-align: center; }
@@ -115,19 +119,21 @@
   .mobile-photo-track { display: flex; width: max-content; height: 100%; animation: mobile-photo-band 48s linear infinite; }
   .mobile-photo-track img { flex: 0 0 360px; width: 360px; height: 300px; object-fit: cover; object-position: 50% 52%; }
   .mobile-photo-track img:nth-child(3n+2) { object-position: 50% 64%; }
-  .mobile-motion-paused .mobile-photo-track, .mobile-motion-paused .mobile-brand-band > div,
+  .mobile-motion-paused .mobile-photo-track,
   .mobile-motion-paused .home-slides picture.is-current img { animation-play-state: paused; }
-  .ed-signatures { width: 100%; max-width: none; padding: 60px 7.5vw 100px; background: #fff; }
+  .ed-signatures { width: 100%; max-width: none; padding: 60px 7.5vw 100px; color: #fff; background: #111; }
   .ed-signatures .ed-heading { margin-bottom: 50px; }
   .ed-signatures .ed-signature-title, .ed-signatures .ed-heading > p:last-child { display: none; }
   .ed-signatures .mobile-section-title { margin-bottom: 0; }
   .ed-signature-grid { display: none; }
   .mobile-menu-cards { display: grid; gap: 30px; }
-  .mobile-menu-card { display: block; border: 2px solid #111; color: #111; text-decoration: none; background: #fff; }
+  .mobile-menu-card { display: block; border: 2px solid #fff; color: #fff; text-decoration: none; background: #111; }
+  .ed-signatures .mobile-menu-card:hover, .ed-signatures .mobile-menu-card:focus { color: #fff; }
+  .mobile-menu-card:focus-visible { outline: 2px solid #fff; outline-offset: 5px; }
   .mobile-menu-card > img { width: 100%; aspect-ratio: 680/460; object-fit: cover; }
   .mobile-menu-card:nth-child(-n+2) > img { object-fit: contain; padding: 12px; }
   .mobile-card-copy { position: relative; padding: 30px 20px 28px; text-align: center; min-height: 170px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 14px; }
-  .mobile-card-title { display: block; min-width: min(208px,100%); max-width: 300px; width: 100%; padding: 8px 14px; border: 2px solid #111; border-radius: 100px; font: 600 1.3125rem/1.25 var(--heading); }
+  .mobile-card-title { display: block; min-width: min(208px,100%); max-width: 300px; width: 100%; padding: 8px 14px; border: 2px solid #fff; border-radius: 100px; font: 600 1.3125rem/1.25 var(--heading); }
   .mobile-card-subtitle { font: 500 1.125rem/1.55 var(--body); }
   .mobile-card-open { position: absolute; right: 9px; bottom: 4px; font-size: 1.125rem; }
   .ed-signature { border: 2px solid #111; background: #fff; color: #111; }
@@ -157,9 +163,6 @@
   .ed-story-grid { display: none; }
   .mobile-shop-photo { width: 100%; aspect-ratio: 400/374; max-height: 650px; overflow: hidden; }
   .mobile-shop-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 65%; }
-  .mobile-brand-band { width: 100%; height: 160px; overflow: hidden; padding: 25px 0 15px; font: 600 150px/.8 var(--heading); white-space: nowrap; }
-  .mobile-brand-band > div { display: flex; gap: 55px; width: max-content; animation: mobile-photo-band 35s linear infinite; }
-  .mobile-brand-band span { flex: 0 0 auto; letter-spacing: -.035em; }
   .ed-news { width: 100%; max-width: none; margin: 0; padding: 70px 10vw 80px; border: 0; color: #fff; background: #111; }
   .ed-news h2 { font-size: 1.5625rem; margin-bottom: 50px; }
   .ed-news li { padding: 30px 0; }
@@ -249,7 +252,7 @@
 @keyframes mobile-photo-band { to { transform: translateX(-50%); } }
 @media (prefers-reduced-motion: reduce) {
   .home-slides picture.is-current img { animation: none; }
-  .mobile-photo-track, .mobile-brand-band > div { animation: none; }
+  .mobile-photo-track { animation: none; }
 }
 @media (orientation: landscape) and (max-height: 500px) and (max-width: 1000px) {
   .home-hero { min-height: 400px; }

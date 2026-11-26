@@ -126,7 +126,6 @@ def story():
     </figure>''')
     return f'''<section class="ed-section ed-story" id="history" aria-labelledby="story-title">
   <h2 id="story-title" class="ed-story-heading"><span id="moments-title">Our story</span></h2>
-  <div class="mobile-only mobile-brand-band" aria-hidden="true"><div><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span><span>TOTOYA</span></div></div>
   <div class="mobile-only mobile-shop-photo"><img src="/assets/negitoro-counter.webp" width="1303" height="1640" loading="lazy" alt="Negitoro bowls served at the TOTOYA counter"></div>
   <div class="ed-story-grid" id="moments">{''.join(chapters)}</div>
 </section>'''
