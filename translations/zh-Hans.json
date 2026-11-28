@@ -383,5 +383,6 @@
   "© TOTOYA ·": "© TOTOYA ·",
   "About": "About",
   "Information": "Information",
-  "Access": "Access"
+  "Access": "Access",
+  "You can separately opt in to share an approximate neighborhood when using the nearest-shop finder. Your browser checks Honolulu neighborhood boundaries locally. TOTOYA receives a district code or an inconclusive result, never your coordinates. The public area report groups visits and displays breakdowns only for groups of at least five sessions.": "查找最近门店时，你可以自愿参加到访地区统计。浏览器在设备上核对檀香山的地区边界。TOTOYA只会收到地区代码或判定结果，不会收到坐标。公开明细仅显示至少五次会话的汇总。"
 }

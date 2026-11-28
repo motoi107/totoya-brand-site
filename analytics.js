@@ -128,6 +128,18 @@
     let engagedMs = 0;
     let maxScroll = 0;
     let stopped = false;
+    const locatorButton = document.querySelector('[data-current-location]');
+    if (locatorButton) {
+      const installAreas = () => import('/analytics/visit-area.mjs')
+        .then(module => module.install({button: locatorButton, pageviewId, allowed: () => !stopped && !optedOut()}))
+        .catch(() => {});
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(entries => {
+          if (entries.some(entry => entry.isIntersecting)) { observer.disconnect(); installAreas(); }
+        });
+        observer.observe(locatorButton);
+      } else { installAreas(); }
+    }
     let suspended = false;
     let lastActivity = performance.now();
     let actionCount = 0;

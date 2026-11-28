@@ -383,5 +383,6 @@
   "© TOTOYA ·": "© TOTOYA ·",
   "About": "About",
   "Information": "Information",
-  "Access": "Access"
+  "Access": "Access",
+  "You can separately opt in to share an approximate neighborhood when using the nearest-shop finder. Your browser checks Honolulu neighborhood boundaries locally. TOTOYA receives a district code or an inconclusive result, never your coordinates. The public area report groups visits and displays breakdowns only for groups of at least five sessions.": "Al buscar el local más cercano puedes aceptar por separado compartir tu barrio aproximado. El navegador consulta los límites de los barrios de Honolulu en tu dispositivo. TOTOYA recibe un código de distrito o un resultado indeterminado, nunca tus coordenadas. Los desgloses públicos solo muestran grupos de al menos cinco sesiones."
 }
