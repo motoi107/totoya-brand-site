@@ -94,3 +94,13 @@ footer { border-top: 1px solid var(--line); padding-block: 1.25rem 1.8rem; color
   .period-buttons { width: 100%; }
   .period-buttons button { flex: 1; padding-inline: .3rem; }
 }
+
+.area-panel {margin-top:1.25rem;}
+.area-panel summary {cursor:pointer; padding:.7rem 0; font-weight:600;}
+.area-panel details {border-bottom:1px solid var(--line);}
+.area-filters {display:flex;align-items:end;flex-wrap:wrap;gap:.8rem;margin:.8rem 0;}
+.area-filters label {display:grid;gap:.2rem;font-size:.875rem;min-width:0;}
+.area-filters input,.area-filters select,.area-filters button {max-width:100%;min-height:2.5rem;font:inherit;padding:.35rem .5rem;}
+.area-scroll {overflow:auto;max-height:28rem;}
+.area-scroll td,.area-scroll th {white-space:nowrap;}
+.area-scroll td:first-child {white-space:normal;overflow-wrap:anywhere;min-width:9rem;}

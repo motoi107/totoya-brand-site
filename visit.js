@@ -162,6 +162,7 @@
       status.textContent = t('Choose a landmark to find a nearby TOTOYA.');
       return;
     }
+    const collectArea = window.totoyaAreaAccuracyWanted?.() === true;
     const current = ++request;
     useLocation.disabled = true;
     status.textContent = t('Finding your nearest TOTOYA…');
@@ -169,11 +170,12 @@
       if (request !== current) return;
       useLocation.disabled = false;
       nearby(position.coords.latitude, position.coords.longitude, null);
+      if (collectArea) window.totoyaVisitArea?.(position.coords);
     }, () => {
       if (request !== current) return;
       useLocation.disabled = false;
       status.textContent = t('Location unavailable. Choose a landmark to find a nearby TOTOYA.');
-    }, {enableHighAccuracy: false, timeout: 10000, maximumAge: 300000});
+    }, {enableHighAccuracy: collectArea, timeout: 10000, maximumAge: collectArea ? 0 : 300000});
   });
 
   const mapBox = section.querySelector('.kv-map');

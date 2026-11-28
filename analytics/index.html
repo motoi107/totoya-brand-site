@@ -10,6 +10,7 @@
   <link rel="icon" href="/assets/totoya-icon-32.png" type="image/png">
   <link rel="stylesheet" href="./dashboard.css">
   <script defer src="./dashboard.js"></script>
+  <script type="module" src="./regional-dashboard.mjs"></script>
 </head>
 <body>
   <header class="masthead"><div class="frame masthead-inner">
@@ -73,6 +74,27 @@
         </section>
       </div>
     </div>
+
+    <section class="panel area-panel" aria-labelledby="search-areas-heading">
+      <h2 id="search-areas-heading">検索語に含まれたエリア</h2>
+      <p class="definition">TotoyaがGoogle検索に表示された地名入りの検索語を集計します。検索者の所在地は国単位です。</p>
+      <details id="google-setup"><summary>Google Search Console に接続</summary>
+        <p class="definition">所有者が設定した Google OAuth ウェブクライアントIDと、プロパティを閲覧できるアカウントを使用します。集計日は米国太平洋時間です。</p>
+        <div class="area-filters"><label>Google OAuth クライアントID<input id="g-client" placeholder="…apps.googleusercontent.com"></label>
+        <label>プロパティ<select id="g-property"><option>sc-domain:totoyahawaii.com</option><option>https://www.totoyahawaii.com/</option><option>https://totoyahawaii.com/</option></select></label>
+        <label>開始日<input type="date" id="g-start"></label><label>終了日<input type="date" id="g-end"></label>
+        <button type="button" id="google-load" disabled>Googleで認証して取得</button></div>
+      </details>
+      <div class="area-filters"><label>Search Console のクエリCSVを開く<input type="file" id="g-csv" accept=".csv,.tsv,text/csv"></label></div>
+      <p id="g-status" role="status" class="definition">未読込。CSVはこのブラウザ内で集計します。</p>
+      <div id="query-controls" hidden><div class="area-filters"><label>地名・検索語・ページを絞り込み<input id="g-filter" type="search"></label>
+        <label>検索した国<select id="g-country"></select></label><label>端末<select id="g-device"></select></label></div>
+        <div id="g-groups"></div></div>
+    </section>
+    <section class="panel area-panel" aria-labelledby="visit-areas-heading"><h2 id="visit-areas-heading">店舗検索時の訪問エリア</h2>
+      <p class="definition">「近い店舗を探す」で地区集計に同意したセッションを対象に、端末で判定した地区を表示します。上の期間指定とハワイ時間を使用します。</p>
+      <p id="a-status" class="definition" role="status"></p><div id="a-list"></div>
+    </section>
   </main>
   <footer class="frame"><span>TOTOYA Hawaii</span><a href="/ja/privacy/">プライバシー</a></footer>
 </body></html>
